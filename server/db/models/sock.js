@@ -4,7 +4,7 @@ const db = require('../db');
 const Sock = db.define('sock', {
     photos: {
         type: Sequelize.ARRAY(Sequelize.STRING),
-        defaultValue: 'https://content.mycutegraphics.com/graphics/clothing/pair-of-black-white-crew-socks-clip-art.png',
+        defaultValue: ['https://content.mycutegraphics.com/graphics/clothing/pair-of-black-white-crew-socks-clip-art.png'],
         validate: {
             isUrl: true,
         },
