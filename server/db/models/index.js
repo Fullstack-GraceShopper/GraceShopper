@@ -1,6 +1,6 @@
-const User = require('./user')
-const Sock = require('./sock')
-const Order = require('./order')
+const { User } = require('./user')
+const { Sock } = require('./sock')
+const { Order } = require('./order')
 
 User.hasMany(Order);
 Order.belongsTo(User);
