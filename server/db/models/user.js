@@ -33,6 +33,10 @@ const User = db.define('user', {
       isUrl: true,
     },
   },
+  address: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 })
 
 module.exports = User
