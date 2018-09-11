@@ -21,5 +21,7 @@ Order.belongsToMany(Sock, {through: 'cart'});
  * instead of: const User = require('../db/models/user')
  */
 module.exports = {
-  User
+  User,
+  Sock,
+  Order,
 }
