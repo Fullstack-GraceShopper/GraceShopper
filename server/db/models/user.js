@@ -26,7 +26,13 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
-  }
+  },
+  photo: {
+    type: Sequelize.STRING,
+    validate: {
+      isUrl: true,
+    },
+  },
 })
 
 module.exports = User
