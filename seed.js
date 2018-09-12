@@ -16,6 +16,7 @@ const seed = async (num) => {
       sizes: arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5),
       category: arrGen(['dress','casual','athletic','popculture','funny'], 5)});
 
+
     await User.create({
       email:  faker.fake("{{internet.email}}"),
       password: faker.fake("{{internet.password}}"),
@@ -57,6 +58,4 @@ seed(50)
     console.error(err)
     db.close()
   })
-
-
 
