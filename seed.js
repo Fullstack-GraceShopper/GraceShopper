@@ -9,7 +9,7 @@ const seed = async (num) => {
 
   for(let i = 0; i < num; i++){
     await Sock.create({
-      photos: [faker.fake("{{image.technics}}")],
+      photos: ['https://cdn.shopify.com/s/files/1/0234/4461/products/Antler-Pug-Crew-Sock-Green-by-Socksmith_2584b175-3da5-4dba-a49d-13bc4e134004_2048x.jpg?v=1478021550'],
       name: faker.fake("{{commerce.productName}}"),
       price: faker.fake("{{commerce.price}}"),
       isAdult: boolGen([3,10]),
