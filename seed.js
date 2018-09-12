@@ -24,7 +24,6 @@ const seed = async (num) => {
       address: faker.fake("{{address.state}}, {{address.zipCode}}, {{address.streetAddress}}"),
     });
   }
-dress, athletic, funny, popculture, casual
   console.log(bgMagenta('Seeding success!'))
   db.close()
 }
@@ -52,7 +51,7 @@ const randomGenerator = (max) => {
   return Math.floor(Math.random() * Math.floor(max - 1)) + 1;
 }
 
-seed(50)
+seed(20)
   .catch(err => {
     console.error(red('Oh noes! Something went wrong!'))
     console.error(err)
