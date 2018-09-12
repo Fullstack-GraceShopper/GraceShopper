@@ -6,7 +6,7 @@ const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique: true,
-    // allowNull: false
+    allowNull: false
   },
   password: {
     type: Sequelize.STRING,
@@ -28,16 +28,15 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   photo: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     validate: {
       isUrl: true,
     },
   },
   address: {
     type: Sequelize.STRING,
-    // allowNull: false,
+    allowNull: false,
   },
-  //commented out allowNull validators for this model, so we can go ahead and seed socks
 })
 
 module.exports = {
