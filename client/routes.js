@@ -24,8 +24,8 @@ class Routes extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/adults" component={adultSocks} />
-        <Route exact path="/kids" component={kidSocks} />
+        <Route path="/socks/adults" component={adultSocks} />
+        <Route path="/socks/kids" component={kidSocks} />
         <Route component={NotFound} />
       </Switch>
     )

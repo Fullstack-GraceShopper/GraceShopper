@@ -8,20 +8,20 @@ class kidSocks extends React.Component {
   }
 
   render () {
-    const { kidSocks } = this.props
+    const { socks } = this.props
 
     return (
       <div>
         <div>
-          <h1>Kids Sock</h1>
+          <h1>Kid Sock</h1>
         </div>
         <br />
         <br />
 
         <div>
-          { kidSocks.length > 0
+          { socks.length > 0
           ? <div>
-              { kidSocks.map((sock) => { return (
+              { socks.map(sock => { return (
                 <div key={sock.id}>
                   <img src={sock.photos[0]} />
                 </div>)
@@ -37,7 +37,7 @@ class kidSocks extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    kidSocks: state.socks
+    socks: state.socks
   }
 }
 
