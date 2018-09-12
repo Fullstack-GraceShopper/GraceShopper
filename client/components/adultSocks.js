@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAdultSocks } from '../store/socks'
 
+// OB/JL: beware of lowercase names for react components, can lead to bugs when you do `<adultSocks />` JSX will not think that `adulSocks` is a component but rather just a custom tag name
 class adultSocks extends React.Component {
   async componentDidMount () {
     await this.props.getAdultSocks()
@@ -41,6 +42,23 @@ const mapStateToProps = (state) => {
   }
 }
 
+/*
+OB/JL: shorthand form for mapDispatchToProps when all of the methods you are passing have the common structure
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // ...
+    doThing: () => dispatch(doThingThunk())
+    // ...
+  };
+};
+
+You can instead do the object format:
+
+const mapDispatchToProps = {
+  doThing: doThingThunk
+};
+*/
 const mapDispatchToProps = (dispatch) => {
   return {
     getAdultSocks: () => dispatch(fetchAdultSocks())

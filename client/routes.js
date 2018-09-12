@@ -24,6 +24,7 @@ class Routes extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        {/* OB/JL: you can use query string in react router as well */}
         <Route path="/socks/adults" component={adultSocks} />
         <Route path="/socks/kids" component={kidSocks} />
         <Route component={NotFound} />
