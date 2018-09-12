@@ -1,6 +1,5 @@
 const router = require('express').Router()
-const { Sock } = require('../db/models')  
-
+const { Sock } = require('../db/models')
 
 router.get('/adults', async (req, res, next) => {
   try {

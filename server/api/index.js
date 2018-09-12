@@ -2,8 +2,8 @@ const router = require('express').Router()
 module.exports = router
 
 router.use('/users', require('./users'))
-router.use('/socks/adults', require('./socks'))
-router.use('/socks/kids', require('./socks'))
+router.use('/adults', require('./adults'))
+router.use('/kids', require('./kids'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
