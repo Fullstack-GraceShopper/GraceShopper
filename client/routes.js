@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import {Login, Signup, Home} from './components'
 import {me} from './store'
 import adultSocks from './components/adultSocks';
+import kidSocks from './components/kidSocks'
 
 /**
  * COMPONENT
@@ -23,6 +24,7 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/adults" component={adultSocks} />
+        <Route path="/kids" component={kidSocks} />
         <Route component={Login} />
       </Switch>
     )
