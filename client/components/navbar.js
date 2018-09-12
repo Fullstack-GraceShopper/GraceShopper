@@ -13,23 +13,17 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </Link>
         </div>
         <div className='top-header-children'>
-          <Link to="/login">Log In</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link className="top-header-link hover-light" to="/login">Log In</Link>
+          <Link className="top-header-link hover-light" to="/signup">Sign Up</Link>
         </div>
       </div>
     <nav>
       <div className='bottom-header'>
-        <Link to="/">Home</Link>
-        <Link to="/adults">Adults</Link>
-        <Link to="/kids">Kids</Link>
-        {//logout link should only be rendered while logged in
-          //<a href="#" onClick={handleClick}>
-            //Logout
-          //</a>
-        }
+        <Link className='no-decoration hover-light lower-link' to="/">Home</Link>
+        <Link className='no-decoration hover-light lower-link' to="/adults">Adults</Link>
+        <Link className='no-decoration hover-light lower-link' to="/kids">Kids</Link>
       </div>
     </nav>
-    <hr />
   </div>
 )
 

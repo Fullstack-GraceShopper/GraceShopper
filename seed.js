@@ -24,10 +24,6 @@ const seed = async (num) => {
       address: faker.fake("{{address.state}}, {{address.zipCode}}, {{address.streetAddress}}"),
     });
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 86f5be51e66686acdce0152d6431ff0300d21008
   console.log(bgMagenta('Seeding success!'))
   db.close()
 }
