@@ -6,6 +6,7 @@ import {Login, Signup, Home} from './components'
 import {me} from './store'
 import adultSocks from './components/adultSocks';
 import kidSocks from './components/kidSocks'
+import { NotFound } from './components/pageNotFound';
 
 /**
  * COMPONENT
@@ -25,7 +26,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/adults" component={adultSocks} />
         <Route exact path="/kids" component={kidSocks} />
-        <Route component={Login} />
+        <Route component={NotFound} />
       </Switch>
     )
   }

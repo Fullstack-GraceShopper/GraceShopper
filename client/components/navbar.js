@@ -6,22 +6,22 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-      <div className='top-header'>
-        <div className='top-header-children'>
-          <Link to="/">
-          <h1 id='logo-text'>Sockr</h1>
-          </Link>
-        </div>
-        <div className='top-header-children'>
-          <Link className="top-header-link hover-light" to="/login">Log In</Link>
-          <Link className="top-header-link hover-light" to="/signup">Sign Up</Link>
-        </div>
+    <div className='top-header'>
+      <div className='top-header-children'>
+        <Link to="/">
+        <h1 id='logo-text'>Sockr</h1>
+        </Link>
       </div>
+      <div className='top-header-children'>
+        <Link className="top-header-link hover-light" to="/login">Log In</Link>
+        <Link className="top-header-link hover-light" to="/signup">Sign Up</Link>
+      </div>
+    </div>
     <nav>
       <div className='bottom-header'>
-        <Link className='no-decoration hover-light lower-link' to="/">Home</Link>
-        <Link className='no-decoration hover-light lower-link' to="/adults">Adults</Link>
-        <Link className='no-decoration hover-light lower-link' to="/kids">Kids</Link>
+        <Link className='no-decoration hover-light lower-link' to="/">HOME</Link>
+        <Link className='no-decoration hover-light lower-link' to="/adults">ADULTS</Link>
+        <Link className='no-decoration hover-light lower-link' to="/kids">KIDS</Link>
       </div>
     </nav>
   </div>
