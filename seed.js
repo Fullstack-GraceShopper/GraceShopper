@@ -14,7 +14,8 @@ const seed = async (num) => {
       price: faker.fake("{{commerce.price}}"),
       isAdult: boolGen([3,10]),
       sizes: arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5),
-      category: [faker.fake("{{commerce.product}}")]});
+      category: [faker.fake("{{commerce.product}}")]
+    });
 
     await User.create({
       email:  faker.fake("{{internet.email}}"),
@@ -57,6 +58,4 @@ seed(50)
     console.error(err)
     db.close()
   })
-
-
 
