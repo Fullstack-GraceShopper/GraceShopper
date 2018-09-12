@@ -1,6 +1,8 @@
 const router = require('express').Router()
 module.exports = router
 
+//fix routes you bum named james
+
 router.use('/users', require('./users'))
 router.use('/adults', require('./adults'))
 router.use('/kids', require('./kids'))
