@@ -1,15 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchSocks } from '../store/socks'
+import { fetchAdultSocks } from '../store/socks'
 
 class adultSocks extends React.Component {
   async componentDidMount () {
-    await this.props.getSocks()
+    await this.props.getAdultSocks()
   }
 
   render () {
-    const { socks } = this.props
-    const adultSocksArr = socks.filter(sock => sock.isAdult === true)
+    const { adultSocks } = this.props
 
     return (
       <div>
@@ -20,9 +19,9 @@ class adultSocks extends React.Component {
         <br />
 
         <div>
-          { socks.length > 0
+          { adultSocks.length > 0
           ? <div>
-              { adultSocksArr.map((sock) => { return (
+              { adultSocks.map(sock => { return (
                 <div key={sock.id}>
                   <img src={sock.photos[0]} />
                 </div>)
@@ -38,13 +37,13 @@ class adultSocks extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    socks: state.socks
+    adultSocks: state.socks
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getSocks: () => dispatch(fetchSocks())
+    getAdultSocks: () => dispatch(fetchAdultSocks())
   }
 }
 
