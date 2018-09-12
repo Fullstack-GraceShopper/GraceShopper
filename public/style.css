@@ -19,3 +19,24 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+/* CLASSES */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-header-children {
+  margin: 10px 5px;
+  padding: 10px;
+}
+
+
+/* IDS */
+#logo-text {
+  font-family: Lobster;
+  font-size: 4em;
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+}
