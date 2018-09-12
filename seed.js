@@ -24,7 +24,7 @@ const seed = async (num) => {
       address: faker.fake("{{address.state}}, {{address.zipCode}}, {{address.streetAddress}}"),
     });
   }
-dress, athletic, funny, popculture, casual
+
   console.log(bgMagenta('Seeding success!'))
   db.close()
 }
