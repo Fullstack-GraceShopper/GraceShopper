@@ -14,8 +14,8 @@ const seed = async (num) => {
       price: faker.fake("{{commerce.price}}"),
       isAdult: boolGen([3,10]),
       sizes: arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5),
-      category: [faker.fake("{{commerce.product}}")]
-    });
+      category: arrGen(['dress','casual','athletic','popculture','funny'], 5)});
+
 
     await User.create({
       email:  faker.fake("{{internet.email}}"),
@@ -24,7 +24,7 @@ const seed = async (num) => {
       address: faker.fake("{{address.state}}, {{address.zipCode}}, {{address.streetAddress}}"),
     });
   }
-
+dress, athletic, funny, popculture, casual
   console.log(bgMagenta('Seeding success!'))
   db.close()
 }
