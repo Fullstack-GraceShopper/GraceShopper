@@ -20,8 +20,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     <nav>
       <div className='bottom-header'>
         <Link className='no-decoration hover-light lower-link' to="/">HOME</Link>
-        <Link className='no-decoration hover-light lower-link' to="/socks/adults">ADULTS</Link>
-        <Link className='no-decoration hover-light lower-link' to="/socks/kids">KIDS</Link>
+        <Link className='no-decoration hover-light lower-link' to="/adults">ADULTS</Link>
+        <Link className='no-decoration hover-light lower-link' to="/kids">KIDS</Link>
       </div>
     </nav>
   </div>
