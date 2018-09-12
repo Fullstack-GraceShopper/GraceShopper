@@ -21,7 +21,7 @@ class adultSocks extends React.Component {
         <div>
           { socks.length > 0
           ? <div>
-              {const adultSocks = socks.filter(sock => sock.isAdult === true)
+              {
                 adultSocks.map((sock) => { return (
                 <div key={sock.id}>
                   <img src={sock.photos[0]} />
