@@ -14,7 +14,7 @@ const defaultSocks = []
 /**
  * ACTION CREATORS
  */
-export const getSocks = socks => ({
+export const gotSocks = socks => ({
   type: GET_SOCKS,
   socks
 })
@@ -31,7 +31,7 @@ export const gotSock = sock => ({
 export const fetchAdultSocks = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/socks?isAdult=true')
-    dispatch(getSocks(data))
+    dispatch(gotSocks(data))
   } catch (error) {
     // OB/JL: don't just report errors to the "developer", but also consider reporting them to the end user; something like a "toast notification" could be a good default: https://github.com/tomchentw/react-toastr
     console.error(error)
@@ -41,7 +41,7 @@ export const fetchAdultSocks = () => async dispatch => {
 export const fetchKidSocks = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/socks?isAdult=false')
-    dispatch(getSocks(data))
+    dispatch(gotSocks(data))
   } catch (error) {
     console.error(error)
   }

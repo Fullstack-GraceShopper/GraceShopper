@@ -16,8 +16,8 @@ class AdultSocks extends React.Component {
         <div>
           <h1>Adult Sock</h1>
         </div>
-        <br />
-        <br />
+        <br/>
+        <br/>
 
         <div>
           { adultSocks.length > 0

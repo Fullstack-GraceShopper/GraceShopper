@@ -3,27 +3,28 @@ import {connect} from 'react-redux';
 import { fetchSock } from '../store/socks'
 
 const mapStateToProps = state => ({
-    sock: state.socks[0]
+  sock: state.socks[0]
 });
 
 const mapDispatchToProps = dispatch => ({
-    getSock: dispatch => {
-        console.log(props);
-        dispatch(fetchSock)
-    }
+  getSock: () => {
+    dispatch(fetchSock())
+  }
 });
 
 class SingleSock extends Component{
-    componentDidMount() {
-        this.props.getSock();
-    }
-    render() {
-        const sockId = this.props.match.params.sockId;
-        console.log('SOCK !@#$!@#$ ', this.props.sock)
-        return (
-            <div>test</div>
-        )
-    }
+
+  componentDidMount() {
+    this.props.getSock();
+  }
+
+  render() {
+    const sock = this.props.match.params.sock;
+    console.log('SOCK !@#$!@#$ ', sock)
+    return (
+      <div>{sock}</div>
+    )
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock);
