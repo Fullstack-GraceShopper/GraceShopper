@@ -12,6 +12,7 @@ const seed = async (num) => {
       photos: ['https://cdn.shopify.com/s/files/1/0234/4461/products/Antler-Pug-Crew-Sock-Green-by-Socksmith_2584b175-3da5-4dba-a49d-13bc4e134004_2048x.jpg?v=1478021550'],
       name: faker.fake("{{commerce.productName}}"),
       price: faker.fake("{{commerce.price}}"),
+      // OB/JL: listen to your linter (update the code OR change your .eslintrc, or change per file settings)
       isAdult: boolGen([3,10]),
       sizes: arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5),
       category: arrGen(['dress','casual','athletic','popculture','funny'], 5)});

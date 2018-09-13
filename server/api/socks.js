@@ -1,4 +1,5 @@
 const router = require('express').Router()
+
 const { Sock } = require('../db/models')
 
 router.get('/', async (req, res, next) => {
@@ -12,6 +13,5 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
-
 
 module.exports = router

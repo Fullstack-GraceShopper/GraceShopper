@@ -27,6 +27,7 @@ export const fetchAdultSocks = () => async dispatch => {
     const {data} = await axios.get('/api/socks?isAdult=true')
     dispatch(getSocks(data))
   } catch (error) {
+    // OB/JL: don't just report errors to the "developer", but also consider reporting them to the end user; something like a "toast notification" could be a good default: https://github.com/tomchentw/react-toastr
     console.error(error)
   }
 }

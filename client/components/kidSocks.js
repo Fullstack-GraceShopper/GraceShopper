@@ -45,4 +45,4 @@ const mapDispatchToProps = {
   getKidSocks: fetchKidSocks
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(kidSocks)
+export default connect(mapStateToProps, mapDispatchToProps)(KidSocks)
