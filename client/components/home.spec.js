@@ -13,10 +13,10 @@ describe('Home', () => {
   let home
 
   beforeEach(() => {
-    home = shallow(<Home email="cody@email.com" />)
+    home = shallow(<Home loggedIn={true} />)
   })
 
-  it('renders the email in an h3', () => {
-    expect(Home.find('h3').text()).to.be.equal('Welcome, cody@email.com')
+  it('renders diffrent render message depending on if user is logged in or not in an h3', () => {
+    expect(home.find('h3').text()).to.be.equal('Welcome back!')
   })
 })
