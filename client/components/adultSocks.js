@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAdultSocks } from '../store/socks'
+import {Link} from 'react-router-dom'
 
 
 class AdultSocks extends React.Component {
   async componentDidMount () {
     await this.props.getAdultSocks()
   }
-
   render () {
     const { adultSocks } = this.props
 
@@ -23,9 +23,11 @@ class AdultSocks extends React.Component {
           { adultSocks.length > 0
           ? <div>
               { adultSocks.map(sock => { return (
-                <div key={sock.id}>
+                <Link key={sock.id} to={`/socks/${sock.id}`}>
                   <img src={sock.photos[0]} />
-                </div>)
+                  <div>{sock.name}</div>
+                  <div>{sock.price}</div>
+                </Link>)
               })}
             </div>
           : <div> There are no sock registered to the database </div>

@@ -5,7 +5,8 @@ import PropTypes from 'prop-types'
 import {Login, SignUpForm, Home} from './components'
 import {me} from './store'
 import AdultSocks from './components/adultSocks';
-import KidSocks from './components/kidSocks'
+import KidSocks from './components/kidSocks';
+import SingleSock from './components/singleSock';
 import { NotFound } from './components/pageNotFound';
 import { AccountDetails } from './components/account-details';
 
@@ -28,6 +29,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/adults" component={AdultSocks} />
         <Route exact path="/kids" component={KidSocks} />
+        <Route exact path="/socks/:sockId" component={SingleSock} />
         {accountDetailPath}
         <Route component={NotFound} />
       </Switch>

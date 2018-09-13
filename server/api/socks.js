@@ -12,6 +12,16 @@ router.get('/', async (req, res, next) => {
   } catch(err) {
     next(err)
   }
+});
+
+router.get('/:sockId', async (req, res, next) => {
+  try {
+    const sock = await Sock.findById(req.params.sockId);
+    console.log(sock);
+    res.json(sock);
+  } catch (err) {
+    next(err);
+  }
 })
 
 module.exports = router
