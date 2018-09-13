@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchKidSocks } from '../store/socks'
 
-class kidSocks extends React.Component {
+class KidSocks extends React.Component {
   async componentDidMount () {
     await this.props.getKidSocks()
   }
@@ -22,7 +22,7 @@ class kidSocks extends React.Component {
           { kidSocks.length > 0
           ? <div>
               { kidSocks.map((sock) => { return (
-                <div class="item" key={sock.id}>
+                <div key={sock.id}>
                   <img src={sock.photos[0]} />
                 </div>)
               })}
@@ -41,10 +41,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getKidSocks: () => dispatch(fetchKidSocks())
-  }
+const mapDispatchToProps = {
+    getKidSocks: fetchKidSocks()
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(kidSocks)
+export default connect(mapStateToProps, mapDispatchToProps)(KidSocks)
