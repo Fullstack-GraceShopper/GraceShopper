@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const queryParser = require('query-parser-express');
 const compression = require('compression')
 const session = require('express-session')
 const passport = require('passport')
@@ -43,6 +44,14 @@ passport.deserializeUser(async (id, done) => {
 const createApp = () => {
   // logging middleware
   app.use(morgan('dev'))
+
+app.use(queryParser(
+  {
+      parseBoolean: true,  // default true
+      parseNumber: true,   // default true
+  }
+));
+ 
 
   // body parsing middleware
   app.use(express.json())

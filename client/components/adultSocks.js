@@ -4,6 +4,7 @@ import { fetchAdultSocks } from '../store/socks'
 
 class adultSocks extends React.Component {
   async componentDidMount () {
+    console.log('SEARCH:  ', this.props.location.search)
     await this.props.getAdultSocks()
   }
 
