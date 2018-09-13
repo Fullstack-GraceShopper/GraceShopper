@@ -28,6 +28,7 @@ form div {
   background-color: #26777F;
 }
 
+/* OB/JL: instead of a custom class you could use a combinator i.e. here `.top-header > *` */
 .top-header-children {
   margin: 10px 5px;
 }
@@ -39,7 +40,7 @@ form div {
   text-decoration: none;
   font-size: 1.25em;
   position: relative;
-  top: 40%;
+  top: 40%; /* OB/JL: does this work? */
 }
 
 .bottom-header{
@@ -61,7 +62,7 @@ form div {
 .lower-link{
   margin:0;
   padding:15px;
-  width: 75px;
+  width: 75px; /* OB/JL: you should be able to use flexbox to your advatage here */
   text-align: center;
 }
 .lower-link:hover{
