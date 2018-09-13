@@ -4,7 +4,7 @@ const { Sock } = require('../db/models')
 router.get('/', async (req, res, next) => {
   try {
     let socks = []
-    req.query.isAdult === true
+    req.query.isAdult === 'true'
     ? socks = await Sock.findAll({where: {isAdult: true}})
     : socks = await Sock.findAll({where: {isAdult: false}})
     res.json(socks)
