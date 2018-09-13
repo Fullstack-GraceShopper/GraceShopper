@@ -1,16 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 /**
  * COMPONENT
  */
 export const Home = props => {
-  const {email} = props
-
+  const {loggedIn} = props
   return (
     <div>
-      <h1>Sock</h1>
+      {
+        loggedIn ?
+        <div>
+          <h3>Welcome back!</h3>
+        </div> :
+        <div>
+          <h3>Welcome!</h3>
+        </div>
+      }
     </div>
   )
 }
@@ -20,15 +26,8 @@ export const Home = props => {
  */
 const mapState = state => {
   return {
-    email: state.user.email
+    loggedIn: state.user.email ? true : false
   }
 }
 
 export default connect(mapState)(Home)
-
-// /**
-//  * PROP TYPES
-//  */
-// UserHome.propTypes = {
-//   email: PropTypes.string
-// }
