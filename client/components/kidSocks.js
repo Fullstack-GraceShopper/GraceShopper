@@ -41,10 +41,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getKidSocks: () => dispatch(fetchKidSocks())
-  }
+const mapDispatchToProps = {
+  getKidSocks: fetchKidSocks
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(KidSocks)

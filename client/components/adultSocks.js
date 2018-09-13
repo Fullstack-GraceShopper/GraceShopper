@@ -43,10 +43,8 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAdultSocks: () => dispatch(fetchAdultSocks())
-  }
+const mapDispatchToProps = {
+  getAdultSocks: fetchAdultSocks
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdultSocks)

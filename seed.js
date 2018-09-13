@@ -52,7 +52,7 @@ const randomGenerator = (max) => {
   return Math.floor(Math.random() * Math.floor(max - 1)) + 1;
 }
 
-seed(20)
+seed(6)
   .catch(err => {
     console.error(red('Oh noes! Something went wrong!'))
     console.error(err)
