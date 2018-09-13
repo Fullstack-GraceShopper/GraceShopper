@@ -4,6 +4,7 @@ const { Order } = require('./order')
 
 User.hasMany(Order);
 Order.belongsTo(User);
+// OB/JL: from a naming perspective, 'cart' sounds like each row would be "all the items one user has in their cart right now", but actually represents "one item a user has in their cart right now"
 Sock.belongsToMany(Order, {through: 'cart'});
 Order.belongsToMany(Sock, {through: 'cart'});
 

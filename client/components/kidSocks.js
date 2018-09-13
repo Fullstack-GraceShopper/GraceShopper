@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchKidSocks } from '../store/socks'
 
+// OB/JL: consider a `SockList` component that kidSocks and adultSocks both use
+
 class kidSocks extends React.Component {
   async componentDidMount () {
     await this.props.getKidSocks()

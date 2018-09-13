@@ -1,4 +1,5 @@
 const router = require('express').Router()
+
 const { Sock } = require('../db/models')
 
 router.get('/adults', async (req, res, next) => {
@@ -21,7 +22,7 @@ router.get('/kids', async (req, res, next) => {
 
 router.get('/:sockId', async(req, res, next) => {
   try {
-    const sock = await Sock.findOne(req.params.sockId)
+    const sock = await Sock.findOne(req.params.sockId) // OB/JL: bug alert, use `.findById` instead
     res.json(sock)
   } catch(err) {
     next(err)
