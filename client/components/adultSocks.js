@@ -42,7 +42,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-
 const mapDispatchToProps = {
   getAdultSocks: fetchAdultSocks
 }
