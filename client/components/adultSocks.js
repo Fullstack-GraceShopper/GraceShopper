@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchAdultSocks } from '../store/socks'
 
 
-class adultSocks extends React.Component {
+class AdultSocks extends React.Component {
   async componentDidMount () {
     await this.props.getAdultSocks()
   }
