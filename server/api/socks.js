@@ -14,17 +14,4 @@ router.get('/', async (req, res, next) => {
 })
 
 
-
-
-//For getting single sock vvvvvv
-
-// router.get('/:sockId', async(req, res, next) => {
-//   try {
-//     const sock = await Sock.findById(req.params.sockId)
-//     res.json(sock)
-//   } catch(err) {
-//     next(err)
-//   }
-// })
-
 module.exports = router
