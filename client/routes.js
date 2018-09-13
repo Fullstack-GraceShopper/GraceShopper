@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, Home} from './components'
+import {Login, SignUpForm, Home} from './components'
 import {me} from './store'
 import adultSocks from './components/adultSocks';
 import kidSocks from './components/kidSocks'
@@ -23,10 +23,9 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        {/* OB/JL: you can use query string in react router as well */}
-        <Route path="/socks/adults" component={adultSocks} />
-        <Route path="/socks/kids" component={kidSocks} />
+        <Route exact path="/signup" component={SignUpForm} />
+        <Route exact path="/adults" component={adultSocks} />
+        <Route exact path="/kids" component={kidSocks} />
         <Route component={NotFound} />
       </Switch>
     )
