@@ -17,8 +17,7 @@ const Sock = db.define('sock', {
         },
     },
     price: {
-        // OB/JL: gold standard in financial data is to use INTEGERs and measure in cents
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
             isDecimal: true,
@@ -32,7 +31,6 @@ const Sock = db.define('sock', {
         // OB/JL: consider validations / default values
         // OB/JL: inconsistent indentation (look into / reach out for help on prettier configuration and usage)
        type: Sequelize.ARRAY(Sequelize.STRING),
-       allowNull: false, 
     },
     category: {
         type: Sequelize.ARRAY(Sequelize.STRING),
