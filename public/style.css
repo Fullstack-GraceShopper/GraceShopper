@@ -117,13 +117,17 @@ form div {
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid black;
   position: absolute;
-  left: 82vw;
+  right: 11px;
+
 }
 
 #user-dropdown > li{
-  align-self: flex-start;
-  width: 150px;
+  flex-direction: row;
+  align-self: flex-end;
+  padding: 5px;
+  font-size: 14px;
+  width: 120px;
 }
