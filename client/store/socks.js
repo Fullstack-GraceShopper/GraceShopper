@@ -3,8 +3,7 @@ import axios from 'axios'
 /**
  * ACTION TYPES
  */
-const GET_ADULT_SOCKS = 'GET_ADULT_SOCKS'
-const GET_KID_SOCKS = 'GET_KID_SOCKS'
+const GET_SOCKS = 'GET_SOCKS'
 
 /**
  * INITIAL STATE
@@ -14,14 +13,9 @@ const defaultSocks = []
 /**
  * ACTION CREATORS
  */
-export const getAdultSocks = adultSocks => ({
-  type: GET_ADULT_SOCKS,
-  socks: adultSocks
-})
-
-export const getKidSocks = kidSocks => ({
-  type: GET_KID_SOCKS,
-  socks: kidSocks
+export const getSocks = socks => ({
+  type: GET_SOCKS,
+  socks
 })
 
 /**
@@ -30,8 +24,8 @@ export const getKidSocks = kidSocks => ({
 
 export const fetchAdultSocks = () => async dispatch => {
   try {
-    const {data} = await axios.get('/api/adults')
-    dispatch(getAdultSocks(data))
+    const {data} = await axios.get('/api/socks?isAdult=true')
+    dispatch(getSocks(data))
   } catch (error) {
     console.error(error)
   }
@@ -39,8 +33,8 @@ export const fetchAdultSocks = () => async dispatch => {
 
 export const fetchKidSocks = () => async dispatch => {
   try {
-    const {data} = await axios.get('/api/kids')
-    dispatch(getKidSocks(data))
+    const {data} = await axios.get('/api/socks?isAdult=false')
+    dispatch(getSocks(data))
   } catch (error) {
     console.error(error)
   }
@@ -52,9 +46,7 @@ export const fetchKidSocks = () => async dispatch => {
 
 export default function(state = defaultSocks, action) {
   switch (action.type) {
-    case GET_ADULT_SOCKS:
-      return action.socks
-    case GET_KID_SOCKS:
+    case GET_SOCKS:
       return action.socks
     default:
       return state
