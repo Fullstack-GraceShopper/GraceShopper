@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAdultSocks } from '../store/socks'
 
-class adultSocks extends React.Component {
+class AdultSocks extends React.Component {
   async componentDidMount () {
     await this.props.getAdultSocks()
   }
@@ -47,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(adultSocks)
+export default connect(mapStateToProps, mapDispatchToProps)(AdultSocks)
