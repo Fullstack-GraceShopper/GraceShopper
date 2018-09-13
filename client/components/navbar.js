@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import UserDropdown from './user-dropdown';
 
 const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
   <div>
@@ -17,9 +18,11 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
       }
       <div>
         {isLoggedIn ? (
-          <div className="vert-center">
-            <img id="nav-photo" src={userPhoto}></img>
-          </div>
+          // NEED TO PASS USER TO PROPS
+          <UserDropdown user={user} />
+          // <div className="vert-center">
+          //   <img id="nav-photo" src={userPhoto}></img>
+          // </div>
         ) : (
           <div>
             <Link className="top-header-link vert-center hover-light" to="/login">
@@ -34,13 +37,13 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
     </div>
     <nav>
       <div className="bottom-header">
-        <Link className="no-decoration hover-light lower-link" to="/">
+        <Link className="no-decoration black hover-light lower-link" to="/">
           HOME
         </Link>
-        <Link className="no-decoration hover-light lower-link" to="/adults">
+        <Link className="no-decoration black hover-light lower-link" to="/adults">
           ADULTS
         </Link>
-        <Link className="no-decoration hover-light lower-link" to="/kids">
+        <Link className="no-decoration black hover-light lower-link" to="/kids">
           KIDS
         </Link>
       </div>

@@ -7,6 +7,7 @@ import {me} from './store'
 import AdultSocks from './components/adultSocks';
 import KidSocks from './components/kidSocks'
 import { NotFound } from './components/pageNotFound';
+import { AccountDetails } from './components/account-details';
 
 /**
  * COMPONENT
@@ -18,6 +19,7 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
+    const accountDetailPath = isLoggedIn ? <Route exact path="/accountdetails" component={AccountDetails} /> : null;
 
     return (
       <Switch>
@@ -26,6 +28,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/adults" component={AdultSocks} />
         <Route exact path="/kids" component={KidSocks} />
+        {accountDetailPath}
         <Route component={NotFound} />
       </Switch>
     )
