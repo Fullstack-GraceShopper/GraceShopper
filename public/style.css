@@ -28,7 +28,9 @@ form div {
   background-color: #26777F;
 }
 
-.top-header > div {
+
+.top-header-children {
+
   margin: 10px 5px;
 }
 
@@ -38,6 +40,8 @@ form div {
   color:white;
   text-decoration: none;
   font-size: 1.25em;
+  position: relative;
+  top: 40%;
 }
 
 .bottom-header{
@@ -59,7 +63,7 @@ form div {
 .lower-link{
   margin:0;
   padding:15px;
-  width: 75px;
+  width: 75px; 
   text-align: center;
 }
 

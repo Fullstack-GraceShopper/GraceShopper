@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchKidSocks } from '../store/socks'
 
-class KidSocks extends React.Component {
+class kidSocks extends React.Component {
   async componentDidMount () {
     await this.props.getKidSocks()
   }

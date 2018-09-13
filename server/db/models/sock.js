@@ -6,7 +6,7 @@ const Sock = db.define('sock', {
         type: Sequelize.ARRAY(Sequelize.STRING),
         defaultValue: ['https://content.mycutegraphics.com/graphics/clothing/pair-of-black-white-crew-socks-clip-art.png'],
         validate: {
-            isUrl: true,
+            isUrl: true, // OB/JL: does this work? investigate
         },
     },
     name: {
@@ -17,6 +17,7 @@ const Sock = db.define('sock', {
         },
     },
     price: {
+        // OB/JL: gold standard in financial data is to use INTEGERs and measure in cents
         type: Sequelize.DECIMAL(10,2),
         allowNull: false,
         validate: {
@@ -28,6 +29,8 @@ const Sock = db.define('sock', {
         allowNull: false,
     },
     sizes: {
+        // OB/JL: consider validations / default values
+        // OB/JL: inconsistent indentation (look into / reach out for help on prettier configuration and usage)
        type: Sequelize.ARRAY(Sequelize.STRING),
        allowNull: false, 
     },
@@ -38,5 +41,5 @@ const Sock = db.define('sock', {
 });
 
 module.exports = {
-    Sock,
+    Sock, // OB/JL: good match on consistency, feel free to change this and user
 }
