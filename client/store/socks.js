@@ -4,6 +4,7 @@ import axios from 'axios'
  * ACTION TYPES
  */
 const GET_SOCKS = 'GET_SOCKS'
+const GET_SOCK = 'GET_SOCK'
 
 /**
  * INITIAL STATE
@@ -16,6 +17,11 @@ const defaultSocks = []
 export const getSocks = socks => ({
   type: GET_SOCKS,
   socks
+})
+
+export const gotSock = sock => ({
+  type: GET_SOCK,
+  socks: [...socks, sock]
 })
 
 /**
@@ -41,6 +47,18 @@ export const fetchKidSocks = () => async dispatch => {
   }
 }
 
+export const fetchSock = id => async dispatch => {
+  try {
+    console.log(id, '!@#$!@#$!@#$!@#$');
+    const sock = await axios.get(`/api/socks/:${id}`);
+    dispatch(gotSock(sock));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+
 /**
  * REDUCER
  */
@@ -49,6 +67,8 @@ export default function(state = defaultSocks, action) {
   switch (action.type) {
     case GET_SOCKS:
       return action.socks
+    case GET_SOCK:
+      return [...state, action.sock]
     default:
       return state
   }
