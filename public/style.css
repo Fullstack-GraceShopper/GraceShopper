@@ -1,6 +1,9 @@
 body {
   font-family: 'Raleway', sans-serif;
   margin:0;
+  font-size: 16px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
 }
 
 a {
@@ -48,8 +51,12 @@ form div {
 }
 
 .no-decoration{
-  color: black;
   text-decoration: none;
+  list-style-type: none;
+}
+
+.black{
+  color: black;
 }
 
 .hover-light:hover{
@@ -93,6 +100,37 @@ form div {
   height: 75px;
   border-radius: 50%;
 }
+
 #nav-photo:hover{
   box-shadow: 0px 0px 10px white;
+}
+
+#user-icon{
+  margin-right:15px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #26777F;
+  border: none;
+  outline: 0;
+  box-shadow: none!important;
+}
+
+#user-dropdown{
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding: 10px;
+  border: 1px solid black;
+  position: absolute;
+  right: 11px;
+
+}
+
+#user-dropdown > li{
+  flex-direction: row;
+  align-self: flex-end;
+  padding: 5px;
+  font-size: 14px;
+  width: 134px;
 }

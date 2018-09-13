@@ -8,6 +8,7 @@ import AdultSocks from './components/adultSocks';
 import KidSocks from './components/kidSocks';
 import SingleSock from './components/singleSock';
 import { NotFound } from './components/pageNotFound';
+import { AccountDetails } from './components/account-details';
 
 /**
  * COMPONENT
@@ -19,6 +20,7 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
+    const accountDetailPath = isLoggedIn ? <Route exact path="/accountdetails" component={AccountDetails} /> : null;
 
     return (
       <Switch>
@@ -28,6 +30,7 @@ class Routes extends Component {
         <Route exact path="/adults" component={AdultSocks} />
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
+        {accountDetailPath}
         <Route component={NotFound} />
       </Switch>
     )
