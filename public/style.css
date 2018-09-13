@@ -28,7 +28,7 @@ form div {
   background-color: #26777F;
 }
 
-.top-header-children {
+.top-header > div {
   margin: 10px 5px;
 }
 
@@ -38,8 +38,6 @@ form div {
   color:white;
   text-decoration: none;
   font-size: 1.25em;
-  position: relative;
-  top: 40%;
 }
 
 .bottom-header{
@@ -64,8 +62,15 @@ form div {
   width: 75px;
   text-align: center;
 }
+
 .lower-link:hover{
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.vert-center{
+  position:relative;
+  top:50%;
+  transform: translateY(-50%);
 }
 
 /* IDS */
@@ -80,4 +85,14 @@ form div {
 
 #logo-text:hover{
   text-shadow: 0px 0px 5px white;
+}
+
+#nav-photo{
+  margin-right:15px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+#nav-photo:hover{
+  box-shadow: 0px 0px 10px white;
 }

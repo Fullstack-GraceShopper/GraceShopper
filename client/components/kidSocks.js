@@ -22,7 +22,7 @@ class kidSocks extends React.Component {
           { kidSocks.length > 0
           ? <div>
               { kidSocks.map((sock) => { return (
-                <div key={sock.id}>
+                <div class="item" key={sock.id}>
                   <img src={sock.photos[0]} />
                 </div>)
               })}
