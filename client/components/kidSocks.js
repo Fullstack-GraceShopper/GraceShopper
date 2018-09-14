@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchKidSocks } from '../store/socks'
+import {connect} from 'react-redux'
+import {fetchKidSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
 
 class KidSocks extends React.Component {
@@ -16,20 +16,17 @@ class KidSocks extends React.Component {
         <div>
           <h1>Kids Sock</h1>
         </div>
-        <br />
-        <br />
-
         <div>
           {kidSocks.length > 0
           ? <div>
               {kidSocks.map((sock, i) => { return (
-                <div>
+                <div key={i}>
                   <br/>
                   <br/>
                   <Link key={i} to={`/socks/${sock.id}`}>
-                    <img src={sock.photos[0]} height='100' width='100' />
+                    <img src={sock.photos[0]} height='150' width='150' />
                     <div>{sock.name}</div>
-                    <div>{sock.price}</div>
+                    <div>{`$ ${(sock.price/100).toFixed(2)}`}</div>
                   </Link>
                 </div>
               )})}

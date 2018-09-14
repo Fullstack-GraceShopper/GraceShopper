@@ -8,7 +8,7 @@ class AdultSocks extends React.Component {
     await this.props.getAdultSocks()
   }
   render () {
-    const { adultSocks } = this.props
+    const {adultSocks} = this.props
 
     return (
       <div>
@@ -19,13 +19,13 @@ class AdultSocks extends React.Component {
           {adultSocks.length > 0
           ? <div>
               {adultSocks.map((sock, i) => { return (
-                <div>
+                <div key={i}>
                   <br/>
                   <br/>
                   <Link key={i} to={`/socks/${sock.id}`}>
-                    <img src={sock.photos[0]} height='100' width='100' />
+                    <img src={sock.photos[0]} height='150' width='150' />
                     <div>{sock.name}</div>
-                    <div>{sock.price}</div>
+                    <div>{`$ ${sock.price/100}`}</div>
                   </Link>
                 </div>
               )})}
