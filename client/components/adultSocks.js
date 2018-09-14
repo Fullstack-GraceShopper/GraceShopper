@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { fetchAdultSocks } from '../store/socks'
 import {Link} from 'react-router-dom'
 
-
 class AdultSocks extends React.Component {
   async componentDidMount () {
     await this.props.getAdultSocks()
@@ -17,9 +16,9 @@ class AdultSocks extends React.Component {
           <h1>Adult Sock</h1>
         </div>
         <div>
-          { adultSocks.length > 0
+          {adultSocks.length > 0
           ? <div>
-              { adultSocks.map((sock, i) => { return (
+              {adultSocks.map((sock, i) => { return (
                 <div>
                   <br/>
                   <br/>
@@ -39,11 +38,9 @@ class AdultSocks extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    adultSocks: state.socks
-  }
-}
+const mapStateToProps = (state) => ({
+  adultSocks: state.socks
+})
 
 const mapDispatchToProps = {
   getAdultSocks: fetchAdultSocks

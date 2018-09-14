@@ -20,7 +20,7 @@ class SingleSock extends Component{
       : (
         <div>
           <h1>{sock.name}</h1>
-          <img src={sock.photos[0]}/>
+          <img src={sock.photos[0]} height='300' width='300'/>
           <h2>Available Sizes:</h2>
             <div>
               {!sock.sizes

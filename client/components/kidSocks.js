@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchKidSocks } from '../store/socks'
+import {Link} from 'react-router-dom'
 
 class KidSocks extends React.Component {
   async componentDidMount () {
@@ -19,14 +20,19 @@ class KidSocks extends React.Component {
         <br />
 
         <div>
-          { kidSocks.length > 0
+          {kidSocks.length > 0
           ? <div>
               {kidSocks.map((sock, i) => { return (
-                <div key={i}>
-                {console.log('kid sock:   ', sock)}
-                  <img src={sock.photos[0]} />
-                </div>)
-              })}
+                <div>
+                  <br/>
+                  <br/>
+                  <Link key={i} to={`/socks/${sock.id}`}>
+                    <img src={sock.photos[0]} height='100' width='100' />
+                    <div>{sock.name}</div>
+                    <div>{sock.price}</div>
+                  </Link>
+                </div>
+              )})}
             </div>
           : <div> There are no sock registered to the database </div>
         }
@@ -36,11 +42,9 @@ class KidSocks extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    kidSocks: state.socks
-  }
-}
+const mapStateToProps = (state) => ({
+  kidSocks: state.socks
+})
 
 const mapDispatchToProps = {
   getKidSocks: fetchKidSocks
