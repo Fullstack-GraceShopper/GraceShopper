@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchAdultSocks } from '../store/socks'
+import {connect} from 'react-redux'
+import {fetchAdultSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
 
 class AdultSocks extends React.Component {

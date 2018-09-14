@@ -7,12 +7,10 @@ import {me} from './store'
 import AdultSocks from './components/adultSocks';
 import KidSocks from './components/kidSocks';
 import SingleSock from './components/singleSock';
-import { NotFound } from './components/pageNotFound';
-import { AccountDetails } from './components/account-details';
+import {NotFound} from './components/pageNotFound';
+import {AccountDetails} from './components/account-details';
 
-/**
- * COMPONENT
- */
+
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
@@ -37,9 +35,6 @@ class Routes extends Component {
   }
 }
 
-/**
- * CONTAINER
- */
 const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
