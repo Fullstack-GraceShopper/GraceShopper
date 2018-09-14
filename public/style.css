@@ -133,4 +133,42 @@ form div {
   padding: 5px;
   font-size: 14px;
   width: 134px;
+  bottom: 10px;
+}
+
+#below-user-icon{
+  font-size: 12px;
+  position: relative;
+  left: 10px;
+  margin: 0;
+}
+
+#below-user-icon:hover{
+  text-shadow: 0px 0px 10px white;
+}
+
+#four04-text{
+  font-size: 16em;
+  margin: 16px;
+  text-align: center;
+}
+
+#lost-four04{
+  text-align: center;
+  font-size: 2em;
+}
+
+#four04-home{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#four04-link{
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 0px 0px 3px black
+}
+
+#four04-link:hover{
+  text-shadow: 0px 0px 3px black;
 }
