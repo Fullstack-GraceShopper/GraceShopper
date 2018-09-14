@@ -4,10 +4,10 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, SignUpForm, Home} from './components'
 import {me} from './store'
-import AdultSocks from './components/adultSocks';
-import KidSocks from './components/kidSocks';
-import SingleSock from './components/singleSock';
-import { NotFound } from './components/pageNotFound';
+import AdultSocks from './components/adult-socks';
+import KidSocks from './components/kid-socks';
+import SingleSock from './components/single-sock';
+import { NotFound } from './components/page-not-found';
 import { AccountDetails } from './components/account-details';
 
 /**

@@ -2,17 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { fetchSock } from '../store/socks'
 
-const mapStateToProps = state => ({
-    sock: state.socks[0]
-});
-
-const mapDispatchToProps = dispatch => ({
-    getSock: dispatch => {
-        console.log(props);
-        dispatch(fetchSock)
-    }
-});
-
 class SingleSock extends Component{
     componentDidMount() {
         this.props.getSock();
@@ -25,5 +14,13 @@ class SingleSock extends Component{
         )
     }
 }
+
+const mapStateToProps = state => ({
+  sock: state.socks[0]
+});
+
+const mapDispatchToProps = {
+  getSock: fetchSock
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock);
