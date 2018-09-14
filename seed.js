@@ -9,14 +9,14 @@ const seed = async (num) => {
 
   for(let i = 0; i < num; i++){
     await Sock.create({
-      photos: ['https://cdn.shopify.com/s/files/1/0234/4461/products/Antler-Pug-Crew-Sock-Green-by-Socksmith_2584b175-3da5-4dba-a49d-13bc4e134004_2048x.jpg?v=1478021550'],
+      photos: [...new Set(['https://cdn.shopify.com/s/files/1/0234/4461/products/Antler-Pug-Crew-Sock-Green-by-Socksmith_2584b175-3da5-4dba-a49d-13bc4e134004_2048x.jpg?v=1478021550'])],
       name: faker.fake("{{commerce.productName}}"),
-      price: 1000,
+      price: Number(randomGenerator(100) + '9'),
       // OB/JL: listen to your linter (update the code OR change your .eslintrc, or change per file settings)
       isAdult: boolGen([3,10]),
-      sizes: arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5),
-      category: arrGen(['dress','casual','athletic','popculture','funny'], 5)});
-
+      sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+      categories: [...new Set(arrGen(['dress','casual','athletic','popculture','funny'], 5))]
+    });
 
     await User.create({
       email:  faker.fake("{{internet.email}}"),
@@ -52,7 +52,7 @@ const randomGenerator = (max) => {
   return Math.floor(Math.random() * Math.floor(max - 1)) + 1;
 }
 
-seed(6)
+seed(20)
   .catch(err => {
     console.error(red('Oh noes! Something went wrong!'))
     console.error(err)

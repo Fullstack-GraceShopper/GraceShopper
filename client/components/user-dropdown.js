@@ -13,10 +13,11 @@ class UserDropdown extends Component {
   }
 
   toggleForm() {
-    console.log('toggleform ran', this.state)
-    this.setState(state => {
-      return {showForm: !state.showForm}
-    })
+    this.setState(
+      (state) => {
+        return { showForm: !state.showForm }
+      }
+    )
   }
 
   render() {

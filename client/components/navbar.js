@@ -14,7 +14,7 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
         </Link>
       </div>
       {
-        console.log(user)
+        
       }
       <div>
         {isLoggedIn ? (

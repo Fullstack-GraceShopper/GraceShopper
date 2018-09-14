@@ -1,26 +1,69 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { fetchSock } from '../store/socks'
+import {fetchSock} from '../store/socks'
+import {Link} from 'react-router-dom'
 
 class SingleSock extends Component{
-    componentDidMount() {
-        this.props.getSock();
+  async componentDidMount() {
+    try {
+      const sockId = Number(this.props.match.params.sockId)
+      await this.props.getSock(sockId);
+    } catch(error) {
+      console.error(error)
     }
-    render() {
-        const sockId = this.props.match.params.sockId;
-        console.log('SOCK !@#$!@#$ ', this.props.sock)
-        return (
-            <div>test</div>
-        )
-    }
+  }
+
+  render() {
+    const {sock} = this.props
+    return (
+      !sock
+      ? <div>no sock</div>
+      : (
+        <div>
+          <h1>{sock.name}</h1>
+          <br/>
+          <img src={sock.photos[0]} height='300' width='300'/>
+          <br/>
+          <h2>Sizes:</h2>
+            <div>
+              {!sock.sizes
+              ? <h3>No Sizes Available</h3>
+              : <ul>
+                  {sock.sizes.map((size, i) => {
+                    return <li key={i} >{size}</li>
+                  })}
+                </ul>
+              }
+            </div>
+            <br/>
+            <div>
+              {!sock.categories
+              ? <div></div>
+              : <div>
+                  <h3>Categories:</h3>
+                  <div>
+                    {sock.categories.map((category, i) => {
+                      const path = `/socks/${category}`
+                      return <div key={i}>
+                      <Link to={path}>{category}
+                      </Link></div>
+                    })}
+                  </div>
+                </div>
+              }
+            </div>
+        </div>
+      )    
+    )
+  }
 }
 
 const mapStateToProps = state => ({
   sock: state.socks[0]
-});
+})
 
-const mapDispatchToProps = {
-  getSock: fetchSock
-};
+const mapDispatchToProps = dispatch => ({
+  getSock: id => dispatch(fetchSock(id))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock);

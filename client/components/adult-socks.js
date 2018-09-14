@@ -1,15 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchAdultSocks } from '../store/socks'
+import {connect} from 'react-redux'
+import {fetchAdultSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
-
 
 class AdultSocks extends React.Component {
   async componentDidMount () {
     await this.props.getAdultSocks()
   }
   render () {
-    const { adultSocks } = this.props
+    const {adultSocks} = this.props
 
     return (
       <div className="flex column center container-space-around">
@@ -20,12 +19,12 @@ class AdultSocks extends React.Component {
         <div>
           { adultSocks.length > 0
           ? <div className="flex row wrap container-space-around">
-              { adultSocks.map(sock => { return (
-                <Link key={sock.id} to={`/socks/${sock.id}`}>
+              { adultSocks.map((sock, i) => { return (
+                <Link key={i} to={`/socks/${sock.id}`}>
                   <div className='sock-display-div'>
                     <img className="sock-image" src={sock.photos[0]} />
                     <div>{sock.name}</div>
-                    <div>{sock.price}</div>
+                    <div>{`$ ${(sock.price/100).toFixed(2)}`}</div>
                   </div>
                 </Link>)
               })}
@@ -38,12 +37,9 @@ class AdultSocks extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    adultSocks: state.socks
-  }
-}
-
+const mapStateToProps = (state) => ({
+  adultSocks: state.socks
+})
 
 const mapDispatchToProps = {
   getAdultSocks: fetchAdultSocks

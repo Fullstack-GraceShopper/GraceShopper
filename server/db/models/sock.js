@@ -32,7 +32,7 @@ const Sock = db.define('sock', {
         // OB/JL: inconsistent indentation (look into / reach out for help on prettier configuration and usage)
        type: Sequelize.ARRAY(Sequelize.STRING),
     },
-    category: {
+    categories: {
         type: Sequelize.ARRAY(Sequelize.STRING),
     },
 

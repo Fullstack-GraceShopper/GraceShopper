@@ -1,6 +1,5 @@
 const router = require('express').Router()
-
-const { Sock } = require('../db/models')
+const {Sock} = require('../db/models')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -17,7 +16,6 @@ router.get('/', async (req, res, next) => {
 router.get('/:sockId', async (req, res, next) => {
   try {
     const sock = await Sock.findById(req.params.sockId);
-    console.log(sock);
     res.json(sock);
   } catch (err) {
     next(err);

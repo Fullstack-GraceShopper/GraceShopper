@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchKidSocks } from '../store/socks'
+import {connect} from 'react-redux'
+import {fetchKidSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
 
 class KidSocks extends React.Component {
@@ -20,12 +20,12 @@ class KidSocks extends React.Component {
         <div>
           { kidSocks.length > 0
           ? <div className="flex row wrap container-space-around">
-              { kidSocks.map((sock) => { return (
-                <Link key={sock.id} to={`/socks/${sock.id}`}>
+              { kidSocks.map((sock, i) => { return (
+                <Link key={i} to={`/socks/${sock.id}`}>
                   <div className='sock-display-div'>
                     <img className="sock-image" src={sock.photos[0]} />
                     <div>{sock.name}</div>
-                    <div>{sock.price}</div>
+                    <div>{`$ ${(sock.price/100).toFixed(2)}`}</div>
                   </div>
                 </Link>)
               })}
@@ -38,11 +38,9 @@ class KidSocks extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    kidSocks: state.socks
-  }
-}
+const mapStateToProps = (state) => ({
+  kidSocks: state.socks
+})
 
 const mapDispatchToProps = {
   getKidSocks: fetchKidSocks
