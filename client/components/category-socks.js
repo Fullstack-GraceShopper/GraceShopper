@@ -1,25 +1,31 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchAdultSocks} from '../store/socks'
+import {fetchSocksByCategory} from '../store/socks'
 import {Link} from 'react-router-dom'
 
-class AdultSocks extends React.Component {
+
+class CategorySocks extends React.Component {
+
   async componentDidMount () {
-    await this.props.getAdultSocks()
+    const category = this.props.match.params.category
+    await this.props.getMatchingSocks(category)
   }
+
   render () {
-    const {adultSocks} = this.props
+    const {categorySocks} = this.props
+    let categoryName = this.props.match.params.category
+    categoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
 
     return (
       <div className="flex column center container-space-around">
         <div className="flex center category-header">
-          <h1>Adults Sock</h1>
+          <h1>{categoryName} Sock</h1>
         </div>
 
         <div>
-          { adultSocks.length > 0
+          { categorySocks.length > 0
           ? <div className="flex row wrap flex-start container-space-around">
-              { adultSocks.map((sock, i) => { return (
+              { categorySocks.map((sock, i) => { return (
                 <Link key={i} to={`/socks/${sock.id}`}>
                   <div className='sock-display-div'>
                     <img className="sock-image" src={sock.photos[0]} />
@@ -38,11 +44,12 @@ class AdultSocks extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  adultSocks: state.socks
+  categorySocks: state.socks
 })
 
-const mapDispatchToProps = {
-  getAdultSocks: fetchAdultSocks
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    getMatchingSocks: category => {
+      dispatch(fetchSocksByCategory(category))}
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdultSocks)
+export default connect(mapStateToProps, mapDispatchToProps)(CategorySocks)

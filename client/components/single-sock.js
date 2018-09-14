@@ -38,7 +38,7 @@ class SingleSock extends Component{
             <br/>
             <div>
               {!sock.categories
-              ? <div></div>
+              ? <div />
               : <div>
                   <h3>Categories:</h3>
                   <div>
@@ -53,7 +53,7 @@ class SingleSock extends Component{
               }
             </div>
         </div>
-      )    
+      )
     )
   }
 }
