@@ -7,7 +7,7 @@ const GET_SOCK = 'GET_SOCK'
 
 
  // INITIAL STATE
- 
+
 const defaultSocks = []
 
 
@@ -19,12 +19,20 @@ export const gotSock = sock => ({type: GET_SOCK, sock})
 
 // THUNK CREATORS
 
+export const fetchSocksByCategory = (category) => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/socks/${category}`)
+    dispatch(gotSocks(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const fetchAdultSocks = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/socks?isAdult=true')
     dispatch(gotSocks(data))
   } catch (error) {
-    // OB/JL: don't just report errors to the "developer", but also consider reporting them to the end user; something like a "toast notification" could be a good default: https://github.com/tomchentw/react-toastr
     console.error(error)
   }
 }

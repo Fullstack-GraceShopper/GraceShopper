@@ -9,6 +9,7 @@ import KidSocks from './components/kid-socks';
 import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
 import {AccountDetails} from './components/account-details';
+import CategorySocks from './components/category-socks';
 
 class Routes extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class Routes extends Component {
     const {isLoggedIn} = this.props
     const accountDetailPath = isLoggedIn ? <Route exact path="/accountdetails" component={AccountDetails} /> : null;
 
+
     return (
       <Switch>
         <Route exact path="/" component={Home} />
@@ -26,6 +28,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/adults" component={AdultSocks} />
         <Route exact path="/kids" component={KidSocks} />
+        <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
         {accountDetailPath}
         <Route component={NotFound} />
