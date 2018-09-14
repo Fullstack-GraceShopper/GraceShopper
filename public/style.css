@@ -4,6 +4,7 @@ body {
   font-size: 16px;
   letter-spacing: 2px;
   word-spacing: 2px;
+  background: rgb(236, 236, 236);
 }
 
 a {
@@ -25,8 +26,54 @@ form div {
 }
 
 /* CLASSES */
+.center {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.flex{
+  display: flex;
+}
+
+.row{
+  flex-direction: row;
+}
+
+.column{
+  flex-direction: column;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.container-space-around{
+  justify-content: space-around;
+}
+
+.category-header{
+  background: rgb(227, 228, 164);
+  /* background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX9878837.jpg'); */
+  /* opacity: 0.75; */
+  align-items: center;
+  font-size: 30px;
+  height: 20vh;
+  width: 99vw;
+  border-top: 1em solid rgb(236, 236, 236);
+  border-bottom: 1em solid rgb(236, 236, 236);
+
+}
+
+.sock-image{
+  width: 30vw;
+  height: auto;
+  padding-top: 2em;
+}
+
 .top-header {
   display: flex;
+  width: 99vw;
   justify-content: space-between;
   background-color: #26777F;
 }
@@ -45,6 +92,7 @@ form div {
 
 .bottom-header{
   display: flex;
+  width: 99vw;
   justify-content: center;
   border-bottom: 1px solid black;
   background-color: #A8F6FF;
@@ -57,6 +105,12 @@ form div {
 
 .black{
   color: black;
+}
+
+.sock-display-div{
+  background: white;
+  border-bottom: 1.5em solid rgb(236, 236, 236);
+  padding-bottom: 0.8em;
 }
 
 .hover-light:hover{
@@ -119,7 +173,7 @@ form div {
 #user-dropdown{
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
+  background-color: white;
   padding: 10px;
   border: 1px solid black;
   position: absolute;
@@ -133,4 +187,42 @@ form div {
   padding: 5px;
   font-size: 14px;
   width: 134px;
+  bottom: 10px;
+}
+
+#below-user-icon{
+  font-size: 12px;
+  position: relative;
+  left: 10px;
+  margin: 0;
+}
+
+#below-user-icon:hover{
+  text-shadow: 0px 0px 10px white;
+}
+
+#four04-text{
+  font-size: 16em;
+  margin: 16px;
+  text-align: center;
+}
+
+#lost-four04{
+  text-align: center;
+  font-size: 2em;
+}
+
+#four04-home{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#four04-link{
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 0px 0px 3px black
+}
+
+#four04-link:hover{
+  text-shadow: 0px 0px 3px black;
 }

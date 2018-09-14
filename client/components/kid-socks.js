@@ -12,24 +12,23 @@ class KidSocks extends React.Component {
     const { kidSocks } = this.props
 
     return (
-      <div>
-        <div>
+      <div className="flex column center container-space-around">
+        <div className="flex center category-header">
           <h1>Kids Sock</h1>
         </div>
+
         <div>
-          {kidSocks.length > 0
-          ? <div>
-              {kidSocks.map((sock, i) => { return (
-                <div key={i}>
-                  <br/>
-                  <br/>
-                  <Link key={i} to={`/socks/${sock.id}`}>
-                    <img src={sock.photos[0]} height='150' width='150' />
+          { kidSocks.length > 0
+          ? <div className="flex row wrap container-space-around">
+              { kidSocks.map((sock, i) => { return (
+                <Link key={i} to={`/socks/${sock.id}`}>
+                  <div className='sock-display-div'>
+                    <img className="sock-image" src={sock.photos[0]} />
                     <div>{sock.name}</div>
                     <div>{`$ ${(sock.price/100).toFixed(2)}`}</div>
-                  </Link>
-                </div>
-              )})}
+                  </div>
+                </Link>)
+              })}
             </div>
           : <div> There are no sock registered to the database </div>
         }

@@ -10,7 +10,6 @@ import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
 import {AccountDetails} from './components/account-details';
 
-
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
