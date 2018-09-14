@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const {Sock} = require('../db/models')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 router.get('/', async (req, res, next) => {
   try {
@@ -12,6 +14,22 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 });
+
+router.get('/:category', async (req, res, next) => {
+  try {
+    const category = req.params.category
+    const socks = await Sock.findAll({
+      where: {
+        categories: {
+          [Op.contains]: [category]
+        }
+      }
+    })
+    res.json(socks)
+  } catch(err) {
+    next(err)
+  }
+})
 
 router.get('/:sockId', async (req, res, next) => {
   try {

@@ -18,7 +18,7 @@ class AdultSocks extends React.Component {
 
         <div>
           { adultSocks.length > 0
-          ? <div className="flex row wrap container-space-around">
+          ? <div className="flex row wrap flex-start container-space-around">
               { adultSocks.map((sock, i) => { return (
                 <Link key={i} to={`/socks/${sock.id}`}>
                   <div className='sock-display-div'>

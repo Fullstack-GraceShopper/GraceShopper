@@ -36,6 +36,10 @@ form div {
   display: flex;
 }
 
+.flex-start{
+  justify-content: flex-start;
+}
+
 .row{
   flex-direction: row;
 }
@@ -54,8 +58,8 @@ form div {
 
 .category-header{
   background: rgb(227, 228, 164);
-  /* background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX9878837.jpg'); */
-  /* opacity: 0.75; */
+  background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX9878837.jpg');
+  opacity: 0.75;
   align-items: center;
   font-size: 30px;
   height: 20vh;
@@ -66,9 +70,15 @@ form div {
 }
 
 .sock-image{
-  width: 30vw;
+  width: 20vw;
   height: auto;
   padding-top: 2em;
+}
+
+.sock-display-div{
+  background: white;
+  border-bottom: 1.5em solid rgb(236, 236, 236);
+  padding-bottom: 0.8em;
 }
 
 .top-header {
@@ -105,12 +115,6 @@ form div {
 
 .black{
   color: black;
-}
-
-.sock-display-div{
-  background: white;
-  border-bottom: 1.5em solid rgb(236, 236, 236);
-  padding-bottom: 0.8em;
 }
 
 .hover-light:hover{
