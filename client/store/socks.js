@@ -21,7 +21,7 @@ export const gotSock = sock => ({type: GET_SOCK, sock})
 
 export const fetchSocksByCategory = (category) => async dispatch => {
   try {
-    const {data} = await axios.get(`/api/socks/${category}`)
+    const {data} = await axios.get(`/api/socks/category/${category}`)
     dispatch(gotSocks(data))
   } catch (error) {
     console.error(error)

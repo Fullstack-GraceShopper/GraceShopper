@@ -15,6 +15,7 @@ class SingleSock extends Component{
 
   render() {
     const {sock} = this.props
+    console.log(sock)
     return (
       !sock
       ? <div>no sock</div>
