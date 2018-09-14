@@ -16,19 +16,20 @@ class AdultSocks extends React.Component {
         <div>
           <h1>Adult Sock</h1>
         </div>
-        <br/>
-        <br/>
-
         <div>
           { adultSocks.length > 0
           ? <div>
-              { adultSocks.map(sock => { return (
-                <Link key={sock.id} to={`/socks/${sock.id}`}>
-                  <img src={sock.photos[0]} />
-                  <div>{sock.name}</div>
-                  <div>{sock.price}</div>
-                </Link>)
-              })}
+              { adultSocks.map((sock, i) => { return (
+                <div>
+                  <br/>
+                  <br/>
+                  <Link key={i} to={`/socks/${sock.id}`}>
+                    <img src={sock.photos[0]} height='100' width='100' />
+                    <div>{sock.name}</div>
+                    <div>{sock.price}</div>
+                  </Link>
+                </div>
+              )})}
             </div>
           : <div> There are no sock registered to the database </div>
         }
@@ -43,7 +44,6 @@ const mapStateToProps = (state) => {
     adultSocks: state.socks
   }
 }
-
 
 const mapDispatchToProps = {
   getAdultSocks: fetchAdultSocks

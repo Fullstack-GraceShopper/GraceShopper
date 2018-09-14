@@ -16,8 +16,9 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:sockId', async (req, res, next) => {
   try {
+    console.log(req.params.findById)
     const sock = await Sock.findById(req.params.sockId);
-    console.log(sock);
+    console.log('SOCK FROM QUERY************************:   ', sock)
     res.json(sock);
   } catch (err) {
     next(err);

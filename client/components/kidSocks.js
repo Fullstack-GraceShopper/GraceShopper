@@ -21,8 +21,9 @@ class KidSocks extends React.Component {
         <div>
           { kidSocks.length > 0
           ? <div>
-              { kidSocks.map((sock) => { return (
-                <div key={sock.id}>
+              {kidSocks.map((sock, i) => { return (
+                <div key={i}>
+                {console.log('kid sock:   ', sock)}
                   <img src={sock.photos[0]} />
                 </div>)
               })}
