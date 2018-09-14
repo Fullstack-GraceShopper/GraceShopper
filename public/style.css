@@ -25,6 +25,49 @@ form div {
 }
 
 /* CLASSES */
+.center {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.flex{
+  display: flex;
+}
+
+.row{
+  flex-direction: row;
+}
+
+.column{
+  flex-direction: column;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.container-space-around{
+  justify-content: space-around;
+}
+
+.category-header{
+  background: rgb(230, 220, 136);
+  /* background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX9878837.jpg'); */
+  /* opacity: 0.75; */
+  align-items: center;
+  font-size: 30px;
+  height: 20vh;
+  width: 100vw;
+  border-bottom: 1px solid black;
+}
+
+.sock-image{
+  width: 30vw;
+  height: auto;
+  padding-top: 2em;
+}
+
 .top-header {
   display: flex;
   justify-content: space-between;
