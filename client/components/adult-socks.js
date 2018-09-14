@@ -12,21 +12,21 @@ class AdultSocks extends React.Component {
     const { adultSocks } = this.props
 
     return (
-      <div>
-        <div>
-          <h1>Adult Sock</h1>
+      <div className="flex column center container-space-around">
+        <div className="flex center category-header">
+          <h1>Adults Sock</h1>
         </div>
-        <br />
-        <br />
 
         <div>
           { adultSocks.length > 0
-          ? <div>
+          ? <div className="flex row wrap container-space-around">
               { adultSocks.map(sock => { return (
                 <Link key={sock.id} to={`/socks/${sock.id}`}>
-                  <img src={sock.photos[0]} />
-                  <div>{sock.name}</div>
-                  <div>{sock.price}</div>
+                  <div className='sock-display-div'>
+                    <img className="sock-image" src={sock.photos[0]} />
+                    <div>{sock.name}</div>
+                    <div>{sock.price}</div>
+                  </div>
                 </Link>)
               })}
             </div>
