@@ -230,3 +230,8 @@ form div {
 #four04-link:hover{
   text-shadow: 0px 0px 3px black;
 }
+
+#size-select{
+  width: 75px;
+  font-size: 1.2em;
+}
