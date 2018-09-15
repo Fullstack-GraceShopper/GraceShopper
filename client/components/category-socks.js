@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSocksByCategory} from '../store/socks'
 import {Link} from 'react-router-dom'
-
+import CategoryMenu from './category-menu';
 
 class CategorySocks extends React.Component {
 
@@ -18,6 +18,7 @@ class CategorySocks extends React.Component {
 
     return (
       <div className="flex column center container-space-around">
+        <CategoryMenu />
         <div className="flex center category-header">
           <h1>{categoryName} Sock</h1>
         </div>
