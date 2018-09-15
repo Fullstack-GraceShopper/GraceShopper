@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchSock} from '../store/socks'
 import {Link} from 'react-router-dom'
+import {SizeDropdown} from './size-dropdown'
+import {QuantityDropdown} from './quantity-dropdown'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -19,48 +21,48 @@ class SingleSock extends Component {
       <div>no sock</div>
     ) : (
       <div>
-        <h1>{sock.name}</h1>
-        <br />
-        <img src={sock.photos[0]} height="300" width="300" />
-        <br />
-        <div className="flex row wrap">
-          <h2>Select Size:</h2>
-          <div className="center">
-            {!sock.sizes ? (
-              <h3>Out of Stock :(</h3>
-            ) : (
+        <div className="flex row">
+          <br />
+          <div>
+            <img id="single-page-photo" src={sock.photos[0]} />
+          </div>
+          <br />
+          <div>
+            <h1 className="slight-padding single-page-label">{sock.name.toUpperCase()}</h1>
+            <p className="slight-padding" id="single-price">{`$${(
+              sock.price / 100
+            ).toFixed(2)}`}</p>
+            <h3 className="slight-padding single-page-label">
+              Item Description
+            </h3>
+            {/* <p>{sock.description}</p> */}
+            {sock.sizes ? (
               <div>
-                <label htmlFor="size-select" />
-                <select name="size-select" id="size-select" defaultValue="--">
-                  <option disabled>
-                    --
-                  </option>
-                  {sock.sizes.map((size, i) => <option key={i}>{size}</option>)}
-                </select>
+                <SizeDropdown sock={sock} />
+                <QuantityDropdown />
               </div>
+            ) : (
+              <p>Out of Stock :(</p>
             )}
           </div>
         </div>
-        <br />
-        <div>
-          {!sock.categories ? (
-            <div />
-          ) : (
+        {!sock.categories ? (
+          <div />
+        ) : (
+          <div>
+            <h3>Categories:</h3>
             <div>
-              <h3>Categories:</h3>
-              <div>
-                {sock.categories.map((category, i) => {
-                  const path = `/socks/category/${category}`
-                  return (
-                    <div key={i}>
-                      <Link to={path}>{category}</Link>
-                    </div>
-                  )
-                })}
-              </div>
+              {sock.categories.map((category, i) => {
+                const path = `/socks/category/${category}`
+                return (
+                  <div key={i}>
+                    <Link to={path}>{category}</Link>
+                  </div>
+                )
+              })}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     )
   }

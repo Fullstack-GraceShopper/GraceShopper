@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import UserDropdown from './user-dropdown';
 
+
 const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
   <div>
     <div className="top-header">
