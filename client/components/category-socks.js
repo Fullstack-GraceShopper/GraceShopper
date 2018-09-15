@@ -1,15 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSocksByCategory} from '../store/socks'
-
+import CategoryMenu from './category-menu';
 import {SockList} from './sock-list'
 
 class CategorySocks extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
   async componentDidMount() {
     const category = this.props.match.params.category
     await this.props.getMatchingSocks(category)
   }
-
+  async handleClick (newCategory) {
+      await this.props.getMatchingSocks(newCategory)
+  }
   render() {
     const {categorySocks} = this.props
     let categoryName = this.props.match.params.category
@@ -17,6 +23,7 @@ class CategorySocks extends React.Component {
 
     return (
       <div className="flex column center container-space-around">
+        <CategoryMenu onClick={this.handleClick}/>
         <div className="flex center category-header">
           <h1>{categoryName} Sock</h1>
         </div>

@@ -1,18 +1,20 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchKidSocks} from '../store/socks'
+import {Link} from 'react-router-dom'
+import CategoryMenu from './category-menu';
 import {SockList} from './sock-list'
 
 class KidSocks extends React.Component {
   async componentDidMount() {
     await this.props.getKidSocks()
   }
-
   render() {
     const {kidSocks} = this.props
 
     return (
       <div className="flex column center container-space-around">
+      <CategoryMenu onClick={() => {}}/>
         <div className="flex center category-header">
           <h1>Kids Sock</h1>
         </div>
