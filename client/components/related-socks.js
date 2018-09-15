@@ -59,7 +59,7 @@ class RelatedSocks extends React.Component {
         </ul>
       </div>
     ) : (
-      <p>No related socks in stock</p>
+      <p>No related socks in stock :(</p>
     )
   }
 }
