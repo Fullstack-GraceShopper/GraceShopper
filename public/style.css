@@ -98,12 +98,12 @@ form div {
 
 .sock-image{
   width: 20vw;
-  height: auto;
+  height: 48vh;
   padding-top: 2em;
 }
 
 .sock-display-div{
-  background: white;
+  background:#26777F;
   border-bottom: 1.5em solid rgb(236, 236, 236);
   padding-bottom: 0.8em;
 }
