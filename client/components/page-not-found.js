@@ -9,5 +9,6 @@ export const NotFound = () => (
     <h5 id="lost-four04">It seems you got lost...</h5>
     <div id="four04-home"><Link to="/" id="four04-link"className="no-decoration black">Return Home</Link></div>
     <OrderButton />
+    <OrderHistory />
   </div>
 )
