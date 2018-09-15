@@ -77,6 +77,12 @@ form div {
   justify-content: space-around;
 }
 
+.slight-padding{
+  padding: 5px 10px 0px 20px;
+  height: 30px;
+}
+
+
 .category-header{
   background: rgb(227, 228, 164);
   background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX9878837.jpg');
@@ -204,6 +210,8 @@ form div {
 
 .cart-item-img{
   border-radius:50%;
+.single-page-label{
+  text-decoration: underline;
 }
 
 /* IDS */
@@ -299,6 +307,17 @@ form div {
   text-shadow: 0px 0px 3px black;
 }
 
+#size-dropdown{
+  padding: 22px 0px 0px 10px;
+  height: 30px;
+}
+
+#size-select{
+  width: 150px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
 #categorys-menu{
   background-color:#26777F;
   display: flex;
@@ -328,4 +347,13 @@ form div {
 }
 #checkout-button:hover{
   background-color:rgb(85, 185, 82);
+}
+#single-page-photo{
+  padding: 20px;
+  height: 475px;
+  width: 475px;
+}
+
+#single-price{
+  font-size: 1.2em;
 }
