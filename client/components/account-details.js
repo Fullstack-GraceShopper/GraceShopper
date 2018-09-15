@@ -9,7 +9,6 @@ class AccountDetails extends Component {
 
   render () {
     const { user } = this.props;
-    console.log(user)
     return (
       user.id ? <div className="center">
         <h1>Account Details</h1>
