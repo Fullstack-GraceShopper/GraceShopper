@@ -19,7 +19,7 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
           <div className="vert-center flex">
           <UserDropdown user={user} />
           <div className="vr" />
-            <Link className="top-header-link hover-light" to="/asdf">
+            <Link className="top-header-link hover-light" to="/cart">
               <svg xmlns="http://www.w3.org/2000/svg" className="vert-center" width="64" height="64">
                 <g>
                   <title>background</title>

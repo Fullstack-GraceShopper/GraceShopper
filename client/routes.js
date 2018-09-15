@@ -10,6 +10,7 @@ import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
 import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
+import {Cart} from './index'
 
 class Routes extends Component {
   componentDidMount() {
@@ -26,6 +27,7 @@ class Routes extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUpForm} />
+        <Route exact path="/cart" component={Cart} />
         <Route exact path="/adults" component={AdultSocks} />
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/category/:category" component={CategorySocks} />
