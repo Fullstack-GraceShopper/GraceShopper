@@ -28,6 +28,16 @@ export const fetchSocksByCategory = (category) => async dispatch => {
   }
 }
 
+export const fetchSocksInCart = (userId) => async dispatch => {
+  try{
+    const currentCart = await axios.get(`/api/orders/${userId}/cart`)
+    const {data} = await axios.get(`/api/orders/inCart/${currentCart.data[0].id}`)
+    dispatch(gotSocks(data))
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export const fetchAdultSocks = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/socks?isAdult=true')

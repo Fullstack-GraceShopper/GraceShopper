@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {Order} = require('../db/models');
-const {User} = require('../db/models');
+const {Sock} = require('../db/models');
 
 // ==> get all users orders <== //
 router.get('/:userId', async (req, res, next) => {
@@ -14,7 +14,6 @@ router.get('/:userId', async (req, res, next) => {
 // ==> create new users cart <== //
 router.post('/:userId', async (req, res, next) => {
     try {
-        const user = await User.findById(req.params.userId);
         const order = await Order.create({ userId : user.id});
         res.json(order);
     } catch (err) {
@@ -25,10 +24,30 @@ router.post('/:userId', async (req, res, next) => {
 // ==> get latest unsold order <== //
 router.get('/:userId/cart', async (req, res, next) => {
     try {
-
+        const order = await Order.findAll({
+            limit: 1,
+            where: {
+                userId: req.params.userId,
+            },
+            order:[['createdAt', 'DESC']]
+        });
+        res.json(order);
     } catch (err) {
         next (err);
     }
 });
+
+router.get('/inCart/:cartNumber', async (req, res, next) => {
+    try {
+        const order = await Order.findById(req.params.cartNumber, {
+            include: [{
+                model: Sock,
+            }]
+        });
+        res.json(order);
+    } catch (err) {
+        next (err);
+    }
+})
 
 module.exports = router
