@@ -1,17 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSocksByCategory} from '../store/socks'
-import {Link} from 'react-router-dom'
 import CategoryMenu from './category-menu';
-
 import {SockList} from './sock-list'
 
 class CategorySocks extends React.Component {
   constructor() {
     super();
-    this.state = {
-      currentCategory: '',
-    }
     this.handleClick = this.handleClick.bind(this);
   }
   async componentDidMount() {
