@@ -10,7 +10,7 @@ import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
 import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
-import {Cart} from './index'
+import Cart from './components/cart'
 
 class Routes extends Component {
   componentDidMount() {

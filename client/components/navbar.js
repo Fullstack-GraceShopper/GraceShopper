@@ -18,7 +18,7 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
         {isLoggedIn ? (
           <div className="vert-center flex">
           <UserDropdown user={user} />
-          <div className="vr" />
+          <div className="vr bgw" />
             <Link className="top-header-link hover-light" to="/cart">
               <svg xmlns="http://www.w3.org/2000/svg" className="vert-center" width="64" height="64">
                 <g>
@@ -71,8 +71,8 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
             <Link className="top-header-link hover-light" to="/signup">
               <div className="vert-center">SIGN UP</div>
             </Link>
-            <div className="vr" />
-            <Link className="top-header-link hover-light" to="/asdf">
+            <div className="vr bgw" />
+            <Link className="top-header-link hover-light" to="/cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
                 <g>
                   <title>background</title>
