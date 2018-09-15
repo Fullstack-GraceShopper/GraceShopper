@@ -132,10 +132,20 @@ form div {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.category-menu-item{
+  color:white;
+  text-align: center;
+  padding:10px;
+}
+
 .vert-center{
   position:relative;
   top:50%;
   transform: translateY(-50%);
+}
+
+.white{
+  color:white;
 }
 
 /* IDS */
@@ -229,4 +239,11 @@ form div {
 
 #four04-link:hover{
   text-shadow: 0px 0px 3px black;
+}
+
+#categorys-menu{
+  background-color:#26777F;
+  display: flex;
+  justify-content: space-around;
+  flex-grow: inherit;
 }

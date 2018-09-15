@@ -9,7 +9,7 @@ class AdultSocks extends React.Component {
   }
   render () {
     const {adultSocks} = this.props
-
+    console.log(this.props)
     return (
       <div className="flex column center container-space-around">
         <div className="flex center category-header">

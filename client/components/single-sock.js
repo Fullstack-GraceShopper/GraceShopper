@@ -44,7 +44,7 @@ class SingleSock extends Component{
                   <h3>Categories:</h3>
                   <div>
                     {sock.categories.map((category, i) => {
-                      const path = `/socks/${category}`
+                      const path = `/socks/category/${category}`
                       return <div key={i}>
                       <Link to={path}>{category}
                       </Link></div>
