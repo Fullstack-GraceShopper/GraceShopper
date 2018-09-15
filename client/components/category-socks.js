@@ -1,17 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSocksByCategory} from '../store/socks'
-import {Link} from 'react-router-dom'
 
+import {SockList} from './sock-list'
 
 class CategorySocks extends React.Component {
-
-  async componentDidMount () {
+  async componentDidMount() {
     const category = this.props.match.params.category
     await this.props.getMatchingSocks(category)
   }
 
-  render () {
+  render() {
     const {categorySocks} = this.props
     let categoryName = this.props.match.params.category
     categoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
@@ -23,33 +22,25 @@ class CategorySocks extends React.Component {
         </div>
 
         <div>
-          { categorySocks.length > 0
-          ? <div className="flex row wrap flex-start container-space-around">
-              { categorySocks.map((sock, i) => { return (
-                <Link key={i} to={`/socks/${sock.id}`}>
-                  <div className='sock-display-div'>
-                    <img className="sock-image" src={sock.photos[0]} />
-                    <div>{sock.name}</div>
-                    <div>{`$ ${(sock.price/100).toFixed(2)}`}</div>
-                  </div>
-                </Link>)
-              })}
-            </div>
-          : <div> There are no sock registered to the database </div>
-        }
+          {categorySocks.length > 0 ? (
+            <SockList relevantSocks={categorySocks} />
+          ) : (
+            <div> There are no sock registered to the database </div>
+          )}
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   categorySocks: state.socks
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    getMatchingSocks: category => {
-      dispatch(fetchSocksByCategory(category))}
+const mapDispatchToProps = (dispatch) => ({
+  getMatchingSocks: category => {
+    dispatch(fetchSocksByCategory(category))
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategorySocks)
