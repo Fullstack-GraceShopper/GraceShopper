@@ -22,7 +22,10 @@ router.get('/:userId', async (req, res, next) => {
 router.post('/:userId', async (req, res, next) => {
     try {
         const user = await User.findById(req.params.userId);
-        const order = await Order.create({ userId : user.id});
+        const order = await Order.create();
+        console.log('ORDER ID:      ******************', order.id)
+        user.addOrder(order, {through: {orderId: order.id}})
+        console.log('ORDER:      ******************', order)
         res.json(order);
     } catch (err) {
         next(err);
