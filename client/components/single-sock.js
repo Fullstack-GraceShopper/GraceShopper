@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchSock} from '../store/socks'
-import {Link} from 'react-router-dom'
 import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
+import RelatedSocks from './related-socks'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -21,14 +21,16 @@ class SingleSock extends Component {
       <div>no sock</div>
     ) : (
       <div>
-        <div className="flex row">
+        <div className="flex">
           <br />
           <div>
             <img id="single-page-photo" src={sock.photos[0]} />
           </div>
           <br />
           <div>
-            <h1 className="slight-padding single-page-label">{sock.name.toUpperCase()}</h1>
+            <h1 className="slight-padding single-page-label">
+              {sock.name.toUpperCase()}
+            </h1>
             <p className="slight-padding" id="single-price">{`$${(
               sock.price / 100
             ).toFixed(2)}`}</p>
@@ -46,31 +48,22 @@ class SingleSock extends Component {
             )}
           </div>
         </div>
-        {!sock.categories ? (
-          <div />
-        ) : (
-          <div>
-            <h3>Categories:</h3>
-            <div>
-              {sock.categories.map((category, i) => {
-                const path = `/socks/category/${category}`
-                return (
-                  <div key={i}>
-                    <Link to={path}>{category}</Link>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
+        {!sock.categories ? <div /> : <RelatedSocks mainSock={sock} />}
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  sock: state.socks[0]
-})
+const mapStateToProps = (state, ownProps) => {
+  return {
+    sock:
+      state.socks.length === 1
+        ? state.socks[0]
+        : state.socks.find(
+            item => item.id === Number(ownProps.match.params.sockId)
+          )
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   getSock: id => dispatch(fetchSock(id))

@@ -1,8 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchAdultSocks} from '../store/socks'
-import {Link} from 'react-router-dom'
-import CategoryMenu from './category-menu';
+import CategoryMenu from './category-menu'
 import {SockList} from './sock-list'
 
 class AdultSocks extends React.Component {
@@ -13,7 +12,7 @@ class AdultSocks extends React.Component {
     const {adultSocks} = this.props
     return (
       <div className="flex column center container-space-around">
-      <CategoryMenu onClick={() => {}}/>
+        <CategoryMenu onClick={() => {}} />
         <div className="flex center category-header">
           <h1>Adults Sock</h1>
         </div>
