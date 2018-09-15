@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import UserDropdown from './user-dropdown';
 
+
 const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
   <div>
     <div className="top-header">
@@ -14,15 +15,11 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
         </Link>
       </div>
       {
-        
+
       }
       <div>
         {isLoggedIn ? (
-          // NEED TO PASS USER TO PROPS
           <UserDropdown user={user} />
-          // <div className="vert-center">
-          //   <img id="nav-photo" src={userPhoto}></img>
-          // </div>
         ) : (
           <div>
             <Link className="top-header-link vert-center hover-light" to="/login">
