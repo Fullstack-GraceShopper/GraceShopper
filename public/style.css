@@ -33,6 +33,16 @@ form div {
 }
 
 .flex{
+  display:flex;
+}
+
+.vr{
+  width:2px;
+  background-color: white;
+  margin-right:10px;
+}
+
+.flex{
   display: flex;
 }
 
