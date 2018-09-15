@@ -5,7 +5,14 @@ const {User} = require('../db/models');
 // ==> get all users orders <== //
 router.get('/:userId', async (req, res, next) => {
     try {
-
+      const orders = await Order.findAll({
+        where: {
+          userId: req.params.userId,
+          sold: true
+        }
+      })
+      console.log('ORDERS FROM SERVER #####################:   ', orders)
+      res.json(orders)
     } catch (err) {
         next(err);
     }

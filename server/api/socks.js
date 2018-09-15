@@ -15,6 +15,18 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/:sockId', async (req, res, next) => {
+  try {
+    const sock = await Sock.findById(req.params.sockId);
+    res.json(sock);
+  } catch (err) {
+    next(err);
+  }
+})
+
+//^^^^^^ *had to flip these* vvvvv b/c single sock wasn't receiving data
+//            hopefully this doesn't break your category route
+
 router.get('/:category', async (req, res, next) => {
   try {
     const category = req.params.category
@@ -30,14 +42,4 @@ router.get('/:category', async (req, res, next) => {
     next(err)
   }
 })
-
-router.get('/:sockId', async (req, res, next) => {
-  try {
-    const sock = await Sock.findById(req.params.sockId);
-    res.json(sock);
-  } catch (err) {
-    next(err);
-  }
-})
-
 module.exports = router
