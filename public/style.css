@@ -182,7 +182,7 @@ form div {
   border: 1px solid black;
   position: absolute;
   right: 11px;
-
+  z-index: 1;
 }
 
 #user-dropdown > li{

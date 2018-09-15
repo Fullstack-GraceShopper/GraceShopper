@@ -8,7 +8,7 @@ import AdultSocks from './components/adult-socks';
 import KidSocks from './components/kid-socks';
 import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
-import {AccountDetails} from './components/account-details';
+import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
 
 class Routes extends Component {
