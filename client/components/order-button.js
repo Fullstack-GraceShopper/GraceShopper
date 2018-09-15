@@ -19,7 +19,7 @@ class OrderButton extends Component {
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  order: state.order
 });
 
 const mapDispatchToProps = {

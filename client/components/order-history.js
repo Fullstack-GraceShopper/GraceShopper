@@ -7,11 +7,7 @@ class OrderHistory extends Component {
   async componentDidMount () {
     console.log('this:  ',this.props)
     const userId = this.props.user.id
-    try { 
-      await axios.get(`/api/orders/${userId}`);
-    } catch (err) {
-      console.error(err);
-    }
+    
   }
 
   render() {
