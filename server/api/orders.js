@@ -14,7 +14,7 @@ router.get('/:userId', async (req, res, next) => {
 // ==> create new users cart <== //
 router.post('/:userId', async (req, res, next) => {
     try {
-        const order = await Order.create({ userId : user.id});
+        const order = await Order.create({ userId : req.params.userId});
         res.json(order);
     } catch (err) {
         next(err);
