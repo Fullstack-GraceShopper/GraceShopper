@@ -43,5 +43,32 @@ router.post('/:userId', async (req, res, next) => {
   }
 });
 
+router.get('/:userId/cart', async (req, res, next) => {
+    try {
+        const order = await Order.findAll({
+            limit: 1,
+            where: {
+                userId: req.params.userId,
+            },
+            order:[['createdAt', 'DESC']]
+        });
+        res.json(order);
+    } catch (err) {
+        next (err);
+    }
+});
+
+router.get('/inCart/:cartNumber', async (req, res, next) => {
+    try {
+        const order = await Order.findById(req.params.cartNumber, {
+            include: [{
+                model: Sock,
+            }]
+        });
+        res.json(order);
+    } catch (err) {
+        next (err);
+    }
+})
 
 module.exports = router
