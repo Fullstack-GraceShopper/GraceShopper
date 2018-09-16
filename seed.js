@@ -151,7 +151,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['casual']
   });
 
@@ -161,7 +161,7 @@ const seed = async (num) => {
     price: 1099,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['athletic', 'casual']
   })
 
@@ -171,7 +171,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['casual']
   })
 
@@ -181,7 +181,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['funny', 'casual']
   })
 
@@ -191,7 +191,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['casual']
   })
 
@@ -201,7 +201,7 @@ const seed = async (num) => {
     price: 499,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['popculture', 'casual']
   })
 
@@ -211,7 +211,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['athletic']
   })
 
@@ -221,7 +221,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['popculture', 'dress']
   })
 
@@ -231,7 +231,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['dress']
   })
 
@@ -241,7 +241,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['dress']
   })
 
@@ -251,7 +251,7 @@ const seed = async (num) => {
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
-    sizes: [...new Set(arrGen([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 5))].sort((a, b) => a - b),
+    sizes: ["Child Small"],
     categories: ['funny', 'casual']
   })
 
