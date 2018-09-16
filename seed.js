@@ -134,8 +134,8 @@ const seed = async (num) => {
   })
 
   await Sock.create({
-    photos: ['https://bit.ly/2MA0Qjo'],
-    name: 'I\'m husky',
+    photos: ['https://bit.ly/2NiAN5l'],
+    name: 'Cool Corgi',
     price: 599,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: true,
@@ -246,8 +246,8 @@ const seed = async (num) => {
   })
 
   await Sock.create({
-    photos: ['https://bit.ly/2MA0Qjo'],
-    name: 'Kid I\'m Husky',
+    photos: ['https://bit.ly/2NiAN5l'],
+    name: 'Kid Cool Corgi',
     price: 399,
     description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
     isAdult: false,
