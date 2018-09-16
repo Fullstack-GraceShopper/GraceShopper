@@ -4,6 +4,7 @@ import {fetchSock} from '../store/socks'
 import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
+import OrderButton from './order-button'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -42,6 +43,7 @@ class SingleSock extends Component {
               <div>
                 <SizeDropdown sock={sock} />
                 <QuantityDropdown />
+                <OrderButton />
               </div>
             ) : (
               <p>Out of Stock :(</p>

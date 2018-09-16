@@ -16,7 +16,7 @@ class OrderButton extends Component {
   render() {
     return (
       <button onClick={this.handleClick} type="submit">
-        buy sock
+        Add To Cart
       </button>
     )
   }

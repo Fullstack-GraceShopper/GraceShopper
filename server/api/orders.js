@@ -19,6 +19,7 @@ router.post('/:userId', async (req, res, next) => {
   try {
       const user = await User.findById(req.params.userId);
       const order = await Order.create({userId: user.id});
+      
 
       // was using this to try and create order
       // with associations, but not quite working:
