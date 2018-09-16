@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {fetchOrders} from '../store/orders'
+import {fetchOrdersForCart} from '../store/orders'
 import axios from 'axios';
 
 class OrderList extends Component {
@@ -17,29 +17,23 @@ class OrderList extends Component {
   }
 
   render() {
-    const orders = this.props.orders
+    const {orders} = this.props
     return(
       !orders
       ? <h1>no orders</h1>
       : <div>
-          {orders.map(order => order.id)}
+          {orders.map(order => <div key={order.id}>{order.id}</div>)}
         </div> 
     )
   } 
 }
 
-const mapStateToProps = state => {
-  // console.log('STATE:   ', state)
-  return {
+const mapStateToProps = state => ({
     orders: state.orders
-  }
-};
+})
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  // console.log('OWNPROPS:   ', ownProps)
-  return {
-    getOrderHistory: id => dispatch(fetchOrderHistory(id))
-  }  
-};
+const mapDispatchToProps = dispatch => ({
+  getOrders: id => dispatch(fetchOrdersForCart(id))
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderList);

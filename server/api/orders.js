@@ -5,12 +5,10 @@ router.get('/:userId', async (req, res, next) => {
     try {
       const orders = await Order.findAll({
         where: {
-          userId: req.params.userId,
-          sold: true
+          userId: req.params.userId
         }
       })
-      console.log('ORDERS FROM SERVER #####################:   ', orders)
-      res.json(orders)
+      res.json(orders);
     } catch (err) {
         next(err);
     }
@@ -31,7 +29,6 @@ router.post('/:userId', async (req, res, next) => {
 
       //trying to brute force the joinTables orderId update
       //will log the order.id in terminal but wont show in db:
-
       // sockOrder.orderId = order.id
       // console.log('SOCK ORDER ID: ************', sockOrder.orderId)
       // console.log('ORDER: ******************', order)
@@ -82,5 +79,19 @@ router.get('/inCart/:cartNumber', async (req, res, next) => {
         next (err);
     }
 })
+
+router.get('/:userId/order-history', async (req, res, next) => {
+    try {
+      const orders = await Order.findAll({
+        where: {
+          userId: req.params.userId,
+          sold: true
+        }
+      })
+      res.json(orders);
+    } catch (err) {
+        next(err);
+    }
+});
 
 module.exports = router
