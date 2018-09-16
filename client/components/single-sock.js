@@ -37,7 +37,7 @@ class SingleSock extends Component {
             <h3 className="slight-padding single-page-label">
               Item Description
             </h3>
-            {/* <p>{sock.description}</p> */}
+            <p className="slight-padding">{sock.description}</p>
             {sock.sizes ? (
               <div>
                 <SizeDropdown sock={sock} />
