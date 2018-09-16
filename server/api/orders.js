@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const {User, Sock, Order} = require('../db/models');
-const {sockOrder} = require('../db/models/sock-order')
 
 router.get('/:userId', async (req, res, next) => {
     try {
@@ -57,6 +56,19 @@ router.get('/:userId/cart', async (req, res, next) => {
         next (err);
     }
 });
+
+router.get('/inCart/:cartNumber', async (req, res, next) => {
+    try {
+        const order = await Order.findById(req.params.cartNumber, {
+            include: [{
+                model: Sock,
+            }]
+        });
+        res.json(order);
+    } catch (err) {
+        next (err);
+    }
+})
 
 router.get('/inCart/:cartNumber', async (req, res, next) => {
     try {

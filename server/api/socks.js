@@ -6,9 +6,13 @@ const Op = Sequelize.Op
 router.get('/', async (req, res, next) => {
   try {
     let socks = []
-    req.query.isAdult === 'true'
-    ? socks = await Sock.findAll({where: {isAdult: true}})
-    : socks = await Sock.findAll({where: {isAdult: false}})
+    if(req.query.isAdult === 'true'){
+      socks = await Sock.findAll({where: {isAdult: true}})
+    } else if (req.query.isAdult === 'false'){
+      socks = await Sock.findAll({where: {isAdult: false}})
+    } else {
+      socks = await Sock.findAll()
+    }
     res.json(socks)
   } catch(err) {
     next(err)
