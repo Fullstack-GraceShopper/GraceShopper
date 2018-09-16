@@ -2,13 +2,12 @@ const router = require('express').Router();
 const {User, Sock, Order} = require('../db/models');
 const {sockOrder} = require('../db/models/sock-order')
 
-// ==> get all users orders <== //
 router.get('/:userId', async (req, res, next) => {
     try {
       const orders = await Order.findAll({
         where: {
           userId: req.params.userId,
-          sold: false
+          sold: true
         }
       })
       console.log('ORDERS FROM SERVER #####################:   ', orders)
@@ -44,13 +43,5 @@ router.post('/:userId', async (req, res, next) => {
   }
 });
 
-// ==> get latest unsold order <== //
-router.get('/:userId/cart', async (req, res, next) => {
-  try {
-
-  } catch (err) {
-      next (err);
-  }
-});
 
 module.exports = router

@@ -7,8 +7,14 @@ import axios from 'axios';
 class OrderHistory extends Component {
 
   async componentDidMount () {
-    const userId = this.props.user.id
-    await this.props.getOrderHistory()
+    
+    try {
+      console.log(this.props.match.params)
+      const userId = Number(this.props.match.params.userId)
+      await this.props.getOrderHistory(userId)
+    } catch(err) {
+      console.error(err)
+    }
   }
 
   render() {
@@ -31,13 +37,18 @@ class OrderHistory extends Component {
   } 
 }
 
-const mapStateToProps = state => ({
-  user: state.user,
-  orders: state.orders
-});
+const mapStateToProps = state => {
+  // console.log('STATE:   ', state)
+  return {
+    orders: state.orders
+  }
+};
 
-const mapDispatchToProps = {
-  getOrderHistory: fetchOrderHistory
+const mapDispatchToProps = (dispatch, ownProps) => {
+  // console.log('OWNPROPS:   ', ownProps)
+  return {
+    getOrderHistory: id => dispatch(fetchOrderHistory(id))
+  }  
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory);

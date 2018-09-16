@@ -10,6 +10,7 @@ import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
 import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
+import OrderHistory from './components/order-history'
 
 class Routes extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class Routes extends Component {
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
+        <Route exact path="/orders/:userId/order-history" component={OrderHistory} />
         {accountDetailPath}
         <Route component={NotFound} />
       </Switch>

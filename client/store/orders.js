@@ -3,7 +3,7 @@ import axios from 'axios'
  // ACTION TYPES
 
 const RECEIVE_ORDER = 'RECEIVE_ORDER'
-const GET_ORDERS = 'GET_ORDERS'
+const GET_ORDER_HISTORY = 'GET_ORDER_HISTORY'
 
  // INITIAL STATE
 
@@ -13,16 +13,14 @@ const defaultOrders = []
 // ACTION CREATORS
 
 export const receiveOrder = order => ({type: RECEIVE_ORDER, order})
-export const gotOrderHistory = orders => ({type: GET_ORDERS, orders})
+export const gotOrderHistory = orders => ({type: GET_ORDER_HISTORY, orders})
 
 
 // THUNK CREATORS
 
 export const postOrder = userId => async dispatch => {
   try { 
-    // console.log('USER ID IN THUNK:   ',  userId)
     const {data: order} = await axios.post(`/api/orders/${userId}`);
-    // console.log('ORDER FROMM THUNK:   ',  order)
     dispatch(receiveOrder(order))
   } catch (err) {
     console.error(err);
@@ -30,7 +28,7 @@ export const postOrder = userId => async dispatch => {
 }
 
 export const fetchOrderHistory = userId => async dispatch => {
-  try { 
+  try {
     const {data: orders} = await axios.get(`/api/orders/${userId}`);
     dispatch(gotOrderHistory(orders))
   } catch (err) {
