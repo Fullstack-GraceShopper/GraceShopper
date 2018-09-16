@@ -15,7 +15,7 @@ const formatDate = order => {
 class OrderHistory extends Component {
   async componentDidMount () {
     try {
-      const userId = Number(this.props.match.params.userId)
+      const userId = Number(this.props.user.id)
       await this.props.getOrderHistory(userId)
     } catch(err) {
       console.error(err)

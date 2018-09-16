@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {connect} from 'react-redux'
+import OrderHistory from './order-history'
 
 class UserDropdown extends Component {
   constructor() {
@@ -32,7 +33,7 @@ class UserDropdown extends Component {
         {this.state.showForm ? (
           <ul id="user-dropdown" className="no-decoration">
             <li>
-              <Link to="/accountdetails" className="no-decoration black" user={user}>
+              <Link to={`/${user.id}/accountdetails`} className="no-decoration black" user={user}>
                 Account Details
               </Link>
             </li>

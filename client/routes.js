@@ -21,7 +21,7 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-    const accountDetailPath = isLoggedIn ? <Route exact path="/accountdetails" component={AccountDetails} /> : null;
+    const accountDetailPath = isLoggedIn ? <Route exact path="/:userId/accountdetails" component={AccountDetails} /> : null;
 
     return (
       <Switch>

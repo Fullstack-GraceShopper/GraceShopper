@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {me} from '../store/user';
+import OrderHistory from './order-history'
 
 class AccountDetails extends Component {
   async componentDidMount(){
@@ -14,7 +15,7 @@ class AccountDetails extends Component {
         <h1>Account Details</h1>
         <h3>Email Address:</h3> <p> {user.email}</p>
         <h3>Address:</h3> <p> {user.address}</p>
-        <h3>Order History:</h3> <p>TBD</p>
+        <h3>Order History:</h3> <OrderHistory user={user}/>
       </div> : <div>Loading user details...</div>
     )
   }
