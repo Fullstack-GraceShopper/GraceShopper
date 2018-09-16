@@ -65,6 +65,14 @@ export const fetchSock = id => async dispatch => {
   }
 }
 
+export const fetchAllSocks = () => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/socks/`);
+    dispatch(gotSocks(data));
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // REDUCER
 

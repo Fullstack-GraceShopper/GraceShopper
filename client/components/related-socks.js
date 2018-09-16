@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchAdultSocks} from '../store/socks'
+import {fetchAllSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
 
 const shuffle = a => {
@@ -24,13 +24,13 @@ const includesAny = (arr1, arr2) => {
 
 class RelatedSocks extends React.Component {
   async componentDidMount() {
-    await this.props.getAdultSocks()
+    await this.props.getAllSocks()
   }
 
   render() {
-    const {adultSocks, mainSock} = this.props
+    const {socks, mainSock} = this.props
     let randomRelatedSocks = shuffle(
-      adultSocks.filter(
+      socks.filter(
         sock =>
           sock.id !== mainSock.id &&
           includesAny(sock.categories, mainSock.categories)
@@ -65,11 +65,11 @@ class RelatedSocks extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  adultSocks: state.socks
+  socks: state.socks
 })
 
 const mapDispatchToProps = {
-  getAdultSocks: fetchAdultSocks
+  getAllSocks: fetchAllSocks
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RelatedSocks)
