@@ -116,14 +116,14 @@ tr.orderRow>td {
 }
 
 .sock-image {
-  width: 20vw;
-  height: 48vh;
+  width: 280px;
+  height: 340px;
   padding-top: 2em;
 }
 
 .related-sock-image {
-  width: 13vw;
-  height: 31vh;
+  width: 140px;
+  height: 167px;
   padding-top: 1em;
 }
 
