@@ -43,7 +43,7 @@ class SingleSock extends Component {
               <div>
                 <SizeDropdown sock={sock} />
                 <QuantityDropdown />
-                <OrderButton />
+                <OrderButton sockId={sock.id}/>
               </div>
             ) : (
               <p>Out of Stock :(</p>

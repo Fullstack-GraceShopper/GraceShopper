@@ -15,9 +15,16 @@ router.get('/:userId', async (req, res, next) => {
 });
 
 // ==> create new users cart <== //
-router.post('/:userId', async (req, res, next) => {
+router.post('/:userId/:sockId', async (req, res, next) => {
   try {
-    const order = await Order.create({ userId : req.params.userId});
+    const sock = await Sock.findById(req.params.sockId)
+    const [order] = await Order.findOrCreate({where: {
+        userId: req.params.userId,
+        sold: false
+      }
+    });
+    order.addSock(sock)
+
     res.json(order);
   } catch (err) {
       next(err);
