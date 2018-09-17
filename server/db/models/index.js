@@ -1,7 +1,7 @@
 const {User} = require('./user')
 const {Sock} = require('./sock')
 const {Order} = require('./order')
-const {itemInCart} = require('./item-in-cart')
+const {itemInCart} = require('./cart-item')
 
 User.hasMany(Order);
 Order.belongsTo(User);
