@@ -6,8 +6,7 @@ import axios from 'axios';
 
 class OrderList extends Component {
 
-  async componentDidMount () {
-    
+  async componentDidMount () { 
     try {
       const userId = Number(this.props.match.params.userId)
       await this.props.getOrders(userId)
