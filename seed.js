@@ -123,242 +123,17 @@ const seed = async (num) => {
     price: 599,
     description: `Heather is the grey plaid sock that you see here please buy this sock if your name is heather`,
     isAdult: true,
-    sizes: ["Small", "Large"],
+    sizes: ["Medium", "Large"],
     categories: ['dress']
   },
   {
     photos: ['https://bit.ly/2NiAN5l'],
     name: 'Cool Corgi',
     price: 599,
-    description: 'I have reset the sensors to scan for frequencies outside the usual range. By emitting harmonic vibrations to shatter the lattices. We will monitor and adjust the frequency of the resonators. He has this ability of instantly interpreting and extrapolating any verbal communication he hears. It may be due to the envelope over the structure, causing hydrogen-carbon helix patterns throughout. I\'m comparing the molecular integrity of that bubble against our phasers.',
+    description: 'Cool corgi sock with a cool korgi on it',
     isAdult: true,
-    sizes: ["Medium", "Large"],
+    sizes: ["Small", "Medium", "Large"],
     categories: ['funny', 'casual']
-  },
-  {
-    photos: ['https://images.sportsdirect.com/images/products/41802090_l.jpg'],
-    name: '3-Pack Marvel Socks',
-    price: 1299,
-    description: `Three individual socks with marvel stuff on them cool ya`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-marvel-deadpool-large-all-over-print-socks-1_2048x@2x.jpg?v=1500546931'],
-    name: 'Deadpool Sock',
-    price: 899,
-    description: `Sock with Deadpool from the Marvel blockbusterrrr film Deadpool`,
-    isAdult: true,
-    sizes: ["Small", "Medium"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-marvel-black-panther-waterprint-socks-4_580x@2x.jpg?v=1521636245'],
-    name: 'Black Panther Sock',
-    price: 899,
-    description: `Black Panther movie sock  sweet`,
-    isAdult: true,
-    sizes: ["Small", "Medium", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-fdngXD1kMQXDHh0Nl2syTdyJO6itdbK6vrlbJb0dQ1NH-LfY1g'],
-    name: 'Xmen Sock',
-    price: 799,
-    description: `Sock Xmen movie sock  cool `,
-    isAdult: true,
-    sizes: ["Small", "Medium"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://images-na.ssl-images-amazon.com/images/I/716n%2BJB4U6L._UX385_.jpg'],
-    name: 'Ironman Sock',
-    price: 899,
-    description: `Socky Iron man Movie v cool indeede`,
-    isAdult: true,
-    sizes: ["Small", "Medium", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['http://www.thinkgeek.com/images/products/zoom/f0f1_marvel_superhero_socks.jpg'],
-    name: '3-Pack SpiderMan Socks',
-    price: 1499,
-    description: `Three individual spidey socks ver nice not just twice but thrice `,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-marvel-spider-man-suit-up-athletic-socks-1_2048x@2x.jpg?v=1500547132'],
-    name: 'Spiderman Socky',
-    price: 699,
-    description: `Sock with spidey on it `,
-    isAdult: true,
-    sizes: ["Medium"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['http://cdn3.bigcommerce.com/s-mxtfmh/product_images/uploaded_images/best-womens-athletic-socks.jpg'],
-    name: 'Athletic Sock',
-    price: 599,
-    description: `Pink and white athletic sock with a sun on it`,
-    isAdult: true,
-    sizes: ["Small"],
-    categories: ['athletic']
-  },
-  {
-    photos: ['http://www.thinkgeek.com/images/products/zoom/f0f1_marvel_superhero_socks.jpg'],
-    name: 'Batman Sock',
-    price: 799,
-    description: `Sock bat man is a part of the sock that goes on your foot`,
-    isAdult: true,
-    sizes: ["Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://cdn1.boldsocks.com/wp-content/uploads/product-photography/23936-Black-Grey-X-Men-Storm-Sublimated-Mens-Casual-Socks-BIOWORLD/images/23936-Black-Grey-X-Men-Storm-Sublimated-Mens-Casual-Socks-BIOWORLD13.jpg'],
-    name: 'X-Men Storm Sock',
-    price: 999,
-    description: `Sock with Storm from X-Men nice 1`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf193d7c8/tillys/images/catalog/1000x1000/274145100.jpg?sw=539&sh=693&sm=fit'],
-    name: 'Homer Donut Sock',
-    price: 799,
-    description: `Sock with Homer from The Simpsons and a donut`,
-    isAdult: true,
-    sizes: ["Small", "Medium"],
-    categories: ['funny', 'popculture']
-  },
-  {
-    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dw2d5f282b/tillys/images/catalog/1000x1000/263196149.jpg?sw=539&sh=693&sm=fit'],
-    name: 'Bart Simpson Sock',
-    price: 799,
-    description: `steezy`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['funny', 'popculture']
-  },
-  {
-    photos: ['https://www.thesnowboardshop.co.uk/images/burton-weekend-socks-south-park-2-pack-p4523-10282_image.jpg'],
-    name: 'Kyle South Park Sock',
-    price: 799,
-    description: `Sock with Kyle Broflovski from South Park`,
-    isAdult: true,
-    sizes: ["Small", "Medium"],
-    categories: ['funny', 'popculture']
-  },
-  {
-    photos: ['https://di2ponv0v5otw.cloudfront.net/posts/2018/09/06/5b91a5bd4ab633d1fac4735b/m_5b91a5c8f30369dcf00f1ba7.jpg'],
-    name: 'Mr MeeSock',
-    price: 959,
-    description: `Mr meesock with mr Meeseeks`,
-    isAdult: true,
-    sizes: ["Medium", "Large"],
-    categories: ['funny', 'popculture']
-  },
-  {
-    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dw30ce786f/tillys/images/catalog/1000x1000/332758500.jpg?sw=539&sh=693&sm=fit'],
-    name: 'Pickle Rick Sock',
-    price: 959,
-    description: `Pickle Rick`,
-    isAdult: true,
-    sizes: ["Small"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://www.artistshot.com/assets/images/admin/product_design/2004674/cactuar-final-fantasy-socks-420x420.jpg'],
-    name: 'Socktaur Final Fantasock',
-    price: 959,
-    description: `Cactaur sock from Final Fantasy that is now a socktaur`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-harry-potter-hogwarts-vertical-socks-1_2048x@2x.jpg?v=1504532579'],
-    name: 'Hogwarts Sock',
-    price: 959,
-    description: `Sock for students of Hogwarts like harry potter was and stuff`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-star-trek-spock-3d-socks-1_2048x@2x.jpg?v=1496598472'],
-    name: 'Star Trek 3-D S(p)ock',
-    price: 799,
-    description: `Spock is now sock is now three dimensional `,
-    isAdult: true,
-    sizes: ["Small", "Medium"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dw1a708a73/tillys/images/catalog/1000x1000/282135957.jpg?sw=539&sh=693&sm=fit'],
-    name: 'Mario Mushroom Sock',
-    price: 799,
-    description: `sock Mario Nintendo mushrooms are on teh sock`,
-    isAdult: true,
-    sizes: ["Larger", "Small"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://images-na.ssl-images-amazon.com/images/I/61r7D94j4EL._UX385_.jpg'],
-    name: 'Donkey Kong Sock',
-    price: 799,
-    description: `DK`,
-    isAdult: true,
-    sizes: ["Small", "Medium", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkIKxHNuQIhi_Kgn9KZLsOGMEFao8PDRYU1XGvUiUGcGE_1Y8Wyg'],
-    name: 'Zelda Sock',
-    price: 799,
-    description: `Zelda sock like the video game zelda a character from the video game zelda is on the sock like in the vidya gam,e`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx2PjVr7w2S3l3waMeoJNV6uIgmjC1570zyx71w1XTinVT70um'],
-    name: 'Sock Hunt',
-    price: 799,
-    description: `sock hunt like duck hunt get it`,
-    isAdult: true,
-    sizes: ["Medium", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxEfPgBmV0E_2jZt1MJM3IxpNkDZaqs9mrmxjf7GPNs6GN-JOc'],
-    name: 'Poke Ball Sock',
-    price: 799,
-    description: `frorm Pokemon`,
-    isAdult: true,
-    sizes: ["Small", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['http://eurekashop.se/16105-large_default/3-pack-pokemon-pikachu-socks-pokemon-socks-3-pair-material-70-cotton-27-polyamide-3-elasthan-choose-size-23-26-27-30-31-34-35-37.jpg'],
-    name: '3-Pack Pikachu Socks',
-    price: 799,
-    description: `Three individual Pikachu socks with Pikachu they are socks they are pikachu tell me who are you pete towns end`,
-    isAdult: true,
-    sizes: ["Medium", "Large"],
-    categories: ['popculture']
-  },
-  {
-    photos: ['https://images-na.ssl-images-amazon.com/images/I/51KOwILMDXL._UX679_.jpg'],
-    name: 'Wu-Tang',
-    price: 799,
-    description: `Ya best protect ya sock, and keep ya feet warm cuz flu tang clan aint nothin to sock wit`,
-    isAdult: true,
-    sizes: ["Medium", "Large"],
-    categories: ['popculture']
   },
   {
     photos: ['https://images-na.ssl-images-amazon.com/images/I/81kOz-T75mL._UL1500_.jpg'],
@@ -629,6 +404,231 @@ const seed = async (num) => {
     isAdult: true,
     sizes: ["Medium", "Large"],
     categories: ['athletic']
+  },
+  {
+    photos: ['https://images.sportsdirect.com/images/products/41802090_l.jpg'],
+    name: '3-Pack Marvel Socks',
+    price: 1299,
+    description: `Three individual socks with marvel stuff on them cool ya`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-marvel-deadpool-large-all-over-print-socks-1_2048x@2x.jpg?v=1500546931'],
+    name: 'Deadpool Sock',
+    price: 899,
+    description: `Sock with Deadpool from the Marvel blockbusterrrr film Deadpool`,
+    isAdult: true,
+    sizes: ["Small", "Medium"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-marvel-black-panther-waterprint-socks-4_580x@2x.jpg?v=1521636245'],
+    name: 'Black Panther Sock',
+    price: 899,
+    description: `Black Panther movie sock  sweet`,
+    isAdult: true,
+    sizes: ["Small", "Medium", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-fdngXD1kMQXDHh0Nl2syTdyJO6itdbK6vrlbJb0dQ1NH-LfY1g'],
+    name: 'Xmen Sock',
+    price: 799,
+    description: `Sock Xmen movie sock  cool `,
+    isAdult: true,
+    sizes: ["Small", "Medium"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://images-na.ssl-images-amazon.com/images/I/716n%2BJB4U6L._UX385_.jpg'],
+    name: 'Ironman Sock',
+    price: 899,
+    description: `Socky Iron man Movie v cool indeede`,
+    isAdult: true,
+    sizes: ["Small", "Medium", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['http://www.thinkgeek.com/images/products/zoom/f0f1_marvel_superhero_socks.jpg'],
+    name: '3-Pack SpiderMan Socks',
+    price: 1499,
+    description: `Three individual spidey socks ver nice not just twice but thrice `,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-marvel-spider-man-suit-up-athletic-socks-1_2048x@2x.jpg?v=1500547132'],
+    name: 'Spiderman Socky',
+    price: 699,
+    description: `Sock with spidey on it `,
+    isAdult: true,
+    sizes: ["Medium"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['http://cdn3.bigcommerce.com/s-mxtfmh/product_images/uploaded_images/best-womens-athletic-socks.jpg'],
+    name: 'Athletic Sock',
+    price: 599,
+    description: `Pink and white athletic sock with a sun on it`,
+    isAdult: true,
+    sizes: ["Small"],
+    categories: ['athletic']
+  },
+  {
+    photos: ['http://www.thinkgeek.com/images/products/zoom/f0f1_marvel_superhero_socks.jpg'],
+    name: 'Batman Sock',
+    price: 799,
+    description: `Sock bat man is a part of the sock that goes on your foot`,
+    isAdult: true,
+    sizes: ["Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://cdn1.boldsocks.com/wp-content/uploads/product-photography/23936-Black-Grey-X-Men-Storm-Sublimated-Mens-Casual-Socks-BIOWORLD/images/23936-Black-Grey-X-Men-Storm-Sublimated-Mens-Casual-Socks-BIOWORLD13.jpg'],
+    name: 'X-Men Storm Sock',
+    price: 999,
+    description: `Sock with Storm from X-Men nice 1`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf193d7c8/tillys/images/catalog/1000x1000/274145100.jpg?sw=539&sh=693&sm=fit'],
+    name: 'Homer Donut Sock',
+    price: 799,
+    description: `Sock with Homer from The Simpsons and a donut`,
+    isAdult: true,
+    sizes: ["Small", "Medium"],
+    categories: ['funny', 'popculture']
+  },
+  {
+    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dw2d5f282b/tillys/images/catalog/1000x1000/263196149.jpg?sw=539&sh=693&sm=fit'],
+    name: 'Bart Simpson Sock',
+    price: 799,
+    description: `steezy`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['funny', 'popculture']
+  },
+  {
+    photos: ['https://www.thesnowboardshop.co.uk/images/burton-weekend-socks-south-park-2-pack-p4523-10282_image.jpg'],
+    name: 'Kyle South Park Sock',
+    price: 799,
+    description: `Sock with Kyle Broflovski from South Park`,
+    isAdult: true,
+    sizes: ["Small", "Medium"],
+    categories: ['funny', 'popculture']
+  },
+  {
+    photos: ['https://di2ponv0v5otw.cloudfront.net/posts/2018/09/06/5b91a5bd4ab633d1fac4735b/m_5b91a5c8f30369dcf00f1ba7.jpg'],
+    name: 'Mr MeeSock',
+    price: 959,
+    description: `Mr meesock with mr Meeseeks`,
+    isAdult: true,
+    sizes: ["Medium", "Large"],
+    categories: ['funny', 'popculture']
+  },
+  {
+    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dw30ce786f/tillys/images/catalog/1000x1000/332758500.jpg?sw=539&sh=693&sm=fit'],
+    name: 'Pickle Rick Sock',
+    price: 959,
+    description: `Pickle Rick`,
+    isAdult: true,
+    sizes: ["Small"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://www.artistshot.com/assets/images/admin/product_design/2004674/cactuar-final-fantasy-socks-420x420.jpg'],
+    name: 'Socktaur Final Fantasock',
+    price: 959,
+    description: `Cactaur sock from Final Fantasy that is now a socktaur`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-harry-potter-hogwarts-vertical-socks-1_2048x@2x.jpg?v=1504532579'],
+    name: 'Hogwarts Sock',
+    price: 959,
+    description: `Sock for students of Hogwarts like harry potter was and stuff`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://cdn.shopify.com/s/files/1/1390/4303/products/socks-star-trek-spock-3d-socks-1_2048x@2x.jpg?v=1496598472'],
+    name: 'Star Trek 3-D S(p)ock',
+    price: 799,
+    description: `Spock is now sock is now three dimensional `,
+    isAdult: true,
+    sizes: ["Small", "Medium"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://www.tillys.com/dw/image/v2/BBLQ_PRD/on/demandware.static/-/Sites-master-catalog/default/dw1a708a73/tillys/images/catalog/1000x1000/282135957.jpg?sw=539&sh=693&sm=fit'],
+    name: 'Mario Mushroom Sock',
+    price: 799,
+    description: `sock Mario Nintendo mushrooms are on teh sock`,
+    isAdult: true,
+    sizes: ["Larger", "Small"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://images-na.ssl-images-amazon.com/images/I/61r7D94j4EL._UX385_.jpg'],
+    name: 'Donkey Kong Sock',
+    price: 799,
+    description: `DK`,
+    isAdult: true,
+    sizes: ["Small", "Medium", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkIKxHNuQIhi_Kgn9KZLsOGMEFao8PDRYU1XGvUiUGcGE_1Y8Wyg'],
+    name: 'Zelda Sock',
+    price: 799,
+    description: `Zelda sock like the video game zelda a character from the video game zelda is on the sock like in the vidya gam,e`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx2PjVr7w2S3l3waMeoJNV6uIgmjC1570zyx71w1XTinVT70um'],
+    name: 'Sock Hunt',
+    price: 799,
+    description: `sock hunt like duck hunt get it`,
+    isAdult: true,
+    sizes: ["Medium", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxEfPgBmV0E_2jZt1MJM3IxpNkDZaqs9mrmxjf7GPNs6GN-JOc'],
+    name: 'Poke Ball Sock',
+    price: 799,
+    description: `frorm Pokemon`,
+    isAdult: true,
+    sizes: ["Small", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['http://eurekashop.se/16105-large_default/3-pack-pokemon-pikachu-socks-pokemon-socks-3-pair-material-70-cotton-27-polyamide-3-elasthan-choose-size-23-26-27-30-31-34-35-37.jpg'],
+    name: '3-Pack Pikachu Socks',
+    price: 799,
+    description: `Three individual Pikachu socks with Pikachu they are socks they are pikachu tell me who are you pete towns end`,
+    isAdult: true,
+    sizes: ["Medium", "Large"],
+    categories: ['popculture']
+  },
+  {
+    photos: ['https://images-na.ssl-images-amazon.com/images/I/51KOwILMDXL._UX679_.jpg'],
+    name: 'Wu-Tang',
+    price: 799,
+    description: `Ya best protect ya sock, and keep ya feet warm cuz flu tang clan aint nothin to sock wit`,
+    isAdult: true,
+    sizes: ["Medium", "Large"],
+    categories: ['popculture']
   },
   {
     photos: ['https://78.media.tumblr.com/tumblr_mcip40VMyC1roaxc3o1_250.jpg'],

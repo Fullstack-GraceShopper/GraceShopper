@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 export const SizeDropdown = props => {
   const {sock} = props
@@ -12,9 +12,14 @@ export const SizeDropdown = props => {
           <select name="size-select" id="size-select" defaultValue="--">
             <option disabled>--</option>
             {sock.sizes.map((size, i) => (
-              <option key={i}>
-                {size} M - {size - 3} W
-              </option>
+              <Fragment>
+                <option key={i}>
+                  Men's - {size}
+                </option>
+                <option key={size.length}>
+                  Women's - {size}
+                </option>
+              </Fragment>
             ))}
           </select>
         </div>
