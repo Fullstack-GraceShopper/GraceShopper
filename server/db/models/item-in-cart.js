@@ -6,7 +6,7 @@ const itemInCart = db.define('cart-item', {
     type: Sequelize.INTEGER
   },
   size: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   }
 })
 
