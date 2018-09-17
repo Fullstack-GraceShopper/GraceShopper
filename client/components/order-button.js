@@ -8,7 +8,8 @@ class OrderButton extends Component {
     evt.preventDefault();
     try {
       const userId = this.props.user.id
-      await this.props.addOrder(userId)
+      const sockId = this.props.sockId
+      await this.props.addOrder(userId, sockId)
     } catch(err) {
         console.log(err);
     }
@@ -22,12 +23,13 @@ class OrderButton extends Component {
   }
 };
 
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = (state, ownProps)=> ({
+  user: state.user,
+  sockId: ownProps.sockId
 });
 
 const mapDispatchToProps = dispatch => ({
-  addOrder: id => dispatch(postOrder(id))
+  addOrder: (userId, sockId) => dispatch(postOrder(userId, sockId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderButton);
