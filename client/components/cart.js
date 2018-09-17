@@ -13,12 +13,13 @@ class Cart extends Component {
   async componentDidMount() {
     const user = await this.props.getUser()
   }
-  handRemove() {
+  handRemove() { // OB: and replace with an animal hand?
 
   }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
   }
+  // OB: another possible universal util
   calcTotal = objects => {
     let total = 0
     objects.forEach(object => {
@@ -29,9 +30,11 @@ class Cart extends Component {
   render() {
     if(this.props.user.id && !this.state.gotCart) {
       this.getCart(this.props.user.id)
-      this.state = {gotCart: true} // setState to avoid mutating??                           
+      // OB: you might just want `this.gotCart = true;`
+      // OB: but actually looks like this is worth deeper investigation into the original bug, logic might belong in `componentDidUpdate`
+      this.state = {gotCart: true} // setState to avoid mutating??  // OB: uhoh                        
     }
-                                   // this.setState({gotCart: true})
+                                   // this.setState({gotCart: true}) // OB: undead code
     return (
       <div>
         <div className="flex center category-header">
@@ -53,6 +56,7 @@ class Cart extends Component {
                     <h2>{sock.cartItem.quantity}</h2>
                     <div className="vr bgb h100" />
                     <h2 className="price">{`$${(sock.cartItem.quantity * (sock.price / 100).toFixed(2))}`}</h2>
+                    {/* OB: bug below */}
                     <button onClick="this.handleRemove" className="remove-button hover-light">
                       <h1>X</h1>
                     </button>

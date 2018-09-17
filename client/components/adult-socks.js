@@ -12,6 +12,7 @@ class AdultSocks extends React.Component {
     const {adultSocks} = this.props
     return (
       <div className="flex column center container-space-around">
+        {/* OB: dead code*/}
         <CategoryMenu onClick={() => {}} />
         <div className="flex center category-header">
           <h1>Adults Sock</h1>

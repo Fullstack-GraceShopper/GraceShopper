@@ -6,6 +6,7 @@ const Order = db.define('order', {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
+  // OB: dead code
   userId: {
     type: Sequelize.INTEGER
   }

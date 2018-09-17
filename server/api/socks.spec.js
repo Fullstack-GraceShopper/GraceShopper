@@ -32,8 +32,8 @@ describe('Sock routes', () => {
   ];
 
   beforeEach(async () => {
-    const createdSocks = await Sock.bulkCreate(sockData)
-    storedSocks = createdSocks.map(sock => sock.dataValues);
+    const createdSocks = await Sock.bulkCreate(sockData) // OB: think about using `{returning: true}`
+    storedSocks = createdSocks.map(sock => sock.dataValues); // OB: don't need to do `.dataValues`
   });
 
   describe('GET /api/socks?isAdult=true', () => {
@@ -74,7 +74,7 @@ describe('Sock routes', () => {
 
     it('serves up a single Sock by its id', async () => {
       const response = await agent
-        .get('/api/socks/3')
+        .get('/api/socks/3') // OB: using the id 3 here is a litle brittle
         .expect(200);
       expect(response.body.name).to.equal('guinea pig sock');
     })

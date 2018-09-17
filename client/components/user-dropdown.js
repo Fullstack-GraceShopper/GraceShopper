@@ -27,9 +27,11 @@ class UserDropdown extends Component {
       <div>
         <button id="user-icon" type="button" onClick={this.toggleForm}>
           <img id="nav-photo" src={user.photo} />
+          {/* OB: consider naming this as a variable, "avoid magic numbers" */}
           <p id="below-user-icon">Me &#9662;</p>
         </button>
 
+        {/* OB: when doing (x ? thing : null) can instead do (x && thing) */}
         {this.state.showForm ? (
           <ul id="user-dropdown" className="no-decoration">
             <li>

@@ -20,6 +20,7 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
           <UserDropdown user={user} />
           <div className="vr bgw" />
             <Link className="top-header-link hover-light" to="/cart">
+              {/* OB: magic SVG, worth naming, probably worht moving into its own file */}
               <svg xmlns="http://www.w3.org/2000/svg" className="vert-center" width="64" height="64">
                 <g>
                   <title>background</title>

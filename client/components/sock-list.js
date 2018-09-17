@@ -8,6 +8,7 @@ export const SockList = props => {
     <div className="flex row wrap flex-start container-space-around">
       {relevantSocks.map((sock, i) => {
         return (
+          // OB: recommend using the id as key instead of index (to avoid potential bugs)
           <Link className="no-decoration black" key={i} to={`/socks/${sock.id}`}>
             <div className="sock-display-div">
               <img className="sock-image" src={sock.photos[0]} />

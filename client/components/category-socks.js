@@ -19,6 +19,7 @@ class CategorySocks extends React.Component {
   render() {
     const {categorySocks} = this.props
     let categoryName = this.props.match.params.category
+    // OB: could also be a util method
     categoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
 
     return (
