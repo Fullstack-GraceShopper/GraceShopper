@@ -5,9 +5,8 @@ export const QuantityDropdown = () => (
     <h3 className="slight-padding">Select Quantity:</h3>
     <div className="center" id="size-dropdown">
       <div>
-        <label htmlFor="size-select" />
-        <select name="size-select" id="size-select" defaultValue="--">
-          <option disabled>--</option>
+        <label htmlFor="quantitySelect" />
+        <select name="quantitySelect" id="size-select" required>
           <option>1</option>
           <option>3</option>
           <option>5</option>
