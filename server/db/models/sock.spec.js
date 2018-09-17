@@ -21,8 +21,11 @@ describe('Sock model', () => {
         });
   
         it('creates socks aslong as the signup data is correct and all there', async () => {
+          // OB: maybe put the DB update in here so that if it fails you'll see this `it`s label
           const socks = await Sock.findAll();
+          // OB: if so, the `.findAll` might just test that sequelize is working
           expect(socks).to.have.lengthOf(1);
         })
+        // OB: test negative space, where things SHOULD fail
       })
 });

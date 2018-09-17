@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 const CategoryMenu = (props) => {
-
+    // OB: could loop over an array [{name: 'dress'}, ...] and render each element using .map
+    // OB: AND you could take that array and define it as universal (usable front- or backend) utility, then you'd ipmort it here AND import it over in your sequelize model and use it to validate category inputs
     return (
         <div>
             <div id="categorys-menu">

@@ -81,6 +81,7 @@ export default function(state = defaultSocks, action) {
     case GET_SOCKS:
       return action.socks
     case GET_SOCK:
+      // OB: could lead to a bug where you have the same sock multiple times in the array (instead consider doing an "upsert")
       return [action.sock, ...state]
     default:
       return state

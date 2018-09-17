@@ -14,6 +14,7 @@ const defaultOrders = []
 // ACTION CREATORS
 
 export const receiveOrder = order => ({type: RECEIVE_ORDER, order})
+// OB: consider using selectors to filter "history" versus "cart" and have your redux store hold "all orders"
 export const gotOrdersForCart = orders => ({type: GET_ORDERS_FOR_CART, orders})
 export const gotOrderHistory = orders => ({type: GET_ORDER_HISTORY, orders})
 
@@ -53,9 +54,11 @@ export const fetchOrderHistory = userId => async dispatch => {
 export default function(state = defaultOrders, action) {
   switch (action.type) {
     case RECEIVE_ORDER:
+      // OB: could lead to bugs where the same order ends up in the array multiple times
       return [action.order, ...state]
     case GET_ORDERS_FOR_CART:
       return action.orders
+    // OB: duplicate action type behavior
     case GET_ORDER_HISTORY:
       return action.orders
     default:

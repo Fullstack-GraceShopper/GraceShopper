@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {fetchAllSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
 
+// OB: love this!
+// OB: recommend you put this into another file (like a `utils` file)
 const shuffle = a => {
   let newArr = a.slice()
 
@@ -13,6 +15,7 @@ const shuffle = a => {
   return newArr
 }
 
+// OB: this is O(n^2-ish) with Sets it could be O(n) (NOT IMPORTANT)
 const includesAny = (arr1, arr2) => {
   const longArr = arr1.length >= arr2.length ? arr1 : arr2
   const shortArr = arr1.length < arr2.length ? arr1 : arr2
@@ -36,12 +39,14 @@ class RelatedSocks extends React.Component {
           includesAny(sock.categories, mainSock.categories)
       )
     ).slice(0, 6)
+    // OB: magic number, name it
 
     return randomRelatedSocks.length ? (
       <div>
         <h3 id="customers-also-liked">Our Customers Also Liked:</h3>
         <ul className="flex space-evenly no-padding">
           {randomRelatedSocks.map(sock => (
+            // OB: "bug" below, should be passing a function to `onClick`
             <Link
               className="no-decoration black"
               onClick={window.scrollTo(0, 0)}

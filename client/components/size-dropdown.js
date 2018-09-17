@@ -12,6 +12,7 @@ export const SizeDropdown = props => {
           <select name="sizeSelect" id="size-select" defaultValue="--" required>
             <option value="">--</option>
             {sock.sizes.map((size, i) => (
+              // OB: probably need to assign the `option`'s `value=???`
               <Fragment key={i}>
                 <option key={i}>
                   Men's - {size}

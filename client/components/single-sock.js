@@ -24,6 +24,8 @@ class SingleSock extends Component {
       const quantity = evt.target.quantitySelect.value;
       const userId = this.props.user.id
       const sockId = this.props.sock.id
+      // OB: recommend passing an object
+      // await this.props.addOrder({userId, sockId, size, quantity})
       await this.props.addOrder(userId, sockId, size, quantity)
     } catch(err) {
         console.log(err);
@@ -62,10 +64,11 @@ class SingleSock extends Component {
               </form>
               </div>
             ) : (
-              <p>Out of Stock :(</p>
+              <p>Out of S(t)ock :(</p>
             )}
           </div>
         </div>
+        {/* OB: could use `&&` instead */}
         {!sock.categories ? <div /> : <RelatedSocks mainSock={sock} />}
       </div>
     )

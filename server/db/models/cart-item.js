@@ -6,6 +6,7 @@ const cartItem = db.define('cartItem', {
   quantity: {
     type: Sequelize.INTEGER
   },
+  // OB: might be misleading name
   size: {
     type: Sequelize.STRING
   }
