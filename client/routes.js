@@ -10,6 +10,8 @@ import SingleSock from './components/single-sock';
 import {NotFound} from './components/page-not-found';
 import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
+import OrderHistory from './components/order-history'
+import OrderList from './components/order-list'
 import Cart from './components/cart'
 
 class Routes extends Component {
@@ -19,8 +21,7 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-    const accountDetailPath = isLoggedIn ? <Route exact path="/accountdetails" component={AccountDetails} /> : null;
-
+    const accountDetailPath = isLoggedIn ? <Route exact path="/:userId/accountdetails" component={AccountDetails} /> : null;
 
     return (
       <Switch>
@@ -32,6 +33,8 @@ class Routes extends Component {
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
+        <Route exact path="/:userId/orders" component={OrderList} />
+        <Route exact path="/:userId/order-history" component={OrderHistory} />
         {accountDetailPath}
         <Route component={NotFound} />
       </Switch>

@@ -4,6 +4,7 @@ import {fetchSock} from '../store/socks'
 import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
+import OrderButton from './order-button'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -31,9 +32,9 @@ class SingleSock extends Component {
             <h1 className="slight-padding single-page-label">
               {sock.name.toUpperCase()}
             </h1>
-            <p className="slight-padding" id="single-price">{`$${(
-              sock.price / 100
-            ).toFixed(2)}`}</p>
+            <p className="slight-padding" id="single-price">
+              {`$${(sock.price / 100).toFixed(2)}`}
+            </p>
             <h3 className="slight-padding single-page-label">
               Item Description
             </h3>
@@ -42,6 +43,7 @@ class SingleSock extends Component {
               <div>
                 <SizeDropdown sock={sock} />
                 <QuantityDropdown />
+                <OrderButton />
               </div>
             ) : (
               <p>Out of Stock :(</p>

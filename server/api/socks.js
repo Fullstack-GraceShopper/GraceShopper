@@ -29,6 +29,7 @@ router.get('/:sockId', async (req, res, next) => {
 })
 
 router.get('/category/:category', async (req, res, next) => {
+
   try {
     const category = req.params.category
     const socks = await Sock.findAll({

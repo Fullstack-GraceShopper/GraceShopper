@@ -36,8 +36,3 @@ const CategoryMenu = (props) => {
 }
 
 export default CategoryMenu
-
-
-
-
-//'dress','casual','athletic','popculture','funny'
