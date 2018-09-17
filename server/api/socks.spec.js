@@ -4,39 +4,63 @@ const {expect} = require('chai')
 const request = require('supertest')
 const db = require('../db')
 const app = require('../index')
+const agent = require('supertest')(app);
+
 const Sock = db.model('sock')
 
-describe('Socks route', () => {
-  beforeEach(() => {
-    return db.sync({force: true})
-  })
+describe('Sock routes', () => {
+  let storedSocks
+  const sockData = [
+    {
+      name: 'sandle sock',
+      price: 450,
+      isAdult: true,
+      sizes: ["Large"]
+    },
+    {
+      name: 'watermelon sock',
+      price: 350,
+      isAdult: false,
+      sizes: ["Child Small", "Child Large"]
+    },
+    {
+      name: 'guinea pig sock',
+      price: 550,
+      isAdult: true,
+      sizes: ["Small", "Large"]
+    }
+  ];
 
-  describe('GET all Adult Socks', () => {
-    const sandleSock = 'sandle sock'
+  beforeEach(async () => {
+    const createdSocks = await Sock.bulkCreate(sockData)
+    storedSocks = createdSocks.map(sock => sock.dataValues);
+  });
 
-    //price might fail Sequelize Validation if:
-    //your model is a Decimal instead of an Integer (in cents)
-
-    beforeEach(() => {
-      return Sock.create({
-        name: sandleSock,
-        price: 450,
-        isAdult: true,
-        sizes: [7,12]
-      })
-    })
-
-    it('filters for Adult Socks', async () => {
+  describe('GET /api/socks?isAdult=true', () => {
+    it('serves up all Adult Socks', async () => {
       const res = await request(app)
         .get('/api/socks?isAdult=true')
         .expect(200)
 
       expect(res.body).to.be.an('array')
-      expect(res.body[0].name).to.be.equal(sandleSock)
+      expect(res.body[0].name).to.be.equal(storedSocks[0].name)
     })
   })
 
-  describe('GET all Kid Socks', () => {
+
+  describe('GET /api/socks?isAdult=false', () => {
+    const caterpillarSock = 'caterpillar toes baby'
+    it('serves up all Kid Socks', async () => {
+      const res = await request(app)
+        .get('/api/socks?isAdult=false')
+        .expect(200)
+
+      expect(res.body).to.be.an('array')
+      expect(res.body[0].name).to.be.equal(storedSocks[1].name)
+    })
+  })
+
+  describe('GET single Sock', () => {
     const caterpillarSock = 'caterpillar toes baby'
 
     beforeEach(() => {
@@ -48,13 +72,11 @@ describe('Socks route', () => {
       })
     })
 
-    it('filters for Kid Socks', async () => {
-      const res = await request(app)
-        .get('/api/socks?isAdult=false')
-        .expect(200)
-
-      expect(res.body).to.be.an('array')
-      expect(res.body[0].name).to.be.equal(caterpillarSock)
+    it('serves up a single Sock by its id', async () => {
+      const response = await agent
+        .get('/api/socks/3')
+        .expect(200);
+      expect(response.body.name).to.equal('guinea pig sock');
     })
   })
 }) 
