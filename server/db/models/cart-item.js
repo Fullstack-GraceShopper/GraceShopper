@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const itemInCart = db.define('cart-item', {
+const cartItem = db.define('cart-item', {
   quantity: {
     type: Sequelize.INTEGER
   },
@@ -11,5 +11,5 @@ const itemInCart = db.define('cart-item', {
 })
 
 module.exports = {
-  itemInCart
+  cartItem
 }
