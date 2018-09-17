@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const formatDate = order => {
   let date = order.createdAt.slice(0,10).split('-')
-  console.log('DATE:  ', date)
   const year = date.shift()
   date.push(year)
   return date.join('-')
@@ -27,19 +26,30 @@ class OrderHistory extends Component {
     return(
       !orderHistory
       ? <h1>no orders</h1>
-      : <div>
-          {orderHistory.map(order => {
-            return (
-              <div key={order.id}>
-                <br/>
-                <Link key={order.id} 
-                  to={`/${order.userId}/order-history/${order.id}`}
-                >{order.id}</Link>
-                <h5>{formatDate(order)}</h5>
-              </div>
-            )
-          })}
-        </div> 
+      : <table className="order-history">
+          <thead>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>Date</td>
+            </tr>   
+              {orderHistory.map(order => {
+                return (
+                  <tr className="orderRow" key={order.id}>
+                    <td>
+                      <Link key={order.id} 
+                        to={`/${order.userId}/order-history/${order.id}`}
+                      >{order.id}</Link>
+                    </td>
+                    <td>
+                      <h5>{formatDate(order)}</h5>
+                    </td>
+                  </tr>
+                )
+              })}
+          </tbody>
+        </table> 
     )
   } 
 }

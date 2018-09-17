@@ -17,24 +17,8 @@ router.get('/:userId', async (req, res, next) => {
 // ==> create new users cart <== //
 router.post('/:userId', async (req, res, next) => {
   try {
-      const user = await User.findById(req.params.userId);
-      const order = await Order.create({userId: user.id});
-      
-
-      // was using this to try and create order
-      // with associations, but not quite working:
-      // await user.addOrder(order, {through: {userId: user.id}})
-      
-
-      console.log('ORDER ID:      ******************', order.id)
-
-      //trying to brute force the joinTables orderId update
-      //will log the order.id in terminal but wont show in db:
-      // sockOrder.orderId = order.id
-      // console.log('SOCK ORDER ID: ************', sockOrder.orderId)
-      // console.log('ORDER: ******************', order)
-
-      res.json(order);
+    const order = await Order.create({ userId : req.params.userId});
+    res.json(order);
   } catch (err) {
       next(err);
   }

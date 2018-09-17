@@ -29,11 +29,11 @@ class Routes extends Component {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/cart" component={Cart} />
-        <Route exact path="/:userId/orders" component={OrderList} />
         <Route exact path="/adults" component={AdultSocks} />
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
+        <Route exact path="/:userId/orders" component={OrderList} />
         <Route exact path="/:userId/order-history" component={OrderHistory} />
         {accountDetailPath}
         <Route component={NotFound} />

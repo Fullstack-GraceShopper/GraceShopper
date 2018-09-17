@@ -12,9 +12,12 @@ class AccountDetails extends Component {
     const { user } = this.props;
     return (
       user.id ? <div className="center">
+        <br/>
         <h1>Account Details</h1>
+        <br/>
         <h3>Email Address:</h3> <p> {user.email}</p>
         <h3>Address:</h3> <p> {user.address}</p>
+        <br/>
         <h3>Order History:</h3> <OrderHistory user={user}/>
       </div> : <div>Loading user details...</div>
     )

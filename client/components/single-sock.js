@@ -32,9 +32,9 @@ class SingleSock extends Component {
             <h1 className="slight-padding single-page-label">
               {sock.name.toUpperCase()}
             </h1>
-            <p className="slight-padding" id="single-price">{`$${(
-              sock.price / 100
-            ).toFixed(2)}`}</p>
+            <p className="slight-padding" id="single-price">
+              {`$${(sock.price / 100).toFixed(2)}`}
+            </p>
             <h3 className="slight-padding single-page-label">
               Item Description
             </h3>
