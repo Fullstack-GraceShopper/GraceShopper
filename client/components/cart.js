@@ -13,14 +13,16 @@ class Cart extends Component {
   async componentDidMount() {
     const user = await this.props.getUser()
   }
+  handRemove() {
 
+  }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
   }
   calcTotal = objects => {
     let total = 0
     objects.forEach(object => {
-      total += object.price
+      total += object.price * object.cartItem.quantity
     })
     return `Total:   $${(total / 100).toFixed(2)}`
   }
@@ -42,13 +44,16 @@ class Cart extends Component {
                 <li className="cart-list-item" key={sock.id}>
                   <div className="cart-item-inner">
                     <img className="cart-item-img" src={sock.photos[0]} />
-                    <h2>{sock.name}</h2>
+                    <div className="flex column">
+                      <h2>{sock.name}</h2>
+                      <p className="light-small">{sock.cartItem.size}</p>
+                    </div>
                   </div>
                   <div className="cart-item-inner">
-                    <h2>3</h2>
+                    <h2>{sock.cartItem.quantity}</h2>
                     <div className="vr bgb h100" />
-                    <h2>{`$${(sock.price / 100).toFixed(2)}`}</h2>
-                    <button className="remove-button hover-light">
+                    <h2 className="price">{`$${(sock.cartItem.quantity * (sock.price / 100).toFixed(2))}`}</h2>
+                    <button onClick="this.handleRemove" className="remove-button hover-light">
                       <h1>X</h1>
                     </button>
                   </div>

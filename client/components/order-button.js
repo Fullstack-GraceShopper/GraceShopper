@@ -3,16 +3,6 @@ import {connect} from 'react-redux';
 import {postOrder} from '../store/orders'
 
 class OrderButton extends Component {
-  // handleClick = async (evt) => {
-  //   evt.preventDefault();
-  //   try {
-  //     const userId = this.props.user.id
-  //     const sockId = this.props.sockId
-  //     await this.props.addOrder(userId, sockId)
-  //   } catch(err) {
-  //       console.log(err);
-  //   }
-  // }
   render() {
     return (
       <button onClick={this.handleClick} type="submit">
