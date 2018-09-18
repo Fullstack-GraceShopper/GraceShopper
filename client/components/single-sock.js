@@ -27,6 +27,7 @@ class SingleSock extends Component {
       evt.target.sizeSelect.value = '';
       evt.target.quantitySelect.value = 1;
       await this.props.addOrder(userId, sockId, size, quantity)
+      alert('Successfully added to cart!');
     } catch(err) {
         console.log(err);
     }

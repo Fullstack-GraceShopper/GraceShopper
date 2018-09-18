@@ -13,7 +13,7 @@ class Cart extends Component {
     this.calcTotalForButton = calcTotalForButton.bind(this)
   }
   async componentDidMount() {
-    const user = await this.props.getUser()
+    await this.props.getUser()
   }
   async handleRemove (sockId, userId) {
     console.log(userId);
@@ -25,6 +25,7 @@ class Cart extends Component {
   calcTotal = objects => {
     return `Total:   $${(this.calcTotalForButton(objects) / 100).toFixed(2)}`
   }
+
   render() {
     if(this.props.user.id && !this.gotCart) {
       this.getCart(this.props.user.id)
@@ -32,6 +33,7 @@ class Cart extends Component {
     }
     return (
       <div>
+        <div style={{height: "30px"}} />
         <div className="flex center category-header">
           <h1>CART</h1>
         </div>
