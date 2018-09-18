@@ -79,5 +79,5 @@ describe('Sock routes', () => {
       expect(response.body.name).to.equal('guinea pig sock');
     })
   })
-}) 
+})
 

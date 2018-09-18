@@ -13,6 +13,7 @@ import CategorySocks from './components/category-socks';
 import OrderHistory from './components/order-history'
 import OrderList from './components/order-list'
 import Cart from './components/cart'
+import StripeForm from './components/stripe'
 
 class Routes extends Component {
   componentDidMount() {
@@ -35,6 +36,7 @@ class Routes extends Component {
         <Route exact path="/socks/:sockId" component={SingleSock} />
         <Route exact path="/:userId/orders" component={OrderList} />
         <Route exact path="/:userId/order-history" component={OrderHistory} />
+        <Route exact path="/stripe" component={StripeForm} />
         {accountDetailPath}
         <Route component={NotFound} />
       </Switch>

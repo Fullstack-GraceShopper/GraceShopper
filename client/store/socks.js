@@ -38,6 +38,15 @@ export const fetchSocksInCart = (userId) => async dispatch => {
   }
 }
 
+export const deleteSockInCart = (sockId, userId) => async dispatch => {
+  try {
+    await axios.delete(`/api/orders/removeFromCart?sockId=${sockId}`)
+    dispatch(fetchSocksInCart(userId));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export const fetchAdultSocks = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/socks?isAdult=true')
