@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Sock, Order, CartItem} = require('../db/models');
+const {Sock, Order, CartItem, User} = require('../db/models');
 
 
 // ==> create new users cart <== //
@@ -86,6 +86,19 @@ router.delete('/removeFromCart', async (req, res, next) => {
     }
 })
 
+router.delete('/guestCheckout', async (req, res, next) => {
+  try {
+    const id = req.session.id;
+    const guest = await User.findOne({where: {
+      email: `${id}@sockr.com`
+    }});
+    await guest.destroy();
+    res.sendStatus(204);
+  } catch (error) {
+    next(error)
+  }
+})
+
 //new route for getting order history using query
 router.get('/', async (req, res, next) => {
     let orders = []
@@ -96,9 +109,9 @@ router.get('/', async (req, res, next) => {
           userId: req.user.id,
           sold: true
         }
-      })        
+      })
       res.json(orders);
-    } else res.sendStatus(401) 
+    } else res.sendStatus(401)
     } catch (err) {
         next(err);
     }

@@ -6,7 +6,7 @@ import {logout} from '../store'
 import UserDropdown from './user-dropdown'
 import CartIcon from './cart-icon'
 
-const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
+const Navbar = ({isLoggedIn, userPhoto, user}) => (
   <div>
     <div className="top-header">
       <div>
@@ -16,7 +16,7 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
       </div>
       {}
       <div>
-        {isLoggedIn ? (
+        {isLoggedIn && (userPhoto !== 'https://www.viawater.nl/files/default-user.png') ? (
           <div className="vert-center flex">
           <UserDropdown user={user} />
           <div className="vr bgw" />
@@ -34,6 +34,9 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
             </Link>
             <div className="vr bgw" />
             <Link className="top-header-link hover-light" to="/cart" />
+            <Link className="top-header-link hover-light" to="/cart">
+              <CartIcon />
+            </Link>
           </div>
         )}
       </div>
