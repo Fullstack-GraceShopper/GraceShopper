@@ -5,7 +5,7 @@ import {postOrder} from '../store/orders'
 class OrderButton extends Component {
   render() {
     return (
-      <button onClick={this.handleClick} type="submit">
+      <button id="add-to-cart-btn" onClick={this.handleClick} type="submit">
         Add To Cart
       </button>
     )
