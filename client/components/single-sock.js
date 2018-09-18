@@ -42,7 +42,7 @@ class SingleSock extends Component {
             <img id="single-page-photo" src={sock.photos[0]} />
           </div>
           <br />
-          <div>
+          <div className="item-options flex column space-evenly">
             <h1 className="slight-padding single-page-label">
               {sock.name.toUpperCase()}
             </h1>

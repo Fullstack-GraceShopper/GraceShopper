@@ -95,6 +95,11 @@ tr.orderRow>td {
   padding: 5px 10px 0px 20px;
 }
 
+.item-options{
+  padding: 20px;
+  height: 475px;
+}
+
 .wrap-word {
   word-wrap: break-word;
 }
@@ -171,6 +176,18 @@ tr.orderRow>td {
 
 .price{
   width:120px;
+}
+
+.no-margin-left-right-top{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+}
+
+.no-margin-left-right-bottom{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
 }
 
 .light-small{
@@ -354,11 +371,23 @@ tr.orderRow>td {
 }
 
 #size-dropdown {
-  padding: 22px 0px 0px 10px;
+  padding: 5px 0px 0px 0px;
+  height: 30px;
+  margin-left: 64px;
+}
+
+#quantity-dropdown {
+  padding: 5px 0px 0px 0px;
   height: 30px;
 }
 
 #size-select {
+  width: 200px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+#quantity-select {
   width: 200px;
   font-size: 1.2em;
   text-align: center;
@@ -369,10 +398,6 @@ tr.orderRow>td {
   display: flex;
   justify-content: space-around;
   flex-grow: inherit;
-}
-
-#single-page-photo {
-  padding: 20px 150px;
 }
 
 #checkout-container{
@@ -409,9 +434,18 @@ tr.orderRow>td {
 }
 
 #customers-also-liked {
-  padding-top: 30px;
+  padding: 30px 10px 0px 20px;
 }
 
 #related-sock-name:hover {
   text-shadow: 0px 0px 0.5px black;
+}
+
+#add-to-cart-btn{
+  height: 40px;
+  width: 96.5%;
+  background-color:#26777F;
+  color: white;
+  font-size: 1em;
+  text-align: center;
 }
