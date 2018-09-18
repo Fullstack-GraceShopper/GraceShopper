@@ -32,8 +32,8 @@ describe('Sock routes', () => {
   ];
 
   beforeEach(async () => {
-    const createdSocks = await Sock.bulkCreate(sockData)
-    storedSocks = createdSocks.map(sock => sock.dataValues);
+    const createdSocks = await Sock.bulkCreate(sockData, {returning: true})
+    storedSocks = createdSocks.map(sock => sock);
   });
 
   describe('GET /api/socks?isAdult=true', () => {
@@ -49,7 +49,6 @@ describe('Sock routes', () => {
 
 
   describe('GET /api/socks?isAdult=false', () => {
-    const caterpillarSock = 'caterpillar toes baby'
     it('serves up all Kid Socks', async () => {
       const res = await request(app)
         .get('/api/socks?isAdult=false')
@@ -61,17 +60,6 @@ describe('Sock routes', () => {
   })
 
   describe('GET single Sock', () => {
-    const caterpillarSock = 'caterpillar toes baby'
-
-    beforeEach(() => {
-      return Sock.create({
-        name: caterpillarSock,
-        price: 250,
-        isAdult: false,
-        sizes: [7,12]
-      })
-    })
-
     it('serves up a single Sock by its id', async () => {
       const response = await agent
         .get('/api/socks/3')

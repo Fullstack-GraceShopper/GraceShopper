@@ -3,13 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchOrderHistory} from '../store/orders'
 import axios from 'axios';
-
-const formatDate = order => {
-  let date = order.createdAt.slice(0,10).split('-')
-  const year = date.shift()
-  date.push(year)
-  return date.join('-')
-}
+import {formatDate} from './utils'
 
 class OrderHistory extends Component {
   async componentDidMount () {
