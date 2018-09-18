@@ -62,7 +62,7 @@ const seed = async (num) => {
     isAdult: true,
     sizes: ["Small", "Medium", "Large"],
     categories: ['casual'],
-  }, 
+  },
   {
     photos: ['https://bit.ly/2NgfGAQ'],
     name: 'Turtle \'Stache',
@@ -634,7 +634,7 @@ const seed = async (num) => {
     photos: ['https://78.media.tumblr.com/tumblr_mcip40VMyC1roaxc3o1_250.jpg'],
     name: 'Red Hot Chili Peppers Sock',
     price: 799,
-    description: `L.A. Lakers fast break makers 
+    description: `L.A. Lakers fast break makers
       Kinds of the court shake and bake all takers
       Back to back is a bad ass fact a claim that remains in tact
       M-a-g-i-see see you on the court
@@ -647,12 +647,12 @@ const seed = async (num) => {
       Knucklehead sockers better duck
       When the buck comes through like a truck
       Scott stops pops and drops it in
-      On his way back gets a little skin 
+      On his way back gets a little skin
       From the hand of a man named a. c. green
       Slam so hard break your t.v. screen
       Worthy's hot with his tomasawk
       Take it to the hole make your mamma talk
-      I hate to burst your bubble but triple double trouble 
+      I hate to burst your bubble but triple double trouble
       Is coming…`,
     isAdult: true,
     sizes: ["Small", "Medium", "Large"],

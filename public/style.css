@@ -155,9 +155,9 @@ tr.orderRow>td {
   align-items: center;
   text-shadow: 0px 0px 5px white
   color: black;
-  -webkit-text-fill-color: white; 
+  -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: black; 
+  -webkit-text-stroke-color: black;
 }
 
 .related-sock-image {
@@ -384,16 +384,16 @@ tr.orderRow>td {
 }
 
 #home-popculture {
- background-image: url('./patterns/popculture.jpeg') 
+ background-image: url('./patterns/popculture.jpeg')
 }
 #home-funny {
- background-image: url('./patterns/funny.jpeg') 
+ background-image: url('./patterns/funny.jpeg')
 }
 #home-casual {
- background-image: url('./patterns/casual.jpeg') 
+ background-image: url('./patterns/casual.jpeg')
 }
 #home-athletic {
- background-image: url('./patterns/athletic.jpeg') 
+ background-image: url('./patterns/athletic.jpeg')
 }
 
 
