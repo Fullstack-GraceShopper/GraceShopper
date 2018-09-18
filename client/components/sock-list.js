@@ -6,7 +6,7 @@ export const SockList = props => {
 
   return (
     <div className="flex row wrap flex-start container-space-around">
-      {relevantSocks.map((sock, i) => {
+      {relevantSocks.map((sock) => {
         return (
           <Link className="no-decoration black" key={sock.id} to={`/socks/${sock.id}`}>
             <div className="sock-display-div">

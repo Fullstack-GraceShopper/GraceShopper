@@ -26,9 +26,12 @@ const calcTotal = objects => {
   return `Total:   $${(total / 100).toFixed(2)}`
 }
 
+const categoryArr = [{name: 'dress'}, {name: 'casual'}, {name: 'popculture'},{name: 'funny'}, {name: 'athletic'}]
+
 module.exports = {
   toUpper,
   shuffle,
   includesAny,
-  calcTotal
+  calcTotal,
+  categoryArr
 }
