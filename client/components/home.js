@@ -1,33 +1,30 @@
 import React from 'react'
-import {connect} from 'react-redux'
 
-/**
- * COMPONENT
- */
 export const Home = props => {
-  const {loggedIn} = props
   return (
-    <div>
-      {
-        loggedIn ?
-        <div>
-          <h3>Welcome back!</h3>
-        </div> :
-        <div>
-          <h3>Welcome!</h3>
+    <div className="home-body-container column">
+
+      <div className="flex">
+        <div className="home-page-sock-image grow1 bgo">
+          div 1
         </div>
-      }
+        <div className="home-page-sock-image grow1 bgbl">
+          2
+        </div>
+      </div>
+
+      <div className="flex">
+        <div className="home-page-sock-image grow1 bgr">
+          3
+        </div>
+        <div className="home-page-sock-image grow1 bgb">
+          4
+        </div>
+      </div>
+
     </div>
   )
 }
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    loggedIn: state.user.email ? true : false
-  }
-}
 
-export default connect(mapState)(Home)
+export default Home
