@@ -5,21 +5,24 @@ export const Home = props => {
     <div className="home-body-container column">
 
       <div className="flex">
-        <div className="home-page-sock-image grow1 bgo">
-          div 1
-        </div>
-        <div className="home-page-sock-image grow1 bgbl">
-          2
-        </div>
+        <a id="home-popculture" className="home-page-sock-image" href="http://localhost:8080/socks/category/popculture">         
+            POPCULTURE  
+        </a>
+
+        <a id="home-athletic" className="home-page-sock-image" href="http://localhost:8080/socks/category/athletic">
+            ATHLETIC
+        </a>
+        
       </div>
 
       <div className="flex">
-        <div className="home-page-sock-image grow1 bgr">
-          3
-        </div>
-        <div className="home-page-sock-image grow1 bgb">
-          4
-        </div>
+        <a id="home-funny" className="home-page-sock-image" href="http://localhost:8080/socks/category/funny">
+            FUNNY
+        </a>
+
+        <a id="home-casual" className="home-page-sock-image" href="http://localhost:8080/socks/category/casual">
+            CASUAL
+        </a>
       </div>
 
     </div>
