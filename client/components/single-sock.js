@@ -6,6 +6,7 @@ import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
 import OrderButton from './order-button'
 import {postOrder} from '../store/orders'
+import axios from 'axios'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -20,6 +21,7 @@ class SingleSock extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
+      if (!this.props.user.id) await axios.post('/api/users/createGuest')
       const size = evt.target.sizeSelect.value;
       const quantity = evt.target.quantitySelect.value;
       const sockId = this.props.sock.id
@@ -33,6 +35,7 @@ class SingleSock extends Component {
   }
 
   render() {
+    console.log()
     const {sock} = this.props
     return !sock ? (
       <div>no sock</div>

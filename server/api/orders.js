@@ -7,6 +7,7 @@ const {Sock, Order, CartItem} = require('../db/models');
 router.post('/addToCart', async (req, res, next) => {
   try {
     const sock = await Sock.findById(req.query.sockId)
+    console.log(req.user.id)
     const [order] = await Order.findOrCreate({where: {
         userId: req.user.id,
         sold: false,
