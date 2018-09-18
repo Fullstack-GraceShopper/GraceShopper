@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 
 const StartShopping = () => {
   return (
-    <div>
+    <div className='center'>
       <p>No Socks In Cart...</p>
-      <Link to="/" className="w100">
-        <button className="flex space-between">
+      <Link to="/">
+        <button>
           <h1 className="center">Start Shopping!</h1>
         </button>
       </Link>
