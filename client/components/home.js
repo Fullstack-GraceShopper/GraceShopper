@@ -1,33 +1,33 @@
 import React from 'react'
-import {connect} from 'react-redux'
 
-/**
- * COMPONENT
- */
 export const Home = props => {
-  const {loggedIn} = props
   return (
-    <div>
-      {
-        loggedIn ?
-        <div>
-          <h3>Welcome back!</h3>
-        </div> :
-        <div>
-          <h3>Welcome!</h3>
-        </div>
-      }
+    <div className="home-body-container column">
+
+      <div className="flex">
+        <a id="home-popculture" className="home-page-sock-image" href="http://localhost:8080/socks/category/popculture">         
+            POPCULTURE  
+        </a>
+
+        <a id="home-athletic" className="home-page-sock-image" href="http://localhost:8080/socks/category/athletic">
+            ATHLETIC
+        </a>
+        
+      </div>
+
+      <div className="flex">
+        <a id="home-funny" className="home-page-sock-image" href="http://localhost:8080/socks/category/funny">
+            FUNNY
+        </a>
+
+        <a id="home-casual" className="home-page-sock-image" href="http://localhost:8080/socks/category/casual">
+            CASUAL
+        </a>
+      </div>
+
     </div>
   )
 }
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    loggedIn: state.user.email ? true : false
-  }
-}
 
-export default connect(mapState)(Home)
+export default Home
