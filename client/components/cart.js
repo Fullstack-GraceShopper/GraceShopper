@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
 import axios from 'axios'
+import Checkout from './Checkout'
 
 
 class Cart extends Component {
@@ -30,7 +31,7 @@ class Cart extends Component {
   render() {
     if(this.props.user.id && !this.gotCart) {
       this.getCart(this.props.user.id)
-      this.gotCart = true                         
+      this.gotCart = true
     }
     return (
       <div>
@@ -74,7 +75,7 @@ class Cart extends Component {
           {/* <button id="checkout-button">
             <h2>Checkout</h2>
           </button> */}
-          <Checkout name="gummy bear sock" description="a sock, obviously" amount="599"/>
+          <Checkout name="gummy bear sock, happy sock" description="a beautiful bouquet of sock" amount={666} />
         </div>
       </div>
     )
