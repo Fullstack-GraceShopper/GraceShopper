@@ -34,8 +34,7 @@ class Routes extends Component {
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
-        <Route exact path="/:userId/orders" component={OrderList} />
-        <Route exact path="/:userId/order-history" component={OrderHistory} />
+        <Route exact path="/:userId/orders" component={OrderHistory} />
         <Route exact path="/stripe" component={StripeForm} />
         {accountDetailPath}
         <Route component={NotFound} />

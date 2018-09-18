@@ -1,18 +1,6 @@
 const router = require('express').Router();
 const {Sock, Order, CartItem} = require('../db/models');
 
-router.get('/:userId', async (req, res, next) => {
-    try {
-      const orders = await Order.findAll({
-        where: {
-          userId: req.params.userId
-        }
-      })
-      res.json(orders);
-    } catch (err) {
-        next(err);
-    }
-});
 
 // ==> create new users cart <== //
 router.post('/:userId/:sockId/:size/:quantity', async (req, res, next) => {
@@ -78,18 +66,23 @@ router.delete('/removeFromCart', async (req, res, next) => {
     }
 })
 
-router.get('/:userId/order-history', async (req, res, next) => {
+//new route for getting order history using query
+router.get('/', async (req, res, next) => {
+    let orders = []
     try {
-      const orders = await Order.findAll({
+      if(Number(req.query.userId) === req.user.id) {
+        orders = await Order.findAll({
         where: {
-          userId: req.params.userId,
+          userId: req.user.id,
           sold: true
         }
-      })
+      })        
       res.json(orders);
+    } else res.sendStatus(401) 
     } catch (err) {
         next(err);
     }
 });
+
 
 module.exports = router
