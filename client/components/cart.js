@@ -1,20 +1,20 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import {fetchSocksInCart} from '../store/socks'
+import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
+import axios from 'axios'
 
 class Cart extends Component {
   constructor() {
     super()
-    this.state = {
-      gotCart: false
-    }
+    this.gotCart = false
   }
   async componentDidMount() {
     const user = await this.props.getUser()
   }
-  handRemove() {
-
+  async handleRemove (sockId, userId) {
+    console.log(userId);
+    await this.props.deleteSockThunk(sockId, userId)
   }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
@@ -27,11 +27,10 @@ class Cart extends Component {
     return `Total:   $${(total / 100).toFixed(2)}`
   }
   render() {
-    if(this.props.user.id && !this.state.gotCart) {
+    if(this.props.user.id && !this.gotCart) {
       this.getCart(this.props.user.id)
-      this.state = {gotCart: true} // setState to avoid mutating??                           
+      this.gotCart = true                         
     }
-                                   // this.setState({gotCart: true})
     return (
       <div>
         <div className="flex center category-header">
@@ -53,7 +52,7 @@ class Cart extends Component {
                     <h2>{sock.cartItem.quantity}</h2>
                     <div className="vr bgb h100" />
                     <h2 className="price">{`$${(sock.cartItem.quantity * (sock.price / 100).toFixed(2))}`}</h2>
-                    <button onClick="this.handleRemove" className="remove-button hover-light">
+                    <button onClick={() => this.handleRemove(sock.id, this.props.user.id)} className="remove-button hover-light">
                       <h1>X</h1>
                     </button>
                   </div>
@@ -88,6 +87,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getCartThunk: userId => {
     dispatch(fetchSocksInCart(userId))
+  },
+  deleteSockThunk: (sockId, userId) => {
+    dispatch(deleteSockInCart(sockId, userId))
   },
   getUser: () => {
     dispatch(me)

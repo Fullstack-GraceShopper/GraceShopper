@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Sock, Order} = require('../db/models');
+const {Sock, Order, CartItem} = require('../db/models');
 
 router.get('/:userId', async (req, res, next) => {
     try {
@@ -64,16 +64,17 @@ router.get('/inCart/:cartNumber', async (req, res, next) => {
     }
 })
 
-router.get('/inCart/:cartNumber', async (req, res, next) => {
+// ==> api/orders/removeFromCart?sockId=1
+router.delete('/removeFromCart', async (req, res, next) => {
     try {
-        const order = await Order.findById(req.params.cartNumber, {
-            include: [{
-                model: Sock,
-            }]
+        await CartItem.destroy({
+            where: {
+                sockId: req.query.sockId,
+            },
         });
-        res.json(order);
+        res.sendStatus(204)
     } catch (err) {
-        next (err);
+        next (err)
     }
 })
 
