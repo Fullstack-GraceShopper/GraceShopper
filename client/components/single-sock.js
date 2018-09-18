@@ -6,6 +6,7 @@ import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
 import OrderButton from './order-button'
 import {postOrder} from '../store/orders'
+import axios from 'axios'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -25,6 +26,7 @@ class SingleSock extends Component {
       const sockId = this.props.sock.id
       evt.target.sizeSelect.value = '';
       evt.target.quantitySelect.value = 1;
+      if (!this.props.user.id) await axios.post('/api/users/createGuest')
       await this.props.addOrder(sockId, size, quantity)
       alert('Successfully added to cart!');
     } catch(err) {
@@ -33,6 +35,7 @@ class SingleSock extends Component {
   }
 
   render() {
+    console.log()
     const {sock} = this.props
     return !sock ? (
       <div>no sock</div>

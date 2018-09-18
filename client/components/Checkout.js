@@ -14,9 +14,10 @@ const CURRENCY = 'USD'
 
 const fromDollarsToCents = amount => amount * 100
 
-const successPayment = async data => {
+const successPayment = async () => {
   await axios.put('api/orders/sold')
   await store.dispatch(fetchSocksInCart());
+  await axios.delete('api/orders/guestCheckout')
   alert('Payment Successful')
 }
 

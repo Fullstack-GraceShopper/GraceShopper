@@ -52,8 +52,8 @@ class Cart extends Component {
                     <div className="cart-item-inner">
                       <h2>{sock.cartItem.quantity}</h2>
                       <div className="vr bgb h100" />
-                      <h2 className="price">{`$${sock.cartItem.quantity *
-                        (sock.price / 100).toFixed(2)}`}</h2>
+                      <h2 className="price">{`$${(sock.cartItem.quantity *
+                        (sock.price / 100)).toFixed(2)}`}</h2>
                       <button
                         onClick={() =>
                           this.handleRemove(sock.id, this.props.user.id)
