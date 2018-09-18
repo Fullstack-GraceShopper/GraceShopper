@@ -34,7 +34,9 @@ class Cart extends Component {
       <div>
         <div style={{height: "30px"}} />
         <div className="flex center category-header">
-          <h1>CART</h1>
+          <div className="category-title">
+            <h1>Cart</h1>
+          </div>
         </div>
         {this.props.socks.length ? this.props.socks[0].cartItem ? (
           <div>
