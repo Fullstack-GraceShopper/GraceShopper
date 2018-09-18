@@ -200,8 +200,28 @@ tr.orderRow>td {
 .home-body-container {
   display: flex;
   width: 99vw;
-  justify-content: space-between;
+  flex-grow: 1;
+  justify-content: center;
   background-color: rgb(236, 236, 236);
+}
+
+.home-category-background {
+  display: flex;
+  width: 790px;
+  height: 480px;
+  border: 30px solid rgb(236, 236, 236);
+  font-size: 70px;
+  font-weight: bold;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-category-title{
+  text-align: center;
+  background-color: white;
+  padding: 7px;
+  color: black;
 }
 
 .no-decoration {
