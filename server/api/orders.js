@@ -40,6 +40,18 @@ router.get('/cart', async (req, res, next) => {
     }
 });
 
+router.put('/sold', async (req, res, next) => {
+    try {
+        const order = await Order.update(
+            {sold: true},
+            {returning: true, where: {id: req.user.id}}
+        )
+        res.json(order)
+    } catch (err) {
+        next (err)
+    }
+})
+
 router.post('/inCart', async (req, res, next) => {
     try {
         const order = await Order.findById((req.body.id), {
@@ -47,7 +59,7 @@ router.post('/inCart', async (req, res, next) => {
                 model: Sock,
             }]
         });
-        res.json(order);
+        res.json(order.socks);
     } catch (err) {
         next (err);
     }

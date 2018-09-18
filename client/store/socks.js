@@ -32,6 +32,7 @@ export const fetchSocksInCart = () => async dispatch => {
   try{
     const currentCart = await axios.get(`/api/orders/cart`)
     const {data} = await axios.post(`/api/orders/inCart`,{id: currentCart.data[0].id})
+    console.log(data, '12341241234141234312')
     dispatch(gotSocks(data))
   } catch (err) {
     console.log(err);
