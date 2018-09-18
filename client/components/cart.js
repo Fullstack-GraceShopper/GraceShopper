@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
-import axios from 'axios'
 
 class Cart extends Component {
   constructor() {
