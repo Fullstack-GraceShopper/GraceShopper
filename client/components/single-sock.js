@@ -22,11 +22,10 @@ class SingleSock extends Component {
     try {
       const size = evt.target.sizeSelect.value;
       const quantity = evt.target.quantitySelect.value;
-      const userId = this.props.user.id
       const sockId = this.props.sock.id
       evt.target.sizeSelect.value = '';
       evt.target.quantitySelect.value = 1;
-      await this.props.addOrder(userId, sockId, size, quantity)
+      await this.props.addOrder(sockId, size, quantity)
       alert('Successfully added to cart!');
     } catch(err) {
         console.log(err);

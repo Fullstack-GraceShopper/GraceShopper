@@ -35,7 +35,6 @@ const formatDate = order => {
 
 const categoryArr = [{name: 'dress'}, {name: 'casual'}, {name: 'popculture'},{name: 'funny'}, {name: 'athletic'}]
 
-
 module.exports = {
   toUpper,
   shuffle,

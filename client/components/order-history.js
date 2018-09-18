@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchOrderHistory} from '../store/orders'
-import axios from 'axios';
 import {formatDate} from './utils'
 
 class OrderHistory extends Component {

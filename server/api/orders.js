@@ -3,18 +3,19 @@ const {Sock, Order, CartItem} = require('../db/models');
 
 
 // ==> create new users cart <== //
-router.post('/:userId/:sockId/:size/:quantity', async (req, res, next) => {
+//api/orders/addToCart/?sockId=int&size=int&quantity=int
+router.post('/addToCart', async (req, res, next) => {
   try {
-    const sock = await Sock.findById(req.params.sockId)
+    const sock = await Sock.findById(req.query.sockId)
     const [order] = await Order.findOrCreate({where: {
-        userId: req.params.userId,
+        userId: req.user.id,
         sold: false,
       }
     });
     await order.addSock(sock, {
       through: {
-        size: req.params.size,
-        quantity: req.params.quantity
+        size: req.query.size,
+        quantity: req.query.quantity
       }
     })
 
@@ -24,12 +25,12 @@ router.post('/:userId/:sockId/:size/:quantity', async (req, res, next) => {
   }
 });
 
-router.get('/:userId/cart', async (req, res, next) => {
+router.get('/cart', async (req, res, next) => {
     try {
         const order = await Order.findAll({
             limit: 1,
             where: {
-                userId: req.params.userId,
+                userId: req.user.id,
             },
             order:[['createdAt', 'DESC']]
         });
@@ -39,9 +40,9 @@ router.get('/:userId/cart', async (req, res, next) => {
     }
 });
 
-router.get('/inCart/:cartNumber', async (req, res, next) => {
+router.post('/inCart', async (req, res, next) => {
     try {
-        const order = await Order.findById(req.params.cartNumber, {
+        const order = await Order.findById((req.body.id), {
             include: [{
                 model: Sock,
             }]
