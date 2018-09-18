@@ -90,7 +90,16 @@ export default function(state = defaultSocks, action) {
     case GET_SOCKS:
       return action.socks
     case GET_SOCK:
-      return [action.sock, ...state]
+      const alreadyIn = state.some(sock => sock.id === action.sock.id);
+      if (alreadyIn) {
+        return state.map(sock => {
+          if (sock.id === action.sock.id) {
+            return action.sock
+          } else {
+            return sock
+          }
+        });
+      } else return [...state, action.sock]
     default:
       return state
   }

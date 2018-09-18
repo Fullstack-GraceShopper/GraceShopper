@@ -11,7 +11,7 @@ router.post('/:userId/:sockId/:size/:quantity', async (req, res, next) => {
         sold: false,
       }
     });
-    order.addSock(sock, {
+    await order.addSock(sock, {
       through: {
         size: req.params.size,
         quantity: req.params.quantity

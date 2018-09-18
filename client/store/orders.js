@@ -46,9 +46,9 @@ export default function(state = defaultOrders, action) {
       if (alreadyIn) {
         return state.map(order => {
           if (order.id === action.order.id) {
-            return [...state, action.order];
+            return action.order
           } else {
-            return [...state, order]
+            return order
           }
         });
       } else return [...state, action.order]
