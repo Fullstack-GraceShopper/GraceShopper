@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
 
+
 class Cart extends Component {
   constructor() {
     super()
@@ -69,9 +70,10 @@ class Cart extends Component {
               : 'Total:   $ 0.00'}
           </h2>
           <hr />
-          <button id="checkout-button">
+          {/* <button id="checkout-button">
             <h2>Checkout</h2>
-          </button>
+          </button> */}
+          <Checkout name="gummy bear sock" description="a sock, obviously" amount="599"/>
         </div>
       </div>
     )
