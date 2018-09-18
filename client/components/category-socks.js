@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchSocksByCategory} from '../store/socks'
 import CategoryMenu from './category-menu';
 import {SockList} from './sock-list'
+import {toUpper} from './utils'
 
 class CategorySocks extends React.Component {
   constructor() {
@@ -18,8 +19,8 @@ class CategorySocks extends React.Component {
   }
   render() {
     const {categorySocks} = this.props
-    let categoryName = this.props.match.params.category
-    categoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1)
+    const name = this.props.match.params.category
+    let categoryName = toUpper(name)
 
     return (
       <div className="flex column center container-space-around">

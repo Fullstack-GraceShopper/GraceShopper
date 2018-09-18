@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {connect} from 'react-redux'
 import OrderHistory from './order-history'
-const Arrow = () => '▼'
+const Arrow = '▼'
+
 class UserDropdown extends Component {
   constructor() {
     super()
@@ -27,10 +28,10 @@ class UserDropdown extends Component {
       <div>
         <button id="user-icon" type="button" onClick={this.toggleForm}>
           <img id="nav-photo" src={user.photo} />
-          <p id="below-user-icon">Me {Arrow()}</p>
+          <p id="below-user-icon">Me {Arrow}</p>
         </button>
 
-        {this.state.showForm ? (
+        {this.state.showForm && (
           <ul id="user-dropdown" className="no-decoration">
             <li>
               <Link to={`/${user.id}/accountdetails`} className="no-decoration black" user={user}>
@@ -47,7 +48,7 @@ class UserDropdown extends Component {
               </Link>
             </li>
           </ul>
-        ) : null}
+        )}
       </div>
     )
   }

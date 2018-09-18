@@ -4,11 +4,13 @@ import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
 import {Link} from 'react-router-dom'
 import Checkout from './Checkout'
+import {calcTotalForButton} from './utils'
 
 class Cart extends Component {
   constructor() {
     super()
     this.gotCart = false
+    this.calcTotalForButton = calcTotalForButton.bind(this)
   }
   async componentDidMount() {
     const user = await this.props.getUser()
@@ -19,13 +21,6 @@ class Cart extends Component {
   }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
-  }
-  calcTotalForButton = objects => {
-    let total = 0
-    objects.forEach(object => {
-      total += object.price * object.cartItem.quantity
-    })
-    return total
   }
   calcTotal = objects => {
     return `Total:   $${(this.calcTotalForButton(objects) / 100).toFixed(2)}`
