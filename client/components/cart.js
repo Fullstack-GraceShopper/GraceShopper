@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+import Checkout from './Checkout'
 
 class Cart extends Component {
   constructor() {
