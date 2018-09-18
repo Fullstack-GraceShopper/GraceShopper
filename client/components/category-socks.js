@@ -26,7 +26,9 @@ class CategorySocks extends React.Component {
       <div className="flex column center container-space-around">
         <CategoryMenu onClick={this.handleClick}/>
         <div className="flex center category-header">
-          <h1>{categoryName} Sock</h1>
+          <div className="category-title">
+            <h1>{categoryName} Sock</h1>
+          </div>
         </div>
 
         <div>
