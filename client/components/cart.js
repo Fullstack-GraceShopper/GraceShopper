@@ -1,36 +1,37 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import {fetchSocksInCart} from '../store/socks'
-import Checkout from  './Checkout'
+import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
+import axios from 'axios'
+
 
 class Cart extends Component {
   constructor() {
     super()
-    this.state = {
-      gotCart: false
-    }
+    this.gotCart = false
   }
   async componentDidMount() {
     const user = await this.props.getUser()
   }
-
+  async handleRemove (sockId, userId) {
+    console.log(userId);
+    await this.props.deleteSockThunk(sockId, userId)
+  }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
   }
   calcTotal = objects => {
     let total = 0
     objects.forEach(object => {
-      total += object.price
+      total += object.price * object.cartItem.quantity
     })
     return `Total:   $${(total / 100).toFixed(2)}`
   }
   render() {
-    if(this.props.user.id && !this.state.gotCart) {
+    if(this.props.user.id && !this.gotCart) {
       this.getCart(this.props.user.id)
-      this.setState({gotCart: true}) // setState to avoid mutating??
+      this.gotCart = true                         
     }
-                                   // this.setState({gotCart: true})
     return (
       <div>
         <div className="flex center category-header">
@@ -43,13 +44,16 @@ class Cart extends Component {
                 <li className="cart-list-item" key={sock.id}>
                   <div className="cart-item-inner">
                     <img className="cart-item-img" src={sock.photos[0]} />
-                    <h2>{sock.name}</h2>
+                    <div className="flex column">
+                      <h2>{sock.name}</h2>
+                      <p className="light-small">{sock.cartItem.size}</p>
+                    </div>
                   </div>
                   <div className="cart-item-inner">
-                    <h2>3</h2>
+                    <h2>{sock.cartItem.quantity}</h2>
                     <div className="vr bgb h100" />
-                    <h2>{`$${(sock.price / 100).toFixed(2)}`}</h2>
-                    <button className="remove-button hover-light">
+                    <h2 className="price">{`$${(sock.cartItem.quantity * (sock.price / 100).toFixed(2))}`}</h2>
+                    <button onClick={() => this.handleRemove(sock.id, this.props.user.id)} className="remove-button hover-light">
                       <h1>X</h1>
                     </button>
                   </div>
@@ -85,6 +89,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getCartThunk: userId => {
     dispatch(fetchSocksInCart(userId))
+  },
+  deleteSockThunk: (sockId, userId) => {
+    dispatch(deleteSockInCart(sockId, userId))
   },
   getUser: () => {
     dispatch(me)

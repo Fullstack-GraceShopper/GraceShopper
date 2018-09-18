@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Sock, Order} = require('../db/models');
+const {Sock, Order, CartItem} = require('../db/models');
 
 router.get('/:userId', async (req, res, next) => {
     try {
@@ -15,15 +15,20 @@ router.get('/:userId', async (req, res, next) => {
 });
 
 // ==> create new users cart <== //
-router.post('/:userId/:sockId', async (req, res, next) => {
+router.post('/:userId/:sockId/:size/:quantity', async (req, res, next) => {
   try {
     const sock = await Sock.findById(req.params.sockId)
     const [order] = await Order.findOrCreate({where: {
         userId: req.params.userId,
-        sold: false
+        sold: false,
       }
     });
-    order.addSock(sock)
+    order.addSock(sock, {
+      through: {
+        size: req.params.size,
+        quantity: req.params.quantity
+      }
+    })
 
     res.json(order);
   } catch (err) {
@@ -59,16 +64,17 @@ router.get('/inCart/:cartNumber', async (req, res, next) => {
     }
 })
 
-router.get('/inCart/:cartNumber', async (req, res, next) => {
+// ==> api/orders/removeFromCart?sockId=1
+router.delete('/removeFromCart', async (req, res, next) => {
     try {
-        const order = await Order.findById(req.params.cartNumber, {
-            include: [{
-                model: Sock,
-            }]
+        await CartItem.destroy({
+            where: {
+                sockId: req.query.sockId,
+            },
         });
-        res.json(order);
+        res.sendStatus(204)
     } catch (err) {
-        next (err);
+        next (err)
     }
 })
 

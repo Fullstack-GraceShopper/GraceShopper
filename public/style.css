@@ -169,6 +169,15 @@ tr.orderRow>td {
   color: black;
 }
 
+.price{
+  width:120px;
+}
+
+.light-small{
+  color: rgba(0,0,0,0.5);
+  font-size:14px;
+}
+
 .hover-light:hover {
   text-shadow: 0px 0px 3px white;
 }
@@ -244,6 +253,11 @@ tr.orderRow>td {
 
 .single-page-label{
   text-decoration: underline;
+}
+
+.cart-item-name-size{
+  display: flex;
+  flex-direction: column;
 }
 
 /* IDS */
@@ -345,7 +359,7 @@ tr.orderRow>td {
 }
 
 #size-select {
-  width: 150px;
+  width: 200px;
   font-size: 1.2em;
   text-align: center;
 }

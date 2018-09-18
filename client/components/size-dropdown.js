@@ -8,15 +8,17 @@ export const SizeDropdown = props => {
       <h3 className="slight-padding">Select Size:</h3>
       <div className="center" id="size-dropdown">
         <div>
-          <label htmlFor="size-select" />
-          <select name="size-select" id="size-select" defaultValue="--">
-            <option disabled>--</option>
-            {sock.sizes.map((size, i) => (
-              <Fragment>
-                <option key={i}>
+          <label htmlFor="sizeSelect" />
+          <select name="sizeSelect" id="size-select" defaultValue="--" required>
+            <option value="">--</option>
+            {sock.sizes.map((size) => (
+              <Fragment key={size}>
+                <option key={`Men's - ${size}`}
+                  val={`Men's - ${size}`}>
                   Men's - {size}
                 </option>
-                <option key={size.length}>
+                <option key={`Women's - ${size}`}
+                  val={`Men's - ${size}`}>
                   Women's - {size}
                 </option>
               </Fragment>
