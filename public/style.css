@@ -144,7 +144,6 @@ tr.orderRow>td {
 
 .top-header {
   display: flex;
-  width: 99vw;
   justify-content: space-between;
   background-color: #26777f;
 }
@@ -163,7 +162,6 @@ tr.orderRow>td {
 
 .bottom-header {
   display: flex;
-  width: 99vw;
   justify-content: center;
   border-bottom: 1px solid black;
   background-color: #a8f6ff;

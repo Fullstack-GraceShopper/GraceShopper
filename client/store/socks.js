@@ -1,25 +1,22 @@
 import axios from 'axios'
 
- // ACTION TYPES
+// ACTION TYPES
 
 const GET_SOCKS = 'GET_SOCKS'
 const GET_SOCK = 'GET_SOCK'
 
-
- // INITIAL STATE
+// INITIAL STATE
 
 const defaultSocks = []
-
 
 // ACTION CREATORS
 
 export const gotSocks = socks => ({type: GET_SOCKS, socks})
 export const gotSock = sock => ({type: GET_SOCK, sock})
 
-
 // THUNK CREATORS
 
-export const fetchSocksByCategory = (category) => async dispatch => {
+export const fetchSocksByCategory = category => async dispatch => {
   try {
     const {data} = await axios.get(`/api/socks/category/${category}`)
     dispatch(gotSocks(data))
@@ -29,22 +26,27 @@ export const fetchSocksByCategory = (category) => async dispatch => {
 }
 
 export const fetchSocksInCart = () => async dispatch => {
-  try{
+  try {
     const currentCart = await axios.get(`/api/orders/cart`)
-    const {data} = await axios.post(`/api/orders/inCart`,{id: currentCart.data[0].id})
-    console.log(data, '12341241234141234312')
-    dispatch(gotSocks(data))
+    if (currentCart.data.length > 0) {
+      const {data} = await axios.post(`/api/orders/inCart`, {
+        id: currentCart.data[0].id
+      })
+      dispatch(gotSocks(data))
+    } else {
+      dispatch(gotSocks([]))
+    }
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 }
 
 export const deleteSockInCart = (sockId, userId) => async dispatch => {
   try {
     await axios.delete(`/api/orders/removeFromCart?sockId=${sockId}`)
-    dispatch(fetchSocksInCart(userId));
+    dispatch(fetchSocksInCart(userId))
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 }
 
@@ -68,19 +70,19 @@ export const fetchKidSocks = () => async dispatch => {
 
 export const fetchSock = id => async dispatch => {
   try {
-    const {data} = await axios.get(`/api/socks/${id}`);
-    dispatch(gotSock(data));
+    const {data} = await axios.get(`/api/socks/${id}`)
+    dispatch(gotSock(data))
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
 export const fetchAllSocks = () => async dispatch => {
   try {
-    const {data} = await axios.get(`/api/socks/`);
-    dispatch(gotSocks(data));
+    const {data} = await axios.get(`/api/socks/`)
+    dispatch(gotSocks(data))
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
@@ -91,7 +93,7 @@ export default function(state = defaultSocks, action) {
     case GET_SOCKS:
       return action.socks
     case GET_SOCK:
-      const alreadyIn = state.some(sock => sock.id === action.sock.id);
+      const alreadyIn = state.some(sock => sock.id === action.sock.id)
       if (alreadyIn) {
         return state.map(sock => {
           if (sock.id === action.sock.id) {
@@ -99,7 +101,7 @@ export default function(state = defaultSocks, action) {
           } else {
             return sock
           }
-        });
+        })
       } else return [...state, action.sock]
     default:
       return state

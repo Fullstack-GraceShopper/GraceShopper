@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
-import {Link} from 'react-router-dom'
 import Checkout from './Checkout'
+import StartShopping from './start-shopping'
 import {calcTotalForButton} from './utils'
 
 class Cart extends Component {
@@ -16,7 +16,6 @@ class Cart extends Component {
     await this.props.getUser()
   }
   async handleRemove(sockId, userId) {
-    console.log(userId)
     await this.props.deleteSockThunk(sockId, userId)
   }
   getCart = async userId => {
@@ -27,7 +26,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.user.id && !this.gotCart) {
       this.getCart(this.props.user.id)
       this.gotCart = true
@@ -38,7 +36,7 @@ class Cart extends Component {
         <div className="flex center category-header">
           <h1>CART</h1>
         </div>
-        {this.props.socks[0].cartItem ? (
+        {this.props.socks.length ? this.props.socks[0].cartItem ? (
           <div>
             <ul className="cart-list">
               {this.props.socks.map(sock => {
@@ -77,26 +75,15 @@ class Cart extends Component {
                     : 'Total:   $ 0.00'}
                 </h2>
                 <hr />
-                <Checkout
-                  name="Sockr"
-                  description=""
-                  amount={this.calcTotalForButton(this.props.socks)}
-                />
+                <Checkout name="Sockr" description="" amount={this.calcTotalForButton(this.props.socks)} />
               </div>
             ) : (
-              <div>
-                <p>No Socks In Cart...</p>
-                <Link to="/" className="w100">
-                  <button className="flex space-between">
-                    <h1 className="center">Start Shopping!</h1>
-                  </button>
-                </Link>
-              </div>
+              <StartShopping />
             )}
           </div>
         ) : (
-          <div>no</div>
-        )}
+          <StartShopping />
+        ) : <StartShopping />}
       </div>
     )
   }

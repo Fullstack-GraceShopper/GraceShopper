@@ -1,44 +1,65 @@
 // This is the checkout component. It can be rendered in the cart. It needs to be passed the name, description, and amount of things sold when it is rendered.
 
-import React from 'react'
-import axios from 'axios';
-import StripeCheckout from 'react-stripe-checkout';
+import React, {Component} from 'react'
+import {fetchSocksInCart} from '../store/socks'
+import store from '../store'
+import {connect} from 'react-redux'
+import axios from 'axios'
+import StripeCheckout from 'react-stripe-checkout'
 
-import STRIPE_PUBLISHABLE from '../../constants/stripe';
-import PAYMENT_SERVER_URL from '../../constants/server';
+import STRIPE_PUBLISHABLE from '../../constants/stripe'
+import PAYMENT_SERVER_URL from '../../constants/server'
 
-const CURRENCY = 'USD';
+const CURRENCY = 'USD'
 
-const fromDollarsToCents = amount => amount * 100;
+const fromDollarsToCents = amount => amount * 100
 
 const successPayment = async data => {
   await axios.put('api/orders/sold')
-  alert('Payment Successful');
-};
+  await store.dispatch(fetchSocksInCart());
+  alert('Payment Successful')
+}
 
 const errorPayment = data => {
-  alert('Payment Error');
-};
+  console.log(data);
+  alert('Payment Error')
+}
 
 const onToken = (amount, description) => token =>
-  axios.post(PAYMENT_SERVER_URL,
-    {
+  axios
+    .post(PAYMENT_SERVER_URL, {
       description,
       source: token.id,
       currency: CURRENCY,
       amount: fromDollarsToCents(amount)
     })
     .then(successPayment)
-    .catch(errorPayment);
+    .catch(errorPayment)
 
-const Checkout = ({ name, description, amount }) =>
-  <StripeCheckout
-    name={name}
-    description={description}
-    amount={amount}
-    token={onToken(amount, description)}
-    currency={CURRENCY}
-    stripeKey={STRIPE_PUBLISHABLE}
-  />
+class Checkout extends Component {
+  render() {
+    console.log('render');
+    return (
+      <StripeCheckout
+        name={this.props.name}
+        description={this.props.description}
+        amount={this.props.amount}
+        token={onToken(this.props.amount, this.props.description)}
+        currency={CURRENCY}
+        stripeKey={STRIPE_PUBLISHABLE}
+      />
+    )
+  }
+}
 
-export default Checkout;
+const mapStateToProps = (state, ownProps) => ({
+  name: ownProps.name,
+  description: ownProps.description,
+  amount: ownProps.amount
+})
+
+const mapDispatchToProps = dispatch => ({
+  updateCart: () => dispatch(fetchSocksInCart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
