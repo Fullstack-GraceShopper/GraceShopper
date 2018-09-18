@@ -27,10 +27,10 @@ class UserDropdown extends Component {
       <div>
         <button id="user-icon" type="button" onClick={this.toggleForm}>
           <img id="nav-photo" src={user.photo} />
-          <p id="below-user-icon">Me &#9662;</p>
+          <p id="below-user-icon">Me ▼</p>
         </button>
 
-        {this.state.showForm ? (
+        {this.state.showForm && (
           <ul id="user-dropdown" className="no-decoration">
             <li>
               <Link to={`/${user.id}/accountdetails`} className="no-decoration black" user={user}>
@@ -47,7 +47,7 @@ class UserDropdown extends Component {
               </Link>
             </li>
           </ul>
-        ) : null}
+        )}
       </div>
     )
   }
