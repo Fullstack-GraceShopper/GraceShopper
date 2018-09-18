@@ -4,12 +4,13 @@ import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
 import axios from 'axios'
 import Checkout from './Checkout'
-
+import {calcTotal} from './utils'
 
 class Cart extends Component {
   constructor() {
     super()
     this.gotCart = false
+    this.calcTotal = calcTotal.bind(this)
   }
   async componentDidMount() {
     const user = await this.props.getUser()
@@ -20,13 +21,6 @@ class Cart extends Component {
   }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
-  }
-  calcTotal = objects => {
-    let total = 0
-    objects.forEach(object => {
-      total += object.price * object.cartItem.quantity
-    })
-    return `Total:   $${(total / 100).toFixed(2)}`
   }
   render() {
     if(this.props.user.id && !this.gotCart) {

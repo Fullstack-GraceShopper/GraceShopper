@@ -2,7 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchAllSocks} from '../store/socks'
 import {Link} from 'react-router-dom'
-import {shuffle, includesAny} from './utils'
+const {shuffle, includesAny} = require('./utils')
+const randomRelatedSock = 6
 
 class RelatedSocks extends React.Component {
   async componentDidMount() {
@@ -17,7 +18,7 @@ class RelatedSocks extends React.Component {
           sock.id !== mainSock.id &&
           includesAny(sock.categories, mainSock.categories)
       )
-    ).slice(0, 6)
+    ).slice(0, randomRelatedSock)
 
     return randomRelatedSocks.length ? (
       <div>
