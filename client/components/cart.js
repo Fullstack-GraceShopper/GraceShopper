@@ -13,7 +13,7 @@ class Cart extends Component {
     this.calcTotalForButton = calcTotalForButton.bind(this)
   }
   async componentDidMount() {
-    await this.props.getUser()
+    await this.props.getUser();
   }
   async handleRemove(sockId, userId) {
     await this.props.deleteSockThunk(sockId, userId)
