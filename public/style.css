@@ -71,6 +71,10 @@ tr.orderRow>td {
   justify-content: flex-start;
 }
 
+.space-between{
+  justify-content: space-between;
+}
+
 .row {
   flex-direction: row;
 }
