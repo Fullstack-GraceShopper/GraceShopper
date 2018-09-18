@@ -1,35 +1,37 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export const Home = props => {
   return (
     <div className="home-body-container column">
 
       <div className="flex center">
-        <a id="home-popculture" className="home-category-background" href="http://localhost:8080/socks/category/popculture">         <div className="home-category-title">
+        <Link id="home-popculture" className="home-category-background" to="/socks/category/popculture">         
+            <div className="home-category-title">
               POPCULTURE
             </div>
-        </a>
+        </Link>
 
-        <a id="home-athletic" className="home-category-background" href="http://localhost:8080/socks/category/athletic">
+        <Link id="home-athletic" className="home-category-background" to="/socks/category/athletic">
           <div className="home-category-title">
             ATHLETIC
           </div>
-        </a>
+        </Link>
 
       </div>
 
       <div className="flex center">
-        <a id="home-funny" className="home-category-background" href="http://localhost:8080/socks/category/funny">
+        <Link id="home-funny" className="home-category-background" to="/socks/category/funny">
           <div className="home-category-title">
             FUNNY
           </div>
-        </a>
+        </Link>
 
-        <a id="home-casual" className="home-category-background" href="http://localhost:8080/socks/category/casual">
+        <Link id="home-casual" className="home-category-background" to="/socks/category/casual">
           <div className="home-category-title">
             CASUAL
           </div>
-        </a>
+        </Link>
       </div>
 
     </div>
