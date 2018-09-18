@@ -11,7 +11,8 @@ const CURRENCY = 'USD';
 
 const fromDollarsToCents = amount => amount * 100;
 
-const successPayment = data => {
+const successPayment = async data => {
+  await axios.put('api/orders/sold')
   alert('Payment Successful');
 };
 
