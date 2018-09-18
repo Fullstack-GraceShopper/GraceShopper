@@ -33,8 +33,7 @@ const Navbar = ({handleClick, isLoggedIn, userPhoto, user}) => (
               <div className="vert-center">SIGN UP</div>
             </Link>
             <div className="vr bgw" />
-            <Link className="top-header-link hover-light" to="/cart">
-            </Link>
+            <Link className="top-header-link hover-light" to="/cart" />
           </div>
         )}
       </div>
