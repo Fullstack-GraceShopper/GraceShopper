@@ -57,5 +57,5 @@ describe('Socks route', () => {
       expect(res.body[0].name).to.be.equal(caterpillarSock)
     })
   })
-}) 
+})
 

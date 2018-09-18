@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart} from '../store/socks'
+import Checkout from  './Checkout'
 
 class Cart extends Component {
   constructor() {
@@ -27,7 +28,7 @@ class Cart extends Component {
   render() {
     if(this.props.user.id && !this.state.gotCart) {
       this.getCart(this.props.user.id)
-      this.state = {gotCart: true} // setState to avoid mutating??                           
+      this.setState({gotCart: true}) // setState to avoid mutating??
     }
                                    // this.setState({gotCart: true})
     return (
@@ -66,9 +67,10 @@ class Cart extends Component {
               : 'Total:   $ 0.00'}
           </h2>
           <hr />
-          <button id="checkout-button">
+          {/* <button id="checkout-button">
             <h2>Checkout</h2>
-          </button>
+          </button> */}
+          <Checkout name="gummy bear sock" description="a sock, obviously" amount="599"/>
         </div>
       </div>
     )
