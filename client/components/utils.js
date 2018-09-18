@@ -26,7 +26,7 @@ const calcTotalForButton = objects => {
   return total
 }
 
-export const formatDate = order => {
+const formatDate = order => {
   let date = order.createdAt.slice(0,10).split('-')
   const year = date.shift()
   date.push(year)
@@ -34,7 +34,6 @@ export const formatDate = order => {
 }
 
 const categoryArr = [{name: 'dress'}, {name: 'casual'}, {name: 'popculture'},{name: 'funny'}, {name: 'athletic'}]
-
 
 module.exports = {
   toUpper,

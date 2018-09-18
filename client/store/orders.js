@@ -18,9 +18,9 @@ export const gotOrderHistory = orders => ({type: GET_ORDER_HISTORY, orders})
 
 // THUNK CREATORS
 
-export const postOrder = (userId, sockId, size, quantity) => async dispatch => {
+export const postOrder = (sockId, size, quantity) => async dispatch => {
   try {
-    const {data: order} = await axios.post(`/api/orders/${userId}/${sockId}/${size}/${quantity}`);
+    const {data: order} = await axios.post(`/api/orders/addToCart?sockId=${sockId}&size=${size}&quantity=${quantity}`);
     dispatch(receiveOrder(order))
   } catch (err) {
     console.error(err);
