@@ -77,7 +77,7 @@ class Cart extends Component {
                     : 'Total:   $ 0.00'}
                 </h2>
                 <hr />
-                <Checkout name="Sockr" description="" amount={this.calcTotalForButton(this.props.socks)} />
+                <Checkout name="Sockr" description="" user={this.props.users} amount={this.calcTotalForButton(this.props.socks)} />
               </div>
             ) : (
               <StartShopping />
