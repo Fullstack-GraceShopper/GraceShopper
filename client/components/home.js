@@ -4,24 +4,31 @@ export const Home = props => {
   return (
     <div className="home-body-container column">
 
-      <div className="flex">
-        <a id="home-popculture" className="home-page-sock-image" href="http://localhost:8080/socks/category/popculture">         
-            POPCULTURE  
+      <div className="flex center">
+        <a id="home-popculture" className="home-category-background" href="http://localhost:8080/socks/category/popculture">         <div className="home-category-title">
+              POPCULTURE
+            </div>
         </a>
 
-        <a id="home-athletic" className="home-page-sock-image" href="http://localhost:8080/socks/category/athletic">
+        <a id="home-athletic" className="home-category-background" href="http://localhost:8080/socks/category/athletic">
+          <div className="home-category-title">
             ATHLETIC
+          </div>
         </a>
-        
+
       </div>
 
-      <div className="flex">
-        <a id="home-funny" className="home-page-sock-image" href="http://localhost:8080/socks/category/funny">
+      <div className="flex center">
+        <a id="home-funny" className="home-category-background" href="http://localhost:8080/socks/category/funny">
+          <div className="home-category-title">
             FUNNY
+          </div>
         </a>
 
-        <a id="home-casual" className="home-page-sock-image" href="http://localhost:8080/socks/category/casual">
+        <a id="home-casual" className="home-category-background" href="http://localhost:8080/socks/category/casual">
+          <div className="home-category-title">
             CASUAL
+          </div>
         </a>
       </div>
 
