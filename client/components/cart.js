@@ -4,6 +4,7 @@ import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
 import axios from 'axios'
 
+
 class Cart extends Component {
   constructor() {
     super()
@@ -70,9 +71,10 @@ class Cart extends Component {
               : 'Total:   $ 0.00'}
           </h2>
           <hr />
-          <button id="checkout-button">
+          {/* <button id="checkout-button">
             <h2>Checkout</h2>
-          </button>
+          </button> */}
+          <Checkout name="gummy bear sock" description="a sock, obviously" amount="599"/>
         </div>
       </div>
     )
