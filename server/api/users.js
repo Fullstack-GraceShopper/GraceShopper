@@ -22,7 +22,7 @@ router.post('/createGuest', async (req, res, next) => {
       address: '#',
       photo: 'https://www.viawater.nl/files/default-user.png',
     });
-    res.json({id: req.sessionID})
+    req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
     next (err)
   }
