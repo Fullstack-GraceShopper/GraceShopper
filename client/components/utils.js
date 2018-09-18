@@ -18,12 +18,12 @@ const includesAny = (arr1, arr2) => {
   return false
 }
 
-const calcTotal = objects => {
+const calcTotalForButton = objects => {
   let total = 0
   objects.forEach(object => {
     total += object.price * object.cartItem.quantity
   })
-  return `Total:   $${(total / 100).toFixed(2)}`
+  return total
 }
 
 const categoryArr = [{name: 'dress'}, {name: 'casual'}, {name: 'popculture'},{name: 'funny'}, {name: 'athletic'}]
@@ -32,6 +32,6 @@ module.exports = {
   toUpper,
   shuffle,
   includesAny,
-  calcTotal,
+  calcTotalForButton,
   categoryArr
 }
