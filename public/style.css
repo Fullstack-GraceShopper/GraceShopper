@@ -71,6 +71,10 @@ tr.orderRow>td {
   justify-content: flex-start;
 }
 
+.space-between{
+  justify-content: space-between;
+}
+
 .row {
   flex-direction: row;
 }
@@ -115,7 +119,7 @@ tr.orderRow>td {
   align-items: center;
   font-size: 30px;
   height: 20vh;
-  width: 99vw;
+  width: 100%;
   border-top: 1em solid rgb(236, 236, 236);
   border-bottom: 1em solid rgb(236, 236, 236);
 }
