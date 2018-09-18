@@ -4,7 +4,7 @@ import {fetchAdultSocks} from '../store/socks'
 import CategoryMenu from './category-menu'
 import {SockList} from './sock-list'
 
-class AdultSocks extends React.Component {
+export class AdultSocks extends React.Component {
   async componentDidMount() {
     await this.props.getAdultSocks()
   }
