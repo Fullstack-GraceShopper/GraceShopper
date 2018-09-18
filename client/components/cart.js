@@ -2,9 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {fetchSocksInCart, deleteSockInCart} from '../store/socks'
-import axios from 'axios'
+import {Link} from 'react-router-dom'
 import Checkout from './Checkout'
-
 
 class Cart extends Component {
   constructor() {
@@ -21,12 +20,15 @@ class Cart extends Component {
   getCart = async userId => {
     await this.props.getCartThunk(userId)
   }
-  calcTotal = objects => {
+  calcTotalForButton = objects => {
     let total = 0
     objects.forEach(object => {
       total += object.price * object.cartItem.quantity
     })
-    return `Total:   $${(total / 100).toFixed(2)}`
+    return total
+  }
+  calcTotal = objects => {
+    return `Total:   $${(this.calcTotalForButton(objects) / 100).toFixed(2)}`
   }
   render() {
     if(this.props.user.id && !this.gotCart) {
@@ -38,9 +40,11 @@ class Cart extends Component {
         <div className="flex center category-header">
           <h1>CART</h1>
         </div>
+      {this.props.socks.socks ? (
+      <div>
         <ul className="cart-list">
-          {this.props.socks.socks ? (
-            this.props.socks.socks.map(sock => {
+            {this.props.socks.socks.map(sock => {
+              console.log(this.props.socks.socks)
               return (
                 <li className="cart-list-item" key={sock.id}>
                   <div className="cart-item-inner">
@@ -61,25 +65,26 @@ class Cart extends Component {
                 </li>
               )
             })
-          ) : (
-            <li>no socks in cart</li>
-          )}
+          }
         </ul>
-        <div id="checkout-container">
+        {this.props.socks.socks.length ? <div id="checkout-container">
           <h2 id="total">
             {this.props.socks.socks
               ? this.calcTotal(this.props.socks.socks)
               : 'Total:   $ 0.00'}
           </h2>
           <hr />
-          {/* <button id="checkout-button">
-            <h2>Checkout</h2>
-          </button> */}
-          <Checkout name="gummy bear sock, happy sock" description="a beautiful bouquet of sock" amount={666} />
-        </div>
+          <Checkout name="Sockr" description="" amount={this.calcTotalForButton(this.props.socks.socks)} />
+        </div> : <div>
+                    <p>No Socks In Cart...</p>
+                    <Link to="/" className="w100"><button className="flex space-between"><h1 className="center">Start Shopping!</h1></button></Link>
+                </div>}
       </div>
-    )
-  }
+    ) : (
+      <div>no</div>
+    )}
+    </div>
+    )}
 }
 
 const mapStateToProps = state => ({
