@@ -10,8 +10,9 @@ const Navbar = ({isLoggedIn, userPhoto, user}) => (
   <div>
     <div className="top-header">
       <div>
-        <Link to="/">
+        <Link id="logo" className="flex" to="/">
           <h1 id="logo-text">Sockr</h1>
+          <h2 id="tag-line"> - For odd socks</h2>
         </Link>
       </div>
       {}

@@ -287,6 +287,17 @@ tr.orderRow>td {
   display: flex;
   flex-direction: column;
 }
+#footer-container{
+  padding:0px 40px 0px 40px;
+  color:white;
+  list-style: none;
+}
+#contact-list{
+  list-style: none;
+}
+#footer{
+  background-color: rgb(63, 63, 63);
+}
 /* IDS */
 #logo-text {
   font-family: Lobster;
@@ -456,4 +467,14 @@ tr.orderRow>td {
   color: white;
   font-size: 1em;
   text-align: center;
+}
+
+#logo{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  color:white;
+}
+#tag-line{
+  padding: 14px 0px 0px 5px;
 }

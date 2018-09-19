@@ -33,7 +33,6 @@ export const Home = props => {
           </div>
         </Link>
       </div>
-
     </div>
   )
 }

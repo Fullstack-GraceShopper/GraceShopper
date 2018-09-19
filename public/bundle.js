@@ -1529,10 +1529,14 @@ var Navbar = function Navbar(_ref) {
   return _react.default.createElement("div", null, _react.default.createElement("div", {
     className: "top-header"
   }, _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
+    id: "logo",
+    className: "flex",
     to: "/"
   }, _react.default.createElement("h1", {
     id: "logo-text"
-  }, "Sockr"))), _react.default.createElement("div", null, isLoggedIn && userPhoto !== 'https://www.viawater.nl/files/default-user.png' ? _react.default.createElement("div", {
+  }, "Sockr"), _react.default.createElement("h2", {
+    id: "tag-line"
+  }, " - For odd socks"))), _react.default.createElement("div", null, isLoggedIn && userPhoto !== 'https://www.viawater.nl/files/default-user.png' ? _react.default.createElement("div", {
     className: "vert-center flex"
   }, _react.default.createElement(_userDropdown.default, {
     user: user
@@ -4245,7 +4249,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var PAYMENT_SERVER_URL = 'http://localhost:8080';
+var PAYMENT_SERVER_URL = 'https://sockr.herokuapp.com';
 var _default = PAYMENT_SERVER_URL;
 exports.default = _default;
 

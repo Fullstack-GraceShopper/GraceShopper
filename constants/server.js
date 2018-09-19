@@ -1,3 +1,3 @@
-const PAYMENT_SERVER_URL = 'http://localhost:8080';
+const PAYMENT_SERVER_URL = 'https://sockr.herokuapp.com';
 
 export default PAYMENT_SERVER_URL;
