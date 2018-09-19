@@ -586,9 +586,7 @@ var AuthForm = function AuthForm(props) {
     type: "password"
   })), _react.default.createElement("div", null, _react.default.createElement("button", {
     type: "submit"
-  }, displayName)), error && error.response && _react.default.createElement("div", null, " ", error.response.data, " ")), _react.default.createElement("a", {
-    href: "/auth/google"
-  }, displayName, " with Google"));
+  }, displayName)), error && error.response && _react.default.createElement("div", null, " ", error.response.data, " ")));
 };
 /**
  * CONTAINER
@@ -665,6 +663,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var CartIcon = function CartIcon() {
   return _react.default.createElement("svg", {
+    id: "cart-icon",
     xmlns: "http://www.w3.org/2000/svg",
     width: "64",
     height: "64"
@@ -732,6 +731,8 @@ var _Checkout = _interopRequireDefault(__webpack_require__(/*! ./Checkout */ "./
 var _startShopping = _interopRequireDefault(__webpack_require__(/*! ./start-shopping */ "./client/components/start-shopping.js"));
 
 var _utils = __webpack_require__(/*! ./utils */ "./client/components/utils.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -870,7 +871,7 @@ function (_Component) {
 
       return _react.default.createElement("div", null, _react.default.createElement("div", {
         style: {
-          height: "30px"
+          height: '30px'
         }
       }), _react.default.createElement("div", {
         className: "flex center category-header"
@@ -882,8 +883,9 @@ function (_Component) {
         return _react.default.createElement("li", {
           className: "cart-list-item",
           key: sock.id
-        }, _react.default.createElement("div", {
-          className: "cart-item-inner"
+        }, _react.default.createElement(_reactRouterDom.Link, {
+          className: "cart-item-inner no-decoration black",
+          to: "/socks/".concat(sock.id)
         }, _react.default.createElement("img", {
           className: "cart-item-img",
           src: sock.photos[0]
@@ -2252,9 +2254,7 @@ var SignUp = function SignUp(props) {
     type: "text"
   })), _react.default.createElement("div", null, _react.default.createElement("button", {
     type: "submit"
-  }, displayName)), error && error.response && _react.default.createElement("div", null, " ", error.response.data, " ")), _react.default.createElement("a", {
-    href: "/auth/google"
-  }, displayName, " with Google"));
+  }, displayName)), error && error.response && _react.default.createElement("div", null, " ", error.response.data, " ")));
 };
 
 var mapLogin = function mapLogin(state) {

@@ -2,7 +2,7 @@ import React from 'react'
 
 const CartIcon = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+    <svg id="cart-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
       <g>
         <title>background</title>
         <rect
