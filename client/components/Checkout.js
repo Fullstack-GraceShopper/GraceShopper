@@ -2,11 +2,11 @@
 
 import React, {Component} from 'react'
 import {fetchSocksInCart} from '../store/socks'
+import {me} from '../store/user'
 import store from '../store'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import StripeCheckout from 'react-stripe-checkout'
-
 import STRIPE_PUBLISHABLE from '../../constants/stripe'
 import PAYMENT_SERVER_URL from '../../constants/server'
 
@@ -14,15 +14,18 @@ const CURRENCY = 'USD'
 
 const fromDollarsToCents = amount => amount * 100
 
+let user = {};
 const successPayment = async () => {
-  await axios.put('api/orders/sold')
+  await axios.put('/api/orders/sold')
   await store.dispatch(fetchSocksInCart());
-  await axios.delete('api/orders/guestCheckout')
+  user = await store.dispatch(me());
+  if (user.photo === 'https://www.viawater.nl/files/default-user.png') {
+    await axios.delete('/api/orders/guestCheckout')
+  }
   alert('Payment Successful')
 }
 
 const errorPayment = data => {
-  console.log(data);
   alert('Payment Error')
 }
 
@@ -39,7 +42,6 @@ const onToken = (amount, description) => token =>
 
 class Checkout extends Component {
   render() {
-    console.log('render');
     return (
       <StripeCheckout
         name={this.props.name}
@@ -56,11 +58,11 @@ class Checkout extends Component {
 const mapStateToProps = (state, ownProps) => ({
   name: ownProps.name,
   description: ownProps.description,
-  amount: ownProps.amount
+  amount: ownProps.amount,
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateCart: () => dispatch(fetchSocksInCart())
+  updateCart: () => dispatch(fetchSocksInCart()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
