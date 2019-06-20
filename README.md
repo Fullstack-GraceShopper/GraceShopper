@@ -4,6 +4,7 @@ The one-stop sock shop for single socks.
 
 By *helloimlaura, danglebert, jamesbyrd1265, morganb816*
 
+![](https://media.giphy.com/media/U76qzMRHk2Bdo9SRaR/giphy.gif)
 
 ______________☆☆☆☆ 
 ____________☆******* ☆ 
