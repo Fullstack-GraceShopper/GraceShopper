@@ -312,7 +312,7 @@ tr.orderRow>td {
 }
 
 #cart-icon{
-  padding-top: 10px;
+  padding-top: 13px;
   border-radius: 50%;
 }
 
@@ -331,7 +331,7 @@ tr.orderRow>td {
 }
 #user-icon {
   margin-right: 15px;
-  padding-top: 25px;
+  padding-top: 28px;
   height: 75px;
   border-radius: 50%;
   color: white;
@@ -352,11 +352,9 @@ tr.orderRow>td {
   right: 11px;
   z-index: 1;
 }
-
 #user-icon p {
   margin-top: 0;
 }
-
 #user-dropdown > li {
   flex-direction: row;
   align-self: flex-end;

@@ -7,9 +7,13 @@ const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({db})
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 4566
 const app = express()
 const socketio = require('socket.io')
+const webpack = require('webpack')
+const middleware = require('webpack-dev-middleware') //webpack hot reloading middleware
+const webpackConfig = require('../webpack.config')
+const compiler = webpack(webpackConfig)
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -41,6 +45,17 @@ passport.deserializeUser(async (id, done) => {
 })
 
 const createApp = () => {
+  app.use(require("webpack-hot-middleware")(compiler, {
+    'log': false, 
+    'path': '/__webpack_hmr', 
+    'heartbeat': 10 * 1000
+  }))
+
+  app.use(middleware(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath
+  }))
+
   // logging middleware
   app.use(morgan('dev'))
 
@@ -117,7 +132,7 @@ async function bootApp() {
 // i.e. when we say 'node server/index.js' (or 'nodemon server/index.js', or 'nodemon server', etc)
 // It will evaluate false when this module is required by another module - for example,
 // if we wanted to require our app in a test spec
-if (require.main === module) {
+if (process.env.NODE_ENV !== 'test') {
   bootApp()
 } else {
   createApp()
