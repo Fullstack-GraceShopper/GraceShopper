@@ -31,12 +31,6 @@ const SignUp = props => {
           <input name="address" type="text" />
         </div>
         <div>
-          <label htmlFor="photo">
-            <small>PhotoUrl</small>
-          </label>
-          <input name="photo" type="text" />
-        </div>
-        <div>
           <button type="submit">{displayName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
@@ -67,9 +61,8 @@ const mapDispatch = dispatch => {
       evt.preventDefault()
       const email = evt.target.email.value
       const address = evt.target.address.value
-      const photo = evt.target.photo.value
       const password = evt.target.password.value
-      dispatch(signUp(email, password, address, photo))
+      dispatch(signUp(email, password, address))
     }
   }
 }

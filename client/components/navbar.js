@@ -12,7 +12,6 @@ const Navbar = ({isLoggedIn, userPhoto, user}) => (
       <div>
         <Link id="logo" className="flex" to="/">
           <h1 id="logo-text">Sockr</h1>
-          <h2 id="tag-line"> - For odd socks</h2>
         </Link>
       </div>
       {}
@@ -26,7 +25,7 @@ const Navbar = ({isLoggedIn, userPhoto, user}) => (
             </Link>
           </div>
         ) : (
-          <div className="vert-center flex">
+          <div className="vert-center flex nav-top-pad">
             <Link className="top-header-link hover-light" to="/login">
               <div className="vert-center">LOGIN</div>
             </Link>
