@@ -4,7 +4,7 @@ import {fetchSock} from '../store/socks'
 import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
-import OrderButton from './order-button'
+import AddToCartButton from './add-to-cart-button'
 import {postOrder} from '../store/orders'
 import axios from 'axios'
 import {me, getUser} from '../store/user'
@@ -68,7 +68,7 @@ class SingleSock extends Component {
               <form onSubmit={this.handleSubmit}>
                 <SizeDropdown sock={sock} />
                 <QuantityDropdown />
-                <OrderButton sockId={sock.id}/>
+                <AddToCartButton />
               </form>
               </div>
             ) : (

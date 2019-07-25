@@ -1,7 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import OrderButton from './order-button';
-import OrderHistory from './order-history';
+import {Link} from 'react-router-dom'
 
 export const NotFound = () => (
   <div id="four-04">
