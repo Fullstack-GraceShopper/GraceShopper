@@ -14,11 +14,11 @@ const CURRENCY = 'USD'
 
 const fromDollarsToCents = amount => amount * 100
 
-let user = {};
+let user = {}
 const successPayment = async () => {
   await axios.put('/api/orders/sold')
-  await store.dispatch(fetchSocksInCart());
-  user = await store.dispatch(me());
+  await store.dispatch(fetchSocksInCart())
+  user = await store.dispatch(me())
   if (user.photo === 'https://www.viawater.nl/files/default-user.png') {
     await axios.delete('/api/orders/guestCheckout')
   }

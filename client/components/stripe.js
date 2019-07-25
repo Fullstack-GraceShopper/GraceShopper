@@ -2,7 +2,7 @@
 // submit method to send req body from that form to our api
 // post route on server side to send that info to stripe
 import React from 'react'
-import StripeCheckout from 'react-stripe-checkout';
+import StripeCheckout from 'react-stripe-checkout'
 
 export default class StripeForm extends React.Component {
   onToken = (token) => {
@@ -11,7 +11,7 @@ export default class StripeForm extends React.Component {
       body: JSON.stringify(token),
     }).then(response => {
       response.json()
-    });
+    })
   }
 
   render() {
