@@ -6,7 +6,7 @@ import {logout} from '../store'
 import UserDropdown from './user-dropdown'
 import CartIcon from './cart-icon'
 
-const Navbar = ({isLoggedIn, userPhoto, user}) => (
+const Navbar = ({isLoggedIn, user}) => (
   <div>
     <div className="top-header">
       <div>
@@ -16,7 +16,7 @@ const Navbar = ({isLoggedIn, userPhoto, user}) => (
       </div>
       {}
       <div>
-        {isLoggedIn && (userPhoto !== 'https://www.viawater.nl/files/default-user.png') ? (
+        {isLoggedIn ? (
           <div className="vert-center flex">
           <UserDropdown user={user} />
           <div className="vr bgw" />
@@ -25,13 +25,16 @@ const Navbar = ({isLoggedIn, userPhoto, user}) => (
             </Link>
           </div>
         ) : (
-          <div className="vert-center flex nav-top-pad">
-            <Link className="top-header-link hover-light" to="/login">
-              <div className="vert-center">LOGIN</div>
-            </Link>
-            <Link className="top-header-link hover-light" to="/signup">
-              <div className="vert-center">SIGN UP</div>
-            </Link>
+          <div className="vert-center flex">
+            <div id='auth-link-container' className='flex column'>
+              <Link className="top-header-link hover-light" to="/login">
+                <div className="vert-center">LOGIN</div>
+              </Link>
+              <div id='signup-link' className='flex'>
+                <p>New to Sockr?</p>
+                <Link to="/signup" className="hover-light">SIGN UP</Link>
+              </div>
+            </div>
             <div className="vr bgw" />
             <Link className="top-header-link hover-light" to="/cart" />
             <Link className="top-header-link hover-light" to="/cart">
@@ -60,30 +63,16 @@ const Navbar = ({isLoggedIn, userPhoto, user}) => (
   </div>
 )
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.user.id,
-    userPhoto: state.user.photo,
-    user: state.user
-  }
-}
+const mapState = ({user}) => ({isLoggedIn: !!user.id, user})
 
-const mapDispatch = dispatch => {
-  return {
-    handleClick() {
-      dispatch(logout())
-    }
+const mapDispatch = dispatch => ({
+  handleClick() {
+    dispatch(logout())
   }
-}
+})
 
 export default connect(mapState, mapDispatch)(Navbar)
 
-/**
- * PROP TYPES
- */
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired

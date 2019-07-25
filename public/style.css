@@ -38,7 +38,6 @@ tr.orderRow>td {
 }
 .vr{
   width:2px;
-  margin-right:10px;
 }
 .h100 {
   height:100%;
@@ -482,6 +481,27 @@ tr.orderRow>td {
   align-items: center;
   color:white;
 }
-#tag-line{
-  padding: 14px 0px 0px 5px;
+
+#auth-link-container {
+  margin-top: 20px;
+  text-align: right;
+  font-size: .8em;
+}
+
+#auth-link-container p {
+  color: white;
+  margin: 0 .5em 0 0;
+}
+
+#auth-link-container a {
+  color: white;
+  text-decoration: none;
+}
+
+#signup-link {
+  margin: 15px 15px ;
+}
+
+#signup-link a:hover {
+  color: #f8ff24;
 }

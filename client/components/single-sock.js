@@ -20,22 +20,22 @@ class SingleSock extends Component {
   }
 
   handleSubmit = async (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
     try {
-      const size = evt.target.sizeSelect.value;
-      const quantity = evt.target.quantitySelect.value;
+      const size = evt.target.sizeSelect.value
+      const quantity = evt.target.quantitySelect.value
       const sockId = this.props.sock.id
-      evt.target.sizeSelect.value = '';
-      evt.target.quantitySelect.value = 1;
+      evt.target.sizeSelect.value = ''
+      evt.target.quantitySelect.value = 1
       if (!this.props.user.id) {
         const user = await axios.post('/api/users/createGuest')
-        this.props.updateUserThunk(user.data);
+        this.props.updateUserThunk(user.data)
       }
       
       await this.props.addOrder(sockId, size, quantity)
-      alert('Successfully added to cart!');
+      alert('Successfully added to cart!')
     } catch(err) {
-        console.log(err);
+        console.log(err)
     }
   }
 

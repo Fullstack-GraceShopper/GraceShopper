@@ -69,9 +69,6 @@ const mapDispatch = dispatch => {
 
 export const SignUpForm = connect(mapSignup, mapDispatch)(SignUp)
 
-/**
- * PROP TYPES
- */
 SignUpForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
