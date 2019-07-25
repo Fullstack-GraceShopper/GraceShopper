@@ -9,7 +9,6 @@ const db = require('./db')
 const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 4566
 const app = express()
-const socketio = require('socket.io')
 const webpack = require('webpack')
 const middleware = require('webpack-dev-middleware') //webpack hot reloading middleware
 const webpackConfig = require('../webpack.config')
@@ -114,10 +113,6 @@ const startListening = () => {
   const server = app.listen(PORT, () =>
     console.log(`Mixing it up on port ${PORT}`)
   )
-
-  // set up our socket control center
-  const io = socketio(server)
-  require('./socket')(io)
 }
 
 const syncDb = () => db.sync()

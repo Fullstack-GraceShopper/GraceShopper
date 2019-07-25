@@ -1,8 +1,8 @@
 const faker = require('faker');
 
 const {bgMagenta, red} = require('chalk');
-const db = require('./server/db');
-const {Sock, User} = require('./server/db/models')
+const db = require('../server/db');
+const {Sock, User} = require('../server/db/models')
 
 // ==> MISC RANDOM GENERATORS <== //
 

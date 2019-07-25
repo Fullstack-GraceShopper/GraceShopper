@@ -7,7 +7,7 @@ import RelatedSocks from './related-socks'
 import OrderButton from './order-button'
 import {postOrder} from '../store/orders'
 import axios from 'axios'
-import {me, updateUser} from '../store/user'
+import {me, getUser} from '../store/user'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -29,7 +29,7 @@ class SingleSock extends Component {
       evt.target.quantitySelect.value = 1
       if (!this.props.user.id) {
         const user = await axios.post('/api/users/createGuest')
-        this.props.updateUserThunk(user.data)
+        this.props.checkoutWithGuest(user.data)
       }
       
       await this.props.addOrder(sockId, size, quantity)
@@ -99,7 +99,7 @@ const mapDispatchToProps = dispatch => ({
   getUser: () => {
     dispatch(me)
   },
-  updateUserThunk: user => dispatch(updateUser(user)),
+  checkoutWithGuest: user => dispatch(getUser(user)),
   addOrder: (userId, sockId, size, quantity) => dispatch(postOrder(userId, sockId, size, quantity))
 })
 
