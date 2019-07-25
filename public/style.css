@@ -474,34 +474,28 @@ tr.orderRow>td {
   font-size: 1em;
   text-align: center;
 }
-
 #logo{
   height: 100px;
   display: flex;
   align-items: center;
   color:white;
 }
-
 #auth-link-container {
-  margin-top: 20px;
+  margin-top: 19px;
   text-align: right;
-  font-size: .8em;
 }
-
-#auth-link-container p {
+#signup-link {
+  margin: 12px 15px 0 0;
+  font-size: .7em;
+}
+#signup-link > p {
   color: white;
   margin: 0 .5em 0 0;
 }
-
-#auth-link-container a {
+#signup-link a {
   color: white;
   text-decoration: none;
 }
-
-#signup-link {
-  margin: 15px 15px ;
-}
-
 #signup-link a:hover {
   color: #f8ff24;
 }
