@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import {getCurrentOrder, removeSockFromOrder} from '../store/orders'
+import {getCart, removeSockFromOrder} from '../store/cart'
 import Checkout from './checkout'
 import StartShopping from './start-shopping'
 import {calcTotalForButton} from './utils'
@@ -39,11 +39,11 @@ class Cart extends Component {
             <h1>Cart</h1>
           </div>
         </div>
-        {this.props.order && this.props.order.length ? (
-          this.props.order[0].cartItem ? (
+        {this.props.cart && this.props.cart.length ? (
+          this.props.cart[0].cartItem ? (
             <div>
               <ul className="cart-list">
-                {this.props.order.map(sock => {
+                {this.props.cart.map(sock => {
                   return (
                     <li className="cart-list-item" key={sock.id}>
                       <Link
@@ -76,11 +76,11 @@ class Cart extends Component {
                   )
                 })}
               </ul>
-              {this.props.order.length ? (
+              {this.props.cart.length ? (
                 <div id="checkout-container">
                   <h2 id="total">
-                    {this.props.order
-                      ? this.calcTotal(this.props.order)
+                    {this.props.cart
+                      ? this.calcTotal(this.props.cart)
                       : 'Total:   $ 0.00'}
                   </h2>
                   <hr />
@@ -88,7 +88,7 @@ class Cart extends Component {
                     name="Sockr"
                     description=""
                     user={this.props.users}
-                    amount={this.calcTotalForButton(this.props.order)}
+                    amount={this.calcTotalForButton(this.props.cart)}
                   />
                 </div>
               ) : (
@@ -106,11 +106,11 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = ({user, orders}) => ({user, order: orders[0]})
+const mapStateToProps = ({user, cart}) => ({user, cart})
 
 const mapDispatchToProps = dispatch => ({
   getCartThunk: userId => {
-    dispatch(getCurrentOrder(userId))
+    dispatch(getCart(userId))
   },
   deleteSockFromCart: (sockId, userId) => {
     dispatch(removeSockFromOrder(sockId, userId))

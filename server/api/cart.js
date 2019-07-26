@@ -24,21 +24,20 @@ router.post('/add', async (req, res, next) => {
   }
 })
 
-// router.get('/cart', async (req, res, next) => {
-//     try {
-//         const order = await Order.findAll({
-//             limit: 1,
-//             where: {
-//                 userId: req.user.id,
-//                 sold:false
-//             },
-//             order:[['createdAt', 'DESC']]
-//         })
-//         res.json(order)
-//     } catch (err) {
-//         next (err)
-//     }
-// })
+router.get('/', async (req, res, next) => {
+    try {
+        const cart = await Cart.findAll({
+            limit: 1,
+            where: {
+                userId: req.user.id
+            },
+            cart:[['createdAt', 'DESC']]
+        })
+        res.json(cart)
+    } catch (err) {
+        next (err)
+    }
+})
 
 // router.put('/sold', async (req, res, next) => {
 //     try {
@@ -57,18 +56,18 @@ router.post('/add', async (req, res, next) => {
 //     }
 // })
 
-// router.post('/inCart', async (req, res, next) => {
-//     try {
-//         const order = await Order.findById((req.body.id), {
-//             include: [{
-//                 model: Sock,
-//             }]
-//         })
-//         res.json(order.socks)
-//     } catch (err) {
-//         next (err)
-//     }
-// })
+router.post('/in', async (req, res, next) => {
+    try {
+        const cart = await Cart.findById((req.body.id), {
+          include: [{
+              model: Sock,
+          }]
+        })
+        res.json(cart.socks)
+    } catch (err) {
+        next (err)
+    }
+})
 
 // // ==> api/orders/removeFromCart?sockId=1
 // router.delete('/removeFromCart', async (req, res, next) => {

@@ -4,12 +4,12 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import socks from './socks'
-import orders from './orders'
+import cart from './cart'
 
 const reducer = combineReducers({
   user: user,
   socks: socks,
-  orders: orders
+  cart: cart
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
