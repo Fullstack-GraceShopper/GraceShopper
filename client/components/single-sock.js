@@ -5,7 +5,7 @@ import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
 import AddToCartButton from './add-to-cart-button'
-import {addOrder} from '../store/orders'
+import {addCartItem} from '../store/cart'
 import axios from 'axios'
 import {me, getUser} from '../store/user'
 
@@ -100,7 +100,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(me)
   },
   checkoutWithGuest: user => dispatch(getUser(user)),
-  addToCart: (userId, sockId, size, quantity) => dispatch(addOrder(userId, sockId, size, quantity))
+  addToCart: (userId, sockId, size, quantity) => dispatch(addCartItem(userId, sockId, size, quantity))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock)

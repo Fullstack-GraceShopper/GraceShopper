@@ -1,4 +1,6 @@
-// This is the checkout component. It can be rendered in the cart. It needs to be passed the name, description, and amount of things sold when it is rendered.
+// This is the checkout component. It can be rendered in the cart.
+// It needs to be passed the name, description, and amount of things
+// sold when it is rendered.
 
 import React, {Component} from 'react'
 import {getCurrentOrder} from '../store/orders'

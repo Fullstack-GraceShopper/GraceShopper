@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const Sequelize = require('sequelize')
+const db = require('../db')
 
-const {categoryArr} = require('../../../client/components/utils');  // <= use to validate category inputs
+const {categoryArr} = require('../../../client/components/utils')  // <= use to validate category inputs
 
 const Order = db.define('order', {
   sold: {
@@ -11,7 +11,7 @@ const Order = db.define('order', {
   userId: {
     type: Sequelize.INTEGER
   }
-});
+})
 
 module.exports = {
     Order,
