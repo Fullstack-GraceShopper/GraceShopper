@@ -5,7 +5,7 @@ import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
 import AddToCartButton from './add-to-cart-button'
-import {postOrder} from '../store/orders'
+import {addOrder} from '../store/orders'
 import axios from 'axios'
 import {me, getUser} from '../store/user'
 
@@ -32,7 +32,7 @@ class SingleSock extends Component {
         this.props.checkoutWithGuest(user.data)
       }
       
-      await this.props.addOrder(sockId, size, quantity)
+      await this.props.addToCart(sockId, size, quantity)
       alert('Successfully added to cart!')
     } catch(err) {
         console.log(err)
@@ -100,7 +100,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(me)
   },
   checkoutWithGuest: user => dispatch(getUser(user)),
-  addOrder: (userId, sockId, size, quantity) => dispatch(postOrder(userId, sockId, size, quantity))
+  addToCart: (userId, sockId, size, quantity) => dispatch(addOrder(userId, sockId, size, quantity))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock)

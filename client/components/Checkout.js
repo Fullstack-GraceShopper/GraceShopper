@@ -1,7 +1,7 @@
 // This is the checkout component. It can be rendered in the cart. It needs to be passed the name, description, and amount of things sold when it is rendered.
 
 import React, {Component} from 'react'
-import {fetchSocksInCart} from '../store/socks'
+import {getCurrentOrder} from '../store/orders'
 import {me} from '../store/user'
 import store from '../store'
 import {connect} from 'react-redux'
@@ -17,7 +17,7 @@ const fromDollarsToCents = amount => amount * 100
 let user = {}
 const successPayment = async () => {
   await axios.put('/api/orders/sold')
-  await store.dispatch(fetchSocksInCart())
+  await store.dispatch(getCurrentOrder())
   user = await store.dispatch(me())
   if (user.photo === 'https://www.viawater.nl/files/default-user.png') {
     await axios.delete('/api/orders/guestCheckout')
@@ -61,8 +61,4 @@ const mapStateToProps = (state, ownProps) => ({
   amount: ownProps.amount,
 })
 
-const mapDispatchToProps = dispatch => ({
-  updateCart: () => dispatch(fetchSocksInCart()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
+export default connect(mapStateToProps, null)(Checkout)

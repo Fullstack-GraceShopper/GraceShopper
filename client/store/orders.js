@@ -3,7 +3,7 @@ import axios from 'axios'
  // ACTION TYPES
 
 const RECEIVE_ORDER = 'RECEIVE_ORDER'
-const GET_ORDER_HISTORY = 'GET_ORDER_HISTORY'
+const RECEIVE_ORDER_HISTORY = 'RECEIVE_ORDER_HISTORY'
 
  // INITIAL STATE
 
@@ -12,18 +12,43 @@ const defaultOrders = []
 
 // ACTION CREATORS
 
-export const receiveOrder = order => ({type: RECEIVE_ORDER, order})
-export const gotOrderHistory = orders => ({type: GET_ORDER_HISTORY, orders})
+export const gotOrder = order => ({type: RECEIVE_ORDER, order})
+export const gotOrderHistory = orders => ({type: RECEIVE_ORDER_HISTORY, orders})
 
 
 // THUNK CREATORS
 
-export const postOrder = (sockId, size, quantity) => async dispatch => {
+export const getCurrentOrder = () => async dispatch => {
+  try {
+    const currentCart = await axios.get(`/api/orders/cart`)
+    if (currentCart.data.length > 0) {
+      const {data} = await axios.post(`/api/orders/inCart`, {
+        id: currentCart.data[0].id
+      })
+      dispatch(gotOrder(data))
+    } else {
+      dispatch(gotOrder([]))
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const addOrder = (sockId, size, quantity) => async dispatch => {
   try {
     const {data: order} = await axios.post(`/api/orders/addToCart?sockId=${sockId}&size=${size}&quantity=${quantity}`);
-    dispatch(receiveOrder(order))
+    dispatch(gotOrder(order))
   } catch (err) {
     console.error(err);
+  }
+}
+
+export const removeSockFromOrder = (sockId, userId) => async dispatch => {
+  try {
+    await axios.delete(`/api/orders/removeFromCart?sockId=${sockId}`)
+    dispatch(getCurrentOrder(userId))
+  } catch (err) {
+    console.log(err)
   }
 }
 
@@ -52,7 +77,7 @@ export default function(state = defaultOrders, action) {
           }
         });
       } else return [...state, action.order]
-    case GET_ORDER_HISTORY:
+    case RECEIVE_ORDER_HISTORY:
       return action.orders
     default:
       return state
