@@ -69,19 +69,19 @@ router.post('/in', async (req, res, next) => {
     }
 })
 
-// // ==> api/orders/removeFromCart?sockId=1
-// router.delete('/removeFromCart', async (req, res, next) => {
-//     try {
-//         await CartItem.destroy({
-//             where: {
-//                 sockId: req.query.sockId,
-//             },
-//         })
-//         res.sendStatus(204)
-//     } catch (err) {
-//         next (err)
-//     }
-// })
+// ==> api/orders/removeFromCart?sockId=1
+router.delete('/remove', async (req, res, next) => {
+    try {
+        await CartItem.destroy({
+            where: {
+                sockId: req.query.sockId,
+            },
+        })
+        res.sendStatus(204)
+    } catch (err) {
+        next (err)
+    }
+})
 
 // router.delete('/guestCheckout', async (req, res, next) => {
 //   try {

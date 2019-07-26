@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import {getCart, removeSockFromOrder} from '../store/cart'
+import {getCart, removeCartItem} from '../store/cart'
 import Checkout from './checkout'
 import StartShopping from './start-shopping'
 import {calcTotalForButton} from './utils'
@@ -17,7 +17,7 @@ class Cart extends Component {
     await this.props.getUser()
   }
   async handleRemove(sockId, userId) {
-    await this.props.deleteSockFromCart(sockId, userId)
+    await this.props.deleteFromCart(sockId, userId)
   }
   getCart = async userId => {
     await this.props.getCartThunk(userId)
@@ -112,8 +112,8 @@ const mapDispatchToProps = dispatch => ({
   getCartThunk: userId => {
     dispatch(getCart(userId))
   },
-  deleteSockFromCart: (sockId, userId) => {
-    dispatch(removeSockFromOrder(sockId, userId))
+  deleteFromCart: (sockId, userId) => {
+    dispatch(removeCartItem(sockId, userId))
   },
   getUser: () => {
     dispatch(me)

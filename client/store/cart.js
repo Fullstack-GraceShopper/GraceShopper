@@ -44,23 +44,14 @@ export const addCartItem = (sockId, size, quantity) => async dispatch => {
   }
 }
 
-export const removeSockFromOrder = (sockId, userId) => async dispatch => {
+export const removeCartItem = (sockId, userId) => async dispatch => {
   try {
-    await axios.delete(`/api/orders/removeFromCart?sockId=${sockId}`)
-    dispatch(getCurrentOrder(userId))
+    await axios.delete(`/api/cart/remove?sockId=${sockId}`)
+    dispatch(getCart())
   } catch (err) {
     console.log(err)
   }
 }
-
-// export const fetchOrderHistory = userId => async dispatch => {
-//   try {
-//     const {data: cart} = await axios.get(`/api/cart?userId=${userId}`)
-//     dispatch(gotCart(cart))
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
 
 
 // REDUCER
