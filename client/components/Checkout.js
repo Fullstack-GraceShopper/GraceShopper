@@ -3,7 +3,7 @@
 // sold when it is rendered.
 
 import React, {Component} from 'react'
-import {getCart} from '../store/orders'
+import {getCart} from '../store/cart'
 import {me} from '../store/user'
 import store from '../store'
 import {connect} from 'react-redux'
@@ -19,7 +19,7 @@ const fromDollarsToCents = amount => amount * 100
 let user = {}
 const successPayment = async () => {
   user = await store.dispatch(me())
-  if(user) await axios.post(`/api/orders/${user.id}`)
+  // if(user) await axios.post(`/api/orders/${user.id}`)
   await store.dispatch(getCart())
   if (user.guest) {
     await axios.delete('/api/users/guest')
@@ -28,6 +28,7 @@ const successPayment = async () => {
 }
 
 const errorPayment = data => {
+  console.error(data)
   alert('Payment Error')
 }
 
@@ -37,7 +38,10 @@ const onToken = (amount, description) => token =>
       description,
       source: token.id,
       currency: CURRENCY,
-      amount: fromDollarsToCents(amount)
+      amount: fromDollarsToCents(amount),
+      allowHeaders: {
+        withCredentials: true
+      }
     })
     .then(successPayment)
     .catch(errorPayment)
