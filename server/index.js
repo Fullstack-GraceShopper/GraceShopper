@@ -13,6 +13,7 @@ const webpack = require('webpack')
 const middleware = require('webpack-dev-middleware') //webpack hot reloading middleware
 const webpackConfig = require('../webpack.config')
 const compiler = webpack(webpackConfig)
+const cors = require('cors')
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -76,6 +77,9 @@ const createApp = () => {
   )
   app.use(passport.initialize())
   app.use(passport.session())
+
+  app.use(cors())
+  app.options('https://m.stripe.com/4', cors({credentials: true, origin: 'http://localhost:4566/cart'}))
 
   // auth and api routes
   app.use('/auth', require('./auth'))

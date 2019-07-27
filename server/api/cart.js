@@ -39,23 +39,6 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-// router.put('/sold', async (req, res, next) => {
-//     try {
-//         const order = await Order.findOne({
-//             where: {
-//                 userId: req.user.id,
-//                 sold: false,
-//             },
-//         })
-//         const update = order.update({
-//             sold: true,
-//         }, {returning: true})
-//         res.json(update)
-//     } catch (err) {
-//         next (err)
-//     }
-// })
-
 router.post('/in', async (req, res, next) => {
     try {
         const cart = await Cart.findById((req.body.id), {

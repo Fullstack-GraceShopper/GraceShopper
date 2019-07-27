@@ -3,7 +3,7 @@
 // sold when it is rendered.
 
 import React, {Component} from 'react'
-import {getCurrentOrder} from '../store/orders'
+import {getCart} from '../store/orders'
 import {me} from '../store/user'
 import store from '../store'
 import {connect} from 'react-redux'
@@ -18,11 +18,11 @@ const fromDollarsToCents = amount => amount * 100
 
 let user = {}
 const successPayment = async () => {
-  await axios.put('/api/orders/sold')
-  await store.dispatch(getCurrentOrder())
   user = await store.dispatch(me())
-  if (user.photo === 'https://www.viawater.nl/files/default-user.png') {
-    await axios.delete('/api/orders/guestCheckout')
+  if(user) await axios.post(`/api/orders/${user.id}`)
+  await store.dispatch(getCart())
+  if (user.guest) {
+    await axios.delete('/api/users/guest')
   }
   alert('Payment Successful')
 }

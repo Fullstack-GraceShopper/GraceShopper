@@ -1,18 +1,15 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const {categoryArr} = require('../../../client/components/utils')  // <= use to validate category inputs
-
 const Order = db.define('order', {
-  sold: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
+  date: {
+    type: Sequelize.DATE,
+    defaultValue: Date.now(),
   },
-  userId: {
-    type: Sequelize.INTEGER
-  }
+  socks: Sequelize.ARRAY(Sequelize.INTEGER),
+  total: Sequelize.FLOAT
 })
 
 module.exports = {
-    Order,
+  Order
 }

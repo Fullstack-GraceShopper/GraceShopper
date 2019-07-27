@@ -18,14 +18,12 @@ export const gotCart = cart => ({type: RECEIVE_CART, cart})
 // THUNK CREATORS
 
 export const getCart = () => async dispatch => {
-    console.log('getting cart from store')
   try {
     const currentCart = await axios.get(`/api/cart`)
     if (currentCart.data.length > 0) {
       const {data} = await axios.post(`/api/cart/in`, {
         id: currentCart.data[0].id
       })
-      console.log('cart data in store after post req:  ', data)
       dispatch(gotCart(data))
     } else {
       dispatch(gotCart([]))
