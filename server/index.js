@@ -1,4 +1,6 @@
+const fs = require('fs')
 const path = require('path')
+const https = require('https')
 const express = require('express')
 const morgan = require('morgan')
 const compression = require('compression')
@@ -7,13 +9,14 @@ const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({db})
-const PORT = process.env.PORT || 4566
-const app = express()
+
 const webpack = require('webpack')
 const middleware = require('webpack-dev-middleware') //webpack hot reloading middleware
 const webpackConfig = require('../webpack.config')
 const compiler = webpack(webpackConfig)
 const cors = require('cors')
+
+const app = express()
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -78,8 +81,10 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  app.use(cors())
-  app.options('https://m.stripe.com/4', cors({credentials: true, origin: 'http://localhost:4566/cart'}))
+  app.use(cors({
+    credentials: true,
+    origin: ['https://localhost:4566', 'https://m.stripe.network', 'http://m.stripe.network', 'https://sockr.herokuapp.com', 'http://sockr.herokuapp.com', 'https://m.stripe.network/inner.html#referrer=http%3A%2F%2Flocalhost%3A4566%2Fcart&title=Stripe%20Checkout&url=https%3A%2F%2Fcheckout.stripe.com%2Fm%2Fv3%2Findex-3f0dc197837628f45156bf4f7ed0f6ad.html%3Fdistinct_id%3D39172807-bd66-9329-9e48-4e932ef6edb6&muid=9eafe779-ce29-4aad-85e1-11cb1d0cbeb4&sid=a82170dc-8891-4ab1-96e5-77dc0a7cd246&preview=false&', 'https://m.stripe.com/4']
+  }))
 
   // auth and api routes
   app.use('/auth', require('./auth'))
@@ -114,7 +119,14 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () =>
+  const PORT = process.env.PORT || 4566
+
+  const options = {
+    key: fs.readFileSync(path.join(__dirname, './ssl/localhost.key')),
+    cert: fs.readFileSync(path.join(__dirname, './ssl/localhost.crt')),
+  }
+
+  const server = https.createServer(options, app).listen(PORT, () =>
     console.log(`Mixing it up on port ${PORT}`)
   )
 }
@@ -122,10 +134,14 @@ const startListening = () => {
 const syncDb = () => db.sync()
 
 async function bootApp() {
-  await sessionStore.sync()
-  await syncDb()
-  await createApp()
-  await startListening()
+  try {
+    await sessionStore.sync()
+    await syncDb()
+    await createApp()
+    await startListening()    
+  } catch(err) {
+    console.error(err)
+  }
 }
 // This evaluates as true when this file is run directly from the command line,
 // i.e. when we say 'node server/index.js' (or 'nodemon server/index.js', or 'nodemon server', etc)

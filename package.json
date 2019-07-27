@@ -17,7 +17,7 @@
     "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\"",
     "postinstall": "touch secrets.js",
     "seed": "node script/seed.js",
-    "start": "node server/index.js && webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "nodemon --watch server && webpack-dev-server --config ./webpack.config.js --mode development",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & npm run start-server",
     "start-server": "nodemon --watch server -e html,js,scss --ignore public --ignore client",
     "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
@@ -47,6 +47,7 @@
     "express-session": "^1.15.1",
     "faker": "^4.1.0",
     "history": "^4.6.3",
+    "https": "^1.0.0",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
