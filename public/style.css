@@ -23,7 +23,7 @@ form div {
 td {
   border: 1px solid black;
 }
-tr.orderRow>td {
+tr.order-row>td {
   border: 1px solid black;
   padding: 1em;
 }

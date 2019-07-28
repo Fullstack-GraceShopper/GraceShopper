@@ -13,12 +13,12 @@ const OrderHistory = ({user, orders, getOrderHistory}) => {
   }, [getOrderHistory])
 
   return !orders.length ? (
-    <div>
+    <div className="center">
       <h4>You haven't placed any orders yet</h4>
       <Link to='/'>Start Shopping</Link>
     </div>
     ):(
-    <table className="order-history">
+    <table className="order-history center">
       <thead>
       </thead>
       <tbody>
@@ -27,24 +27,23 @@ const OrderHistory = ({user, orders, getOrderHistory}) => {
           <td>Date</td>
         </tr>   
         {orders.map(order => (
-            <tr className="orderRow" key={order.id}>
-              <td>
-                <Link to={`/${order.userId}/orders/${order.id}`} key={order.id}>
-                  {order.id}
-                </Link>
-              </td>
-              <td>
-                <h5>{formatDate(order)}</h5>
-              </td>
-            </tr>
-          )
-        )}
+          <tr className="order-row" key={order.id}>
+            <td>
+              <Link to={`/${order.userId}/orders/${order.id}`} key={order.id}>
+                {order.id}
+              </Link>
+            </td>
+            <td>
+              <h5>{formatDate(order)}</h5>
+            </td>
+          </tr>
+        ))}
       </tbody>
-    </table> 
+    </table>
   )
 }
 
-const mapStateToProps = ({orders}) => ({orders})
+const mapStateToProps = ({user, orders}) => ({user, orders})
 
 const mapDispatchToProps = dispatch => ({
   getOrderHistory: id => dispatch(getOrders(id)) 

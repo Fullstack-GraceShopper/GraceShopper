@@ -4,12 +4,12 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, SignUpForm, Home} from './components'
 import {me} from './store'
-import AdultSocks from './components/adult-socks';
-import KidSocks from './components/kid-socks';
-import SingleSock from './components/single-sock';
-import {NotFound} from './components/page-not-found';
-import AccountDetails from './components/account-details';
-import CategorySocks from './components/category-socks';
+import AdultSocks from './components/adult-socks'
+import KidSocks from './components/kid-socks'
+import SingleSock from './components/single-sock'
+import {NotFound} from './components/page-not-found'
+import AccountDetails from './components/account-details'
+import CategorySocks from './components/category-socks'
 import OrderHistory from './components/order-history'
 import Order from './components/order'
 import Cart from './components/cart'
@@ -22,7 +22,7 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-    const accountDetailPath = isLoggedIn ? <Route exact path="/:userId/accountdetails" component={AccountDetails} /> : null;
+    const accountDetailPath = isLoggedIn ? <Route exact path="/:userId/account" component={AccountDetails} /> : null
 
     return (
       <Switch>
