@@ -9,6 +9,7 @@ const UserDropdown = ({user, handleLogout}) => {
 
   const [formState, setFormState] = useState(false)
   const toggleForm = () => setFormState(!formState)
+  const closeForm = () => setFormState(false)
 
   return (
     <div>
@@ -20,27 +21,29 @@ const UserDropdown = ({user, handleLogout}) => {
         </div>
       </button>
       {formState && (
-        <ul id="user-dropdown" className="no-decoration">
-          <li>
-            <Link to={`/${user.id}/account`}
-              className="no-decoration black">
-              Account
-            </Link>
-          </li>
-          <li>
-            <Link to={`/${user.id}/orders`}
-              className="no-decoration black">
-              Orders
-            </Link>
-          </li>
-          <li>
-            <Link to="/"
-              onClick={handleLogout}
-              className="no-decoration black">
-              Logout
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <ul id="user-dropdown" className="no-decoration">
+            <li>
+              <Link to={`/${user.id}/account`}
+                className="no-decoration black">
+                Account
+              </Link>
+            </li>
+            <li>
+              <Link to={`/${user.id}/orders`}
+                className="no-decoration black">
+                Orders
+              </Link>
+            </li>
+            <li>
+              <Link to="/"
+                onClick={handleLogout}
+                className="no-decoration black">
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </div>
       )}
     </div>
   )

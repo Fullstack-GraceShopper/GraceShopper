@@ -1,12 +1,14 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {me} from '../store/user'
 import {getOrders} from '../store/orders'
 import {formatDate} from './utils'
 
-const OrderHistory = ({user, orders, getOrderHistory}) => {
-
-  const userId = Number(user.id)
+const OrderHistory = ({orders, getOrderHistory}) => {
+  
+  const {pathname} = location
+  const userId = pathname.split('/')[1]
 
   useEffect(() => {
     getOrderHistory(userId)
@@ -43,7 +45,7 @@ const OrderHistory = ({user, orders, getOrderHistory}) => {
   )
 }
 
-const mapStateToProps = ({user, orders}) => ({user, orders})
+const mapStateToProps = ({orders}) => ({orders})
 
 const mapDispatchToProps = dispatch => ({
   getOrderHistory: id => dispatch(getOrders(id)) 

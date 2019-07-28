@@ -11,9 +11,9 @@ const removeUser = () => ({type: REMOVE_USER})
 
 export const me = () => async dispatch => {
   try {
-    const res = await axios.get('/auth/me')
-    dispatch(gotUser(res.data || defaultUser))
-    return res.data
+    const {data} = await axios.get('/auth/me')
+    dispatch(gotUser(data || defaultUser))
+    return data
   } catch (err) {
     console.error(err)
   }
