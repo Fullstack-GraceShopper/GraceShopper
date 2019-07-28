@@ -19,13 +19,16 @@ const {Sock, Order, CartItem, User} = require('../db/models')
 //     }
 // })
 
-router.post('/:userId', (req, res, next) => {
-  const {userId} = req.params
+router.post('/', async (req, res, next) => {
+  const {id, email} = req.body
   try {
-    const order = await Order.create(...req.body, userId)
+    const order = await Order.create({
+      userId: id
+    })
+    res.json(order)
   } catch(err) {
     console.error(err)
   }
-}
+})
 
 module.exports = router

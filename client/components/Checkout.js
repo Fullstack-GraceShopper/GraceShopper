@@ -19,8 +19,8 @@ const fromDollarsToCents = amount => amount * 100
 let user = {}
 const successPayment = async () => {
   user = await store.dispatch(me())
-  // if(user) await axios.post(`/api/orders/${user.id}`)
-  await store.dispatch(getCart())
+  await axios.post(`/api/orders`, user)
+  // await store.dispatch(getCart())
   if (user.guest) {
     await axios.delete('/api/users/guest')
   }
