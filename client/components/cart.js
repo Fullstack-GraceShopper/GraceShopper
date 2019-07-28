@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
-import {getCart, removeCartItem} from '../store/cart'
+import {getCartItems, removeCartItem} from '../store/cart'
 import Checkout from './checkout'
 import StartShopping from './start-shopping'
 import {calcTotalForButton} from './utils'
@@ -20,7 +20,7 @@ class Cart extends Component {
     await this.props.deleteFromCart(sockId, userId)
   }
   getCart = async userId => {
-    await this.props.getCartThunk(userId)
+    await this.props.getCart(userId)
   }
   calcTotal = objects => {
     return `Total:   $${(this.calcTotalForButton(objects) / 100).toFixed(2)}`
@@ -109,8 +109,8 @@ class Cart extends Component {
 const mapStateToProps = ({user, cart}) => ({user, cart})
 
 const mapDispatchToProps = dispatch => ({
-  getCartThunk: userId => {
-    dispatch(getCart(userId))
+  getCart: userId => {
+    dispatch(getCartItems(userId))
   },
   deleteFromCart: (sockId, userId) => {
     dispatch(removeCartItem(sockId, userId))

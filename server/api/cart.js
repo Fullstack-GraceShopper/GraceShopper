@@ -66,6 +66,20 @@ router.delete('/remove', async (req, res, next) => {
     }
 })
 
+router.delete('/:cartId', async (req, res, next) => {
+  const {cartId} = req.params
+  try {
+    await CartItem.destroy({
+      where: {
+        cartId
+      }
+    })
+    res.sendStatus(204)
+  } catch(err) {
+    console.error(err)
+  }
+})
+
 // router.delete('/guestCheckout', async (req, res, next) => {
 //   try {
 //     const id = req.session.id
@@ -77,24 +91,6 @@ router.delete('/remove', async (req, res, next) => {
 //   } catch (error) {
 //     next(error)
 //   }
-// })
-
-// //new route for getting order history using query
-// router.get('/', async (req, res, next) => {
-//     let orders = []
-//     try {
-//       if(Number(req.query.userId) === req.user.id) {
-//         orders = await Order.findAll({
-//         where: {
-//           userId: req.user.id,
-//           sold: true
-//         }
-//       })
-//       res.json(orders)
-//     } else res.sendStatus(401)
-//     } catch (err) {
-//         next(err)
-//     }
 // })
 
 

@@ -17,7 +17,7 @@ export const gotCart = cart => ({type: RECEIVE_CART, cart})
 
 // THUNK CREATORS
 
-export const getCart = () => async dispatch => {
+export const getCartItems = () => async dispatch => {
   try {
     const currentCart = await axios.get(`/api/cart`)
     if (currentCart.data.length > 0) {
@@ -45,9 +45,18 @@ export const addCartItem = (sockId, size, quantity) => async dispatch => {
 export const removeCartItem = (sockId, userId) => async dispatch => {
   try {
     await axios.delete(`/api/cart/remove?sockId=${sockId}`)
-    dispatch(getCart())
+    dispatch(getCartItems())
   } catch (err) {
     console.log(err)
+  }
+}
+
+export const clearCartItems = cartId => async dispatch => {
+  try {
+    await axios.delete(`/api/cart/${cartId}`)
+    dispatch(getCartItems())
+  } catch(err) {
+    console.error(err)
   }
 }
 

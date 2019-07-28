@@ -3,7 +3,7 @@
 // sold when it is rendered.
 
 import React, {Component} from 'react'
-import {getCart} from '../store/cart'
+import {getCartItems, clearCartItems} from '../store/cart'
 import {me} from '../store/user'
 import store from '../store'
 import {connect} from 'react-redux'
@@ -12,59 +12,57 @@ import StripeCheckout from 'react-stripe-checkout'
 import STRIPE_PUBLISHABLE from '../../constants/stripe'
 import PAYMENT_SERVER_URL from '../../constants/server'
 
-const CURRENCY = 'USD'
+const Checkout = ({user, cart, name, description, amount, clearCart}) => {
+  const CURRENCY = 'USD'
+  const fromDollarsToCents = amount => amount * 100
 
-const fromDollarsToCents = amount => amount * 100
-
-let user = {}
-const successPayment = async () => {
-  user = await store.dispatch(me())
-  await axios.post(`/api/orders`, user)
-  // await store.dispatch(getCart())
-  if (user.guest) {
-    await axios.delete('/api/users/guest')
+  user = user || {}
+  const successPayment = async () => {
+    await axios.post(`/api/orders`, user)
+    const {cartId} = cart[0].cartItem
+    await clearCart(cartId)
+    if (user.guest) {
+      await axios.delete('/api/users/guest')
+    }
+    alert('Payment Successful')
   }
-  alert('Payment Successful')
-}
 
-const errorPayment = data => {
-  console.error(data)
-  alert('Payment Error')
-}
-
-const onToken = (amount, description) => token =>
-  axios
-    .post(PAYMENT_SERVER_URL, {
-      description,
-      source: token.id,
-      currency: CURRENCY,
-      amount: fromDollarsToCents(amount),
-      allowHeaders: {
-        withCredentials: true
-      }
-    })
-    .then(successPayment)
-    .catch(errorPayment)
-
-class Checkout extends Component {
-  render() {
-    return (
-      <StripeCheckout
-        name={this.props.name}
-        description={this.props.description}
-        amount={this.props.amount}
-        token={onToken(this.props.amount, this.props.description)}
-        currency={CURRENCY}
-        stripeKey={STRIPE_PUBLISHABLE}
-      />
-    )
+  const errorPayment = data => {
+    console.error(data)
+    alert('Payment Error')
   }
+
+  const onToken = (amount, description) => token => {
+    axios
+      .post(PAYMENT_SERVER_URL, {
+        description,
+        source: token.id,
+        currency: CURRENCY,
+        amount: fromDollarsToCents(amount),
+        allowHeaders: {
+          withCredentials: true
+        }
+      })
+      .then(successPayment)
+      .catch(errorPayment)
+  }
+
+  return (
+    <StripeCheckout
+      name={name}
+      description={description}
+      amount={amount}
+      token={onToken(amount, description)}
+      currency={CURRENCY}
+      stripeKey={STRIPE_PUBLISHABLE}
+    />
+  )
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  name: ownProps.name,
-  description: ownProps.description,
-  amount: ownProps.amount,
+const mapStateToProps = ({user, cart}) => ({user, cart})
+
+const mapDispatchToProps = dispatch => ({
+  clearCart: id => dispatch(clearCartItems(id))
 })
 
-export default connect(mapStateToProps, null)(Checkout)
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
