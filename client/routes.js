@@ -11,7 +11,7 @@ import {NotFound} from './components/page-not-found';
 import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
 import OrderHistory from './components/order-history'
-import OrderList from './components/order-list'
+import Order from './components/order'
 import Cart from './components/cart'
 import StripeForm from './components/stripe'
 
@@ -35,6 +35,7 @@ class Routes extends Component {
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
         <Route exact path="/:userId/orders" component={OrderHistory} />
+        <Route exact path="/:userId/orders/:id" component={Order} />
         <Route exact path="/stripe" component={StripeForm} />
         {accountDetailPath}
         <Route component={NotFound} />

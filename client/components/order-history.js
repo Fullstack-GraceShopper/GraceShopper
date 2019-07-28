@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+  import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchOrderHistory} from '../store/orders'
@@ -31,9 +31,9 @@ class OrderHistory extends Component {
                 return (
                   <tr className="orderRow" key={order.id}>
                     <td>
-                      <Link key={order.id} 
-                        to={`/${order.userId}/order-history/${order.id}`}
-                      >{order.id}</Link>
+                      <Link to={`/${order.userId}/orders/${order.id}`} key={order.id}>
+                        {order.id}
+                      </Link>
                     </td>
                     <td>
                       <h5>{formatDate(order)}</h5>
