@@ -1,5 +1,14 @@
 const router = require('express').Router()
-const {Sock, Order, CartItem, User} = require('../db/models')
+const {Order} = require('../db/models')
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.id)
+    res.json(order)
+  } catch(err) {
+    console.error(err)
+  }
+})
 
 router.get('/', async (req, res, next) => {
   let orders = []
@@ -18,7 +27,7 @@ router.get('/', async (req, res, next) => {
 })
 
 router.post('/', async (req, res, next) => {
-  const {id, email} = req.body
+  const {id} = req.body
   try {
     const order = await Order.create({
       userId: id

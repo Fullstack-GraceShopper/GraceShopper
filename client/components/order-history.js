@@ -1,7 +1,7 @@
   import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {fetchOrderHistory} from '../store/orders'
+import {getOrders} from '../store/orders'
 import {formatDate} from './utils'
 
 class OrderHistory extends Component {
@@ -47,12 +47,10 @@ class OrderHistory extends Component {
   } 
 }
 
-const mapStateToProps = state => ({
-  orders: state.orders
-})
+const mapStateToProps = ({orders}) => ({orders})
 
 const mapDispatchToProps = dispatch => ({
-  getOrderHistory: id => dispatch(fetchOrderHistory(id)) 
+  getOrderHistory: id => dispatch(getOrders(id)) 
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory)
