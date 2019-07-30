@@ -4,7 +4,7 @@ const {expect} = require('chai')
 const request = require('supertest')
 const db = require('../db')
 const app = require('../index')
-const agent = require('supertest')(app);
+const agent = require('supertest')(app)
 
 const Sock = db.model('sock')
 
@@ -29,12 +29,12 @@ describe('Sock routes', () => {
       isAdult: true,
       sizes: ["Small", "Large"]
     }
-  ];
+  ]
 
   beforeEach(async () => {
     const createdSocks = await Sock.bulkCreate(sockData, {returning: true})
-    storedSocks = createdSocks.map(sock => sock);
-  });
+    storedSocks = createdSocks.map(sock => sock)
+  })
 
   describe('GET /api/socks?isAdult=true', () => {
     it('serves up all Adult Socks', async () => {
@@ -63,8 +63,9 @@ describe('Sock routes', () => {
     it('serves up a single Sock by its id', async () => {
       const response = await agent
         .get('/api/socks/3')
-        .expect(200);
-      expect(response.body.name).to.equal('guinea pig sock');
+        .expect(200)
+        
+      expect(response.body.name).to.equal('guinea pig sock')
     })
   })
 })
