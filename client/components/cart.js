@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {me} from '../store/user'
 import {getCartItems, removeCartItem} from '../store/cart'
+import BillingInfo from './billing-info'
 import Checkout from './checkout'
 import StartShopping from './start-shopping'
 import {calcTotalForButton} from './utils'
@@ -84,12 +85,15 @@ class Cart extends Component {
                       : 'Total:   $ 0.00'}
                   </h2>
                   <hr />
-                  <Checkout
+                  <Link to='checkout/billing-info'>
+                    Checkout
+                  </Link>
+                  {/*<Checkout
                     name="Sockr"
                     description=""
                     user={this.props.users}
                     amount={this.calcTotalForButton(this.props.cart)}
-                  />
+                  />*/}
                 </div>
               ) : (
                 <StartShopping />

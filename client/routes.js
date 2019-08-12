@@ -10,6 +10,7 @@ import SingleSock from './components/single-sock'
 import {NotFound} from './components/page-not-found'
 import AccountDetails from './components/account-details'
 import CategorySocks from './components/category-socks'
+import BillingInfo from './components/billing-info'
 import OrderHistory from './components/order-history'
 import Order from './components/order'
 import Cart from './components/cart'
@@ -34,6 +35,7 @@ class Routes extends Component {
         <Route exact path="/kids" component={KidSocks} />
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
+        <Route exact path="/checkout/billing-info" component={BillingInfo} />
         <Route exact path="/:userId/orders" component={OrderHistory} />
         <Route exact path="/:userId/orders/:id" component={Order} />
         <Route exact path="/stripe" component={StripeForm} />
