@@ -3,9 +3,6 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {signUp} from '../store'
 
-/**
- * COMPONENT
- */
 const SignUp = props => {
   const {name, displayName, handleSubmit, error} = props
 
@@ -29,12 +26,6 @@ const SignUp = props => {
             <small>Address</small>
           </label>
           <input name="address" type="text" />
-        </div>
-        <div>
-          <label htmlFor="photo">
-            <small>PhotoUrl</small>
-          </label>
-          <input name="photo" type="text" />
         </div>
         <div>
           <button type="submit">{displayName}</button>
@@ -67,18 +58,14 @@ const mapDispatch = dispatch => {
       evt.preventDefault()
       const email = evt.target.email.value
       const address = evt.target.address.value
-      const photo = evt.target.photo.value
       const password = evt.target.password.value
-      dispatch(signUp(email, password, address, photo))
+      dispatch(signUp(email, password, address))
     }
   }
 }
 
 export const SignUpForm = connect(mapSignup, mapDispatch)(SignUp)
 
-/**
- * PROP TYPES
- */
 SignUpForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,

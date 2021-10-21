@@ -1,26 +1,44 @@
 const isDev = process.env.NODE_ENV === 'development'
+const webpack = require('webpack')
 
 module.exports = {
-  mode: isDev ? 'development' : 'production',
   entry: [
-    '@babel/polyfill', // enables async-await
+    'babel-polyfill',
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client?reload=true',
     './client/index.js'
   ],
-  output: {
-    path: __dirname,
-    filename: './public/bundle.js'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ['style-loader','css-loader']
       }
     ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']  
+  },
+  mode: 'development',
+  output: {
+    path: __dirname + '/public',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  context: __dirname,
+  devtool: 'source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: './public',
+    hot: true,
+    historyApiFallback: true
   }
 }
