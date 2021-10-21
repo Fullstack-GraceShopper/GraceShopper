@@ -38,7 +38,6 @@ tr.orderRow>td {
 }
 .vr{
   width:2px;
-  margin-right:10px;
 }
 .h100 {
   height:100%;
@@ -312,6 +311,7 @@ tr.orderRow>td {
 }
 
 #cart-icon{
+  padding-top: 13px;
   border-radius: 50%;
 }
 
@@ -330,11 +330,14 @@ tr.orderRow>td {
 }
 #user-icon {
   margin-right: 15px;
-  width: 75px;
+  padding-top: 28px;
   height: 75px;
   border-radius: 50%;
+  color: white;
   background-color: #26777f;
   border: none;
+  text-align: center;
+  font-weight: bold;
   outline: 0;
   box-shadow: none !important;
 }
@@ -347,6 +350,9 @@ tr.orderRow>td {
   position: absolute;
   right: 11px;
   z-index: 1;
+}
+#user-icon p {
+  margin-top: 0;
 }
 #user-dropdown > li {
   flex-direction: row;
@@ -475,20 +481,20 @@ tr.orderRow>td {
   color:white;
 }
 #auth-link-container {
-  margin-top: 20px;
+  margin-top: 19px;
   text-align: right;
-  font-size: .8em;
 }
-#auth-link-container p {
+#signup-link {
+  margin: 12px 15px 0 0;
+  font-size: .7em;
+}
+#signup-link > p {
   color: white;
   margin: 0 .5em 0 0;
 }
-#auth-link-container a {
+#signup-link a {
   color: white;
   text-decoration: none;
-}
-#signup-link {
-  margin: 15px 15px ;
 }
 #signup-link a:hover {
   color: #f8ff24;
