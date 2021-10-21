@@ -26,9 +26,12 @@ class UserDropdown extends Component {
     const {user, handleLogout} = this.props
     return (
       <div>
-        <button id="user-icon" type="button" onClick={this.toggleForm}>
-          <img id="nav-photo" src={user.photo} />
-          <p id="below-user-icon">Me {Arrow}</p>
+        <button id="user-icon" className='flex column' type="button" onClick={this.toggleForm}>
+          <p>Hello {user.email}</p>
+          <div className='flex row'>
+            <p>Account Details</p>
+            <p>{Arrow}</p>
+          </div>
         </button>
 
         {this.state.showForm && (

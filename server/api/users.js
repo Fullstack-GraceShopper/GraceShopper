@@ -20,7 +20,6 @@ router.post('/createGuest', async (req, res, next) => {
       email: `${req.sessionID}@sockr.com`,
       password: `${req.sessionID}`,
       address: '#',
-      photo: 'https://www.viawater.nl/files/default-user.png',
     });
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
