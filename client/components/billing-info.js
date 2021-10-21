@@ -1,7 +1,6 @@
 import React from 'react'
 
-const BillingInfo = ({user, amount}) => {
-  console.log('user:  ', user, '\n', 'amount:  ', amount)
+const BillingInfo = () => {
   return (
     <div>
       <h3>Billing Info</h3>

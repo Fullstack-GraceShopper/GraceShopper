@@ -15,7 +15,7 @@ export class AdultSocks extends React.Component {
         <CategoryMenu onClick={() => {}} />
         <div className="flex center category-header">
           <div className="category-title">
-            <h1>Adults Sock</h1>
+            <h1>Adults </h1>
           </div>
         </div>
         <div>

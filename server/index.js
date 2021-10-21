@@ -81,12 +81,12 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  app.use(cors({
-    credentials: true,
-    origin: ['https://localhost:4566', 'https://m.stripe.network', 'http://m.stripe.network', 'https://sockr.herokuapp.com', 'http://sockr.herokuapp.com', 'https://m.stripe.network/inner.html#referrer=http%3A%2F%2Flocalhost%3A4566%2Fcart&title=Stripe%20Checkout&url=https%3A%2F%2Fcheckout.stripe.com%2Fm%2Fv3%2Findex-3f0dc197837628f45156bf4f7ed0f6ad.html%3Fdistinct_id%3D39172807-bd66-9329-9e48-4e932ef6edb6&muid=9eafe779-ce29-4aad-85e1-11cb1d0cbeb4&sid=a82170dc-8891-4ab1-96e5-77dc0a7cd246&preview=false&', 'https://m.stripe.com/4']
-  }))
+  // app.use(cors({
+  //   credentials: true,
+  //   origin: ['https://localhost:4566', 'https://m.stripe.network', 'http://m.stripe.network', 'https://sockr.herokuapp.com', 'http://sockr.herokuapp.com', 'https://m.stripe.network/inner.html#referrer=http%3A%2F%2Flocalhost%3A4566%2Fcart&title=Stripe%20Checkout&url=https%3A%2F%2Fcheckout.stripe.com%2Fm%2Fv3%2Findex-3f0dc197837628f45156bf4f7ed0f6ad.html%3Fdistinct_id%3D39172807-bd66-9329-9e48-4e932ef6edb6&muid=9eafe779-ce29-4aad-85e1-11cb1d0cbeb4&sid=a82170dc-8891-4ab1-96e5-77dc0a7cd246&preview=false&', 'https://m.stripe.com/4']
+  // }))
 
-  app.options('*', cors())
+  // app.options('*', cors())
 
   // auth and api routes
   app.use('/auth', require('./auth'))
