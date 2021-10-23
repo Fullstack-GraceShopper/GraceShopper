@@ -7,7 +7,7 @@ import RelatedSocks from './related-socks'
 import OrderButton from './order-button'
 import {postOrder} from '../store/orders'
 import axios from 'axios'
-import {me, updateUser} from '../store/user'
+import {me, getUser} from '../store/user'
 
 class SingleSock extends Component {
   async componentDidMount() {
@@ -20,22 +20,22 @@ class SingleSock extends Component {
   }
 
   handleSubmit = async (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
     try {
-      const size = evt.target.sizeSelect.value;
-      const quantity = evt.target.quantitySelect.value;
+      const size = evt.target.sizeSelect.value
+      const quantity = evt.target.quantitySelect.value
       const sockId = this.props.sock.id
-      evt.target.sizeSelect.value = '';
-      evt.target.quantitySelect.value = 1;
+      evt.target.sizeSelect.value = ''
+      evt.target.quantitySelect.value = 1
       if (!this.props.user.id) {
         const user = await axios.post('/api/users/createGuest')
-        this.props.updateUserThunk(user.data);
+        this.props.checkoutWithGuest(user.data)
       }
       
       await this.props.addOrder(sockId, size, quantity)
-      alert('Successfully added to cart!');
+      alert('Successfully added to cart!')
     } catch(err) {
-        console.log(err);
+        console.log(err)
     }
   }
 
@@ -99,7 +99,7 @@ const mapDispatchToProps = dispatch => ({
   getUser: () => {
     dispatch(me)
   },
-  updateUserThunk: user => dispatch(updateUser(user)),
+  checkoutWithGuest: user => dispatch(getUser(user)),
   addOrder: (userId, sockId, size, quantity) => dispatch(postOrder(userId, sockId, size, quantity))
 })
 

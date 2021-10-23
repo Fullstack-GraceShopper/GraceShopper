@@ -45,7 +45,6 @@ const mapSignup = state => {
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
-      console.log('event:  ', evt.target)
       evt.preventDefault()
       const email = evt.target.email.value
       const password = evt.target.password.value

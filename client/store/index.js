@@ -7,13 +7,15 @@ import socks from './socks'
 import orders from './orders'
 
 const reducer = combineReducers({
-  user: user,
-  socks: socks,
-  orders: orders
+  user,
+  socks,
+  orders
 })
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
+
 const store = createStore(reducer, middleware)
 
 export default store
