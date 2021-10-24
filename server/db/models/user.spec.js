@@ -19,7 +19,6 @@ describe('User model', () => {
         success = await User.create({
           email: 'sockMan@radNasy.edu',
           password: 'thighhigh',
-          address: faker.fake('{{address.streetAddress}}'),
         });
       });
 
@@ -36,7 +35,6 @@ describe('User model', () => {
         cody = await User.create({
           email: 'cody@puppybook.com',
           password: 'bones',
-          address: faker.fake('{{address.streetAddress}}'),
         })
       })
 

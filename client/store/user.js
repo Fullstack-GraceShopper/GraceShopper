@@ -1,38 +1,27 @@
 import axios from 'axios'
 import history from '../history'
 
-/**
- * ACTION TYPES
- */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 
-/**
- * INITIAL STATE
- */
 const defaultUser = {}
 
-/**
- * ACTION CREATORS
- */
-const getUser = user => ({type: GET_USER, user})
+const gotUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const addedShippingInfo = () => ({type: ADD_SHIPPING})
 
-/**
- * THUNK CREATORS
- */
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
-    dispatch(getUser(res.data || defaultUser))
+    dispatch(gotUser(res.data || defaultUser))
     return res.data
   } catch (err) {
     console.error(err)
   }
 }
 
-export const updateUser = user => dispatch => {
-  dispatch(getUser(user))
+export const getUser = user => dispatch => {
+  dispatch(gotUser(user))
 }
 
 export const auth = (email, password, method) => async dispatch => {
@@ -40,27 +29,26 @@ export const auth = (email, password, method) => async dispatch => {
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    return dispatch(gotUser({error: authError}))
   }
 
   try {
-    dispatch(getUser(res.data))
+    dispatch(gotUser(res.data))
     history.push('/')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
 }
 
-export const signUp = (email, password, address, photo) => async dispatch => {
+export const signUp = (email, password) => async dispatch => {
   let res
   try {
-    res = await axios.post(`/auth/signup`, {email, password, address, photo})
+    res = await axios.post(`/auth/signup`, {email, password})
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    return dispatch(gotUser({error: authError}))
   }
-
   try {
-    dispatch(getUser(res.data))
+    dispatch(gotUser(res.data))
     history.push('/')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
@@ -77,9 +65,17 @@ export const logout = () => async dispatch => {
   }
 }
 
-/**
- * REDUCER
- */
+export const addShippingInfo = (address, userId) => async dispatch => {
+  let res
+  console.log(address)
+  try {
+    res = await axios.post(`/api/users/${userId}/account-details/shipping`, address)
+    history.push('/')
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export default function(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:

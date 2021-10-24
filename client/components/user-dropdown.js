@@ -37,7 +37,7 @@ class UserDropdown extends Component {
         {this.state.showForm && (
           <ul id="user-dropdown" className="no-decoration">
             <li>
-              <Link to={`/${user.id}/accountdetails`} className="no-decoration black" user={user}>
+              <Link to={`/users/${user.id}/account-details`} className="no-decoration black" user={user}>
                 Account Details
               </Link>
             </li>
