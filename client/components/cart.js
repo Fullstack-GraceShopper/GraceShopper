@@ -10,7 +10,9 @@ import {Link} from 'react-router-dom'
 class Cart extends Component {
   constructor() {
     super()
-    this.gotCart = false
+    this.state = {
+      gotCart: false
+    }
     this.calcTotalForButton = calcTotalForButton.bind(this)
   }
   async componentDidMount() {
@@ -27,9 +29,14 @@ class Cart extends Component {
   }
 
   render() {
-    if (this.props.user.id && !this.gotCart) {
-      this.getCart(this.props.user.id)
-      this.gotCart = true
+    const {user, socks} = this.props
+    let checkoutURL = '/checkout/shipping'
+
+    if (user.id) {
+      if(!this.gotCart) {
+        this.getCart(user.id)
+        this.setState({gotCart: true})
+      }
     }
     return (
       <div>
@@ -39,11 +46,11 @@ class Cart extends Component {
             <h1>Cart</h1>
           </div>
         </div>
-        {this.props.socks.length ? (
-          this.props.socks[0].cartItem ? (
+        {socks.length ? (
+          socks[0].cartItem ? (
             <div>
               <ul className="cart-list">
-                {this.props.socks.map(sock => {
+                {socks.map(sock => {
                   return (
                     <li className="cart-list-item" key={sock.id}>
                       <Link
@@ -65,7 +72,7 @@ class Cart extends Component {
                         ).toFixed(2)}`}</h2>
                         <button
                           onClick={() =>
-                            this.handleRemove(sock.id, this.props.user.id)
+                            this.handleRemove(sock.id, user.id)
                           }
                           className="remove-button hover-light"
                         >
@@ -76,20 +83,25 @@ class Cart extends Component {
                   )
                 })}
               </ul>
-              {this.props.socks.length ? (
+              {socks.length ? (
                 <div id="checkout-container">
                   <h2 id="total">
-                    {this.props.socks
+                    {socks
                       ? this.calcTotal(this.props.socks)
                       : 'Total:   $ 0.00'}
                   </h2>
                   <hr />
+                  <Link to={checkoutURL}>
+                     Checkout
+                  </Link>
+                {/*                  
                   <Checkout
                     name="Sockr"
                     description=""
                     user={this.props.users}
                     amount={this.calcTotalForButton(this.props.socks)}
                   />
+                */}
                 </div>
               ) : (
                 <StartShopping />

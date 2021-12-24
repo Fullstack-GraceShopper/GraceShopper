@@ -16,6 +16,10 @@ const User = db.define('user', {
       return () => this.getDataValue('password')
     }
   },
+  isGuest: {
+    type: Sequelize.BOOLEAN,
+    default: false
+  },
   salt: {
     type: Sequelize.STRING,
     // Making `.salt` act like a function hides it when serializing to JSON.

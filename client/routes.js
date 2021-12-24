@@ -12,7 +12,7 @@ import AccountDetails from './components/account-details';
 import CategorySocks from './components/category-socks';
 import OrderHistory from './components/order-history'
 import OrderList from './components/order-list'
-import ShippingInfo from './components/shipping-info'
+import ShippingForm from './components/shipping-form'
 import Cart from './components/cart'
 import StripeForm from './components/stripe'
 
@@ -23,7 +23,7 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-    const accountDetailPath = isLoggedIn ? <Route exact path="/users/:userId/account-details" component={AccountDetails} /> : null;
+    const accountDetailPath = isLoggedIn ? <Route exact path="/checkout/shipping" component={AccountDetails} /> : null;
 
     return (
       <Switch>
@@ -36,7 +36,8 @@ class Routes extends Component {
         <Route exact path="/socks/category/:category" component={CategorySocks} />
         <Route exact path="/socks/:sockId" component={SingleSock} />
         <Route exact path="/users/:userId/orders" component={OrderHistory} />
-        <Route exact path="/users/:userId/account-details/shipping" component={ShippingInfo} />
+        {/*<Route exact path="/users/:userId/account-details/shipping" component={ShippingInfo} />*/}
+        <Route exact path="/checkout/shipping/" component={ShippingForm} />        
         <Route exact path="/stripe" component={StripeForm} />
         {accountDetailPath}
         <Route component={NotFound} />
