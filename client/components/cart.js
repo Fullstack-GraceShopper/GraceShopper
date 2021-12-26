@@ -10,34 +10,26 @@ import {Link} from 'react-router-dom'
 class Cart extends Component {
   constructor() {
     super()
-    this.state = {
-      gotCart: false
-    }
     this.calcTotalForButton = calcTotalForButton.bind(this)
   }
-  async componentDidMount() {
-    await this.props.getUser()
+
+  componentDidMount() {
+    this.props.getCart(this.props.user.id)
   }
+
   async handleRemove(sockId, userId) {
-    await this.props.deleteSockThunk(sockId, userId)
+    await this.props.removeSock(sockId, userId)
   }
-  getCart = async userId => {
-    await this.props.getCartThunk(userId)
-  }
+
   calcTotal = objects => {
     return `Total:   $${(this.calcTotalForButton(objects) / 100).toFixed(2)}`
   }
 
   render() {
     const {user, socks} = this.props
+    console.log('socks in render:  ', socks)
     let checkoutURL = '/checkout/shipping'
 
-    if (user.id) {
-      if(!this.gotCart) {
-        this.getCart(user.id)
-        this.setState({gotCart: true})
-      }
-    }
     return (
       <div>
         <div style={{height: '30px'}} />
@@ -86,7 +78,7 @@ class Cart extends Component {
               {socks.length ? (
                 <div id="checkout-container">
                   <h2 id="total">
-                    {socks
+                    {socks.length
                       ? this.calcTotal(this.props.socks)
                       : 'Total:   $ 0.00'}
                   </h2>
@@ -124,10 +116,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getCartThunk: userId => {
+  getCart: userId => {
     dispatch(fetchSocksInCart(userId))
   },
-  deleteSockThunk: (sockId, userId) => {
+  removeSock: (sockId, userId) => {
     dispatch(deleteSockInCart(sockId, userId))
   },
   getUser: () => {

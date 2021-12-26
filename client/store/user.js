@@ -67,7 +67,6 @@ export const logout = () => async dispatch => {
 
 export const addShippingInfo = (address, userId) => async dispatch => {
   let res
-  console.log(address)
   try {
     res = await axios.post(`/api/users/${userId}/account-details/shipping`, address)
     history.push('/')

@@ -95,12 +95,18 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getSock: id => dispatch(fetchSock(id)),
+  getSock: id => {
+    dispatch(fetchSock(id))
+  },
   getUser: () => {
     dispatch(me)
   },
-  addToGuestCart: user => dispatch(getUser(user)),
-  addToCart: (userId, sockId, size, quantity) => dispatch(postToCart(userId, sockId, size, quantity))
+  addToGuestCart: user => {
+    dispatch(getUser(user))
+  },
+  addToCart: (userId, sockId, size, quantity) => {
+    dispatch(postToCart(userId, sockId, size, quantity))
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock)
