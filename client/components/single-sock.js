@@ -5,7 +5,7 @@ import {SizeDropdown} from './size-dropdown'
 import {QuantityDropdown} from './quantity-dropdown'
 import RelatedSocks from './related-socks'
 import OrderButton from './order-button'
-import {postOrder} from '../store/orders'
+import {postToCart} from '../store/orders'
 import axios from 'axios'
 import {me, getUser} from '../store/user'
 
@@ -28,11 +28,11 @@ class SingleSock extends Component {
       evt.target.sizeSelect.value = ''
       evt.target.quantitySelect.value = 1
       if (!this.props.user.id) {
-        const user = await axios.post('/api/users/createGuest')
-        this.props.checkoutWithGuest(user.data)
+        const user = await axios.post('/api/users/create-guest')
+        this.props.addToGuestCart(user.data)
       }
       
-      await this.props.addOrder(sockId, size, quantity)
+      await this.props.addToCart(sockId, size, quantity)
       alert('Successfully added to cart!')
     } catch(err) {
         console.log(err)
@@ -95,12 +95,18 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getSock: id => dispatch(fetchSock(id)),
+  getSock: id => {
+    dispatch(fetchSock(id))
+  },
   getUser: () => {
     dispatch(me)
   },
-  checkoutWithGuest: user => dispatch(getUser(user)),
-  addOrder: (userId, sockId, size, quantity) => dispatch(postOrder(userId, sockId, size, quantity))
+  addToGuestCart: user => {
+    dispatch(getUser(user))
+  },
+  addToCart: (userId, sockId, size, quantity) => {
+    dispatch(postToCart(userId, sockId, size, quantity))
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleSock)

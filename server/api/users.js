@@ -20,6 +20,7 @@ router.post('/create-guest', async (req, res, next) => {
       email: `${req.sessionID}@sockr.com`,
       password: `${req.sessionID}`,
       address: '#',
+      isGuest: true
     });
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
