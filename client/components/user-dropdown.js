@@ -24,7 +24,6 @@ class UserDropdown extends Component {
 
   render() {
     const {user, handleLogout} = this.props
-    const email = user.isGuest ? 'Guest' : user.email
     return (
       <div>
         <button id="user-icon" className='flex column' type="button" onClick={this.toggleForm}>

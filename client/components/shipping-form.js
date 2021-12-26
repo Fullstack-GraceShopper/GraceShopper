@@ -6,10 +6,10 @@ import {addShippingInfo} from '../store/user'
 class ShippingForm extends Component {
 
   render() {
-    const {name, displayName, handleSubmit, error, location} = this.props
+    const {handleSubmit, error, location} = this.props
 
     return (
-      <div>
+      <div className="shipping-form">
         <form onSubmit={handleSubmit} name={name}>
           <div>
             <label htmlFor="street">
@@ -36,7 +36,9 @@ class ShippingForm extends Component {
             <input name="zipCode" type="text" />
           </div>
           <div>
-            <button type="submit">{displayName}</button>
+            <button type="submit" className="action-btn">
+              Submit
+            </button>
           </div>
         </form>
       </div>
