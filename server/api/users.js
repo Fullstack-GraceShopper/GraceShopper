@@ -55,8 +55,14 @@ router.get('/:userId/account-details/shipping', async (req, res, next) => {
         userId: userId
       }
     });
-    console.log('ADDRESSES:  ', addresses)
-    // res.json(addresses)
+    // console.log('ADDRESSES:  ', addresses)
+    // if(addresses.length === 1) {
+    //   await addresses[0].update({
+    //     isDefault: true
+    //   })
+    //   await addresses[0].save()
+    // }
+    res.json(addresses)
   } catch (err) {
     next (err)
   }

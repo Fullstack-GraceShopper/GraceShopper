@@ -11,13 +11,14 @@ class Shipping extends Component {
     this.state = {
       addresses: []
     }
+    this.selectAddress = this.selectAddress.bind(this)
   }
 
   async componentDidMount() {
     try {
       await this.props.getUser()
-      if(this.props.user) {
-        const {data} = await axios.get(`/users/${this.props.user.id}/account-details/shipping`)
+      if(this.props.user.id) {
+        const {data} = await axios.get(`/api/users/${this.props.user.id}/account-details/shipping`)
         if(data.length) console.log('data:  ', data)
         this.setState({
           addresses: data
@@ -26,6 +27,10 @@ class Shipping extends Component {
     } catch(err) {
       console.error(err)
     }
+  }
+
+  selectAddress() {
+    console.log('addresses after select:  ', this.state.addresses)
   }
 
   render() {
@@ -43,13 +48,19 @@ class Shipping extends Component {
           </div>
         ) : (
           <div>
-{/*            {addresses.length
-              ? addresses.map(address => {
-                <div>address.street</div>
-              }) : (
+            {addresses.length > 0
+              ? addresses.map((address, idx) => (
+                  <div key={'address' + idx.toString()} onClick={this.selectAddress}>
+                    <p>{address.street}</p>
+                    <p>{address.city}</p>
+                    <p>{address.state}</p>
+                    <p>{address.zipCode}</p>
+                  </div>
+                )
+              ) : (
                 <ShippingForm />
               )
-            }*/}
+            }
           </div>
         )}
       </div>

@@ -19,6 +19,9 @@ const Address = db.define('address', {
     type: Sequelize.INTEGER,
     allowNull: false
   },
+  isDefault: {
+    type: Sequelize.BOOLEAN
+  }
 })
 
 module.exports = {
