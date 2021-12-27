@@ -9,6 +9,12 @@ import {auth} from '../store'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
+   const displayError = () => {
+    return (
+      <div>{error.response.data}</div>
+    )
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
@@ -27,7 +33,7 @@ const AuthForm = props => {
         <div>
           <button type="submit" className="action-btn">{displayName}</button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {error && error.response && displayError()}
       </form>
     </div>
   )

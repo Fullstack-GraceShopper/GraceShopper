@@ -27,7 +27,7 @@ class UserDropdown extends Component {
     return (
       <div>
         <button id="user-icon" className='flex column' type="button" onClick={this.toggleForm}>
-          <p>Hello {email}</p>
+          <p>Hello {user.email}</p>
           <div className='flex row'>
             <p>Account Details</p>
             <p>{Arrow}</p>

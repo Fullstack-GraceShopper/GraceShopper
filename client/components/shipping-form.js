@@ -47,7 +47,7 @@ class ShippingForm extends Component {
 }
 
 const mapStateToProps = ({user}) => ({
-    userId: user.id
+  userId: user.id
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => {

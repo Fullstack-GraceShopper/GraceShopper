@@ -43,7 +43,7 @@ class Cart extends Component {
             <h1>Cart</h1>
           </div>
         </div>
-        {socks.length ? (
+        {user.email && socks.length ? (
           socks[0].cartItem ? (
             <div>
               <ul className="cart-list">
