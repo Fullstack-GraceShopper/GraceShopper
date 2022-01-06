@@ -10,25 +10,30 @@ import {Link} from 'react-router-dom'
 class Cart extends Component {
   constructor() {
     super()
-    this.calcTotalForButton = calcTotalForButton.bind(this)
   }
 
-  componentDidMount() {
-    this.props.getCart(this.props.user.id)
+  async componentDidMount() {
+    try {
+      await this.props.getCart(this.props.user.id)
+    } catch(err) {
+      console.error(err)
+    }
   }
 
   async handleRemove(sockId, userId) {
-    await this.props.removeSock(sockId, userId)
+    try {
+      await this.props.removeSock(sockId, userId)
+    } catch(err) {
+      console.error(err)
+    }
   }
 
   calcTotal = objects => {
-    return `Total:   $${(this.calcTotalForButton(objects) / 100).toFixed(2)}`
+    return `Total:   $${(calcTotalForButton(objects) / 100).toFixed(2)}`
   }
 
   render() {
     const {user, socks} = this.props
-    console.log('socks in render:  ', socks)
-    let checkoutURL = '/checkout/shipping'
 
     return (
       <div>
@@ -38,7 +43,7 @@ class Cart extends Component {
             <h1>Cart</h1>
           </div>
         </div>
-        {socks.length ? (
+        {user.email && socks.length ? (
           socks[0].cartItem ? (
             <div>
               <ul className="cart-list">
@@ -52,7 +57,7 @@ class Cart extends Component {
                         <img className="cart-item-img" src={sock.photos[0]} />
                         <div className="flex column">
                           <h2>{sock.name}</h2>
-                          <p className="light-small">{sock.cartItem.size}</p>
+                          <p className="light small">{sock.cartItem.size}</p>
                         </div>
                       </Link>
                       <div className="cart-item-inner">
@@ -83,7 +88,7 @@ class Cart extends Component {
                       : 'Total:   $ 0.00'}
                   </h2>
                   <hr />
-                  <Link to={checkoutURL}>
+                  <Link to="/checkout/shipping">
                      Checkout
                   </Link>
                 {/*                  

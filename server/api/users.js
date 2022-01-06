@@ -31,7 +31,7 @@ router.post('/create-guest', async (req, res, next) => {
 router.post('/:userId/account-details/shipping', async (req, res, next) => {
   const {street, city, state, zipCode} = req.body
   const {userId} = req.params
-  console.log(street, city, state, zipCode, userId)
+
   try {
     const address = await Address.create({
       street: street,
@@ -40,7 +40,29 @@ router.post('/:userId/account-details/shipping', async (req, res, next) => {
       zipCode: zipCode,
       userId: userId
     });
-    res.json(address)
+    res.send(200)
+  } catch (err) {
+    next (err)
+  }
+})
+
+router.get('/:userId/account-details/shipping', async (req, res, next) => {
+  const {userId} = req.params
+
+  try {
+    const addresses = await Address.findAll({
+      where: {
+        userId: userId
+      }
+    });
+    // console.log('ADDRESSES:  ', addresses)
+    // if(addresses.length === 1) {
+    //   await addresses[0].update({
+    //     isDefault: true
+    //   })
+    //   await addresses[0].save()
+    // }
+    res.json(addresses)
   } catch (err) {
     next (err)
   }

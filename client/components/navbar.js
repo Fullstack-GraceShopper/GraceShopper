@@ -16,7 +16,7 @@ const Navbar = ({isLoggedIn, user}) => (
       </div>
       {}
       <div>
-        {isLoggedIn ? (
+        {isLoggedIn && !user.isGuest? (
           <div className="vert-center flex">
           <UserDropdown user={user} />
           <div className="vr bgw" />
